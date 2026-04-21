@@ -1,2 +1,2 @@
-# ELF Dependency Parser
+# Zabbix Droid
 Simple zabbix client for Android
