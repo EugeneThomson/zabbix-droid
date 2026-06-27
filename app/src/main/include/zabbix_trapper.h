@@ -28,7 +28,7 @@ enum class Error : int {
 	failed_connect = 2,
 	failed_send = 3,
 	too_long_message = 4,
-	not_enough_time = 5, //not enoug time for sync, async require additional checking
+	not_enough_time = 5, // not enoug time for sync, async require additional checking
 	type_error = 6,
 	message_does_not_exist = 7
 };
@@ -39,16 +39,24 @@ public:
 	ZabbixTrapper(const std::string zabbixHost, int zabbixPort, bool ready = false, int ttl = 100) :
 		zabbixHost(zabbixHost), zabbixPort(zabbixPort), ready(ready), ttl(ttl)
 	{
-		std::thread sender(&ZabbixTrapper::queueControl, this);
-		sender.detach();
+//		std::thread sender(&ZabbixTrapper::queueControl, this);
+//		sender.detach();
 	} // адрес хоста, его порт, нужен ли async (0 - нет, 1 - да) и time_to_life для сообщения
 
-    virtual ~ZabbixTrapper() 
-	{ 
-		ready = false; 
+	void start() {
+		senderThread = std::thread(&ZabbixTrapper::queueControl, this);
 	}
 
-	std::atomic<bool> ready;
+	virtual ~ZabbixTrapper() {
+		stop();
+	}
+
+	void stop() {
+		ready = false;
+		if (senderThread.joinable()) {
+			senderThread.join();
+		}
+	}
 
     virtual void setter(const std::string clientHost, const std::string clientKey); // имя узла, как оно указано на сервере, и ключ элемента данных соответственно
 
@@ -90,6 +98,8 @@ protected:
     std::string clientHost;
     std::string clientKey;
     std::queue<std::string> queue;
+	std::thread senderThread;
+	std::atomic<bool> ready;
     virtual Error sending(std::string value, Error *checkSending);
     virtual void queueControl();
 	virtual Error asyncCheckControl(unsigned int numberMessage);
