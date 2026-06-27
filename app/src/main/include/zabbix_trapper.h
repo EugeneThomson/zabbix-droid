@@ -13,8 +13,7 @@ ip хоста, его порт, нужна ли async передача
 65534 с вычетом сервисных знаков (-71)
 */
 
-#ifndef ZABBIXTRAPPER_H
-#define ZABBIXTRAPPER_H
+#pragma once
 
 #include <string>
 #include <queue>
@@ -96,5 +95,3 @@ protected:
 	virtual Error asyncCheckControl(unsigned int numberMessage);
 	std::vector<Error> asyncCheck;
 };
-
-#endif // ZABBIXTRAPPER_H

@@ -1,4 +1,4 @@
-#include "zabbixtrapper.h"
+#include "zabbix_trapper.h"
 #include "boost/asio.hpp"
 namespace asio = boost::asio;
 
