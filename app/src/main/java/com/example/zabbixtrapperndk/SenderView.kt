@@ -9,6 +9,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -19,14 +20,14 @@ import kotlin.random.Random
 
 @Composable
 fun SenderView(modifier: Modifier = Modifier) {
-    val trapper = NativeTrapper()
-//    trapper.init("172.16.220.147")
-//    trapper.send("Zabbix server", "zabbix_trapper", "Hello Native Android!")
-//    trapper.send("Motorola-Host", "Motorola-Key", "Hello Native Android!")
-//    Text(
-//        text = "Hello Zabbix",
-//        modifier = modifier
-//    )
+    val trapper = remember { NativeTrapper() }
+
+    DisposableEffect(Unit) {
+        onDispose {
+            trapper.cleanup()
+        }
+    }
+    
     var zabbixIp by remember { mutableStateOf("") }
     var zabbixHost by remember { mutableStateOf("") }
     var zabbixKey by remember { mutableStateOf("") }

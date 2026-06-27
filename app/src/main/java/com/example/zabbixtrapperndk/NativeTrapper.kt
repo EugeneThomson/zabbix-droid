@@ -8,24 +8,41 @@ class NativeTrapper {
         }
     }
 
-    private var littleTrapPtr: Long = 0
+    private var nativePtr: Long = 0
+    private val lock = Any()
+    private var isInitialized = false
+
     external fun createTrapper(ip: String): Long
-    external fun destroyTrapper(littleTrapPtr: Long)
-    external fun dataSend(littleTrapPtr: Long,
-                          host: String,
-                          key: String,
-                          data: String): Int
+    external fun destroyTrapper(ptr: Long)
+    external fun dataSend(ptr: Long, host: String, key: String, data: String): Int
 
     fun init(ip: String) {
-        littleTrapPtr = createTrapper(ip)
+        synchronized(lock) {
+            if (isInitialized) {
+                destroyTrapper(nativePtr)
+                isInitialized = false
+            }
+            nativePtr = createTrapper(ip)
+            isInitialized = true
+        }
     }
 
     fun cleanup() {
-        destroyTrapper(littleTrapPtr)
+        synchronized(lock) {
+            if (isInitialized) {
+                destroyTrapper(nativePtr)
+                isInitialized = false
+                nativePtr = 0
+            }
+        }
     }
 
     fun send(host: String, key: String, data: String): Int {
-        dataSend(littleTrapPtr, host, key, data)
-        return 0
+        synchronized(lock) {
+            if (!isInitialized) {
+                return -1
+            }
+            return dataSend(nativePtr, host, key, data)
+        }
     }
 }
