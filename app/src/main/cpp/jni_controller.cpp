@@ -23,14 +23,11 @@ std::string jstring2string(JNIEnv *env, jstring jStr) {
 }
 
 extern "C" {
-
 JNIEXPORT jlong JNICALL
-Java_com_example_zabbixtrapperndk_NativeTrapper_createTrapper(
-        JNIEnv *env,
-        jobject /* this */,
-        jstring ip) {
-    std::string host = jstring2string(env, ip);
-    return reinterpret_cast<jlong>(new ZabbixTrapper(host, 10051, true, 150));
+Java_com_example_zabbixtrapperndk_NativeTrapper_createTrapper(JNIEnv *env, jobject, jstring ip) {
+    auto* trapper = new ZabbixTrapper(jstring2string(env, ip), 10051, true, 150);
+    trapper->start();
+    return reinterpret_cast<jlong>(trapper);
 }
 
 JNIEXPORT void JNICALL

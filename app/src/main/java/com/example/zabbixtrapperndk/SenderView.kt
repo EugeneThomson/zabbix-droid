@@ -27,7 +27,7 @@ fun SenderView(modifier: Modifier = Modifier) {
             trapper.cleanup()
         }
     }
-    
+
     var zabbixIp by remember { mutableStateOf("") }
     var zabbixHost by remember { mutableStateOf("") }
     var zabbixKey by remember { mutableStateOf("") }
