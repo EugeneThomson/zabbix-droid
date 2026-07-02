@@ -1,11 +1,18 @@
 package com.example.zabbixtrapperndk
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -16,6 +23,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import kotlin.random.Random
 
 @Composable
@@ -33,59 +42,75 @@ fun SenderView(modifier: Modifier = Modifier) {
     var zabbixKey by remember { mutableStateOf("") }
     var text by remember { mutableStateOf("") }
 
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
+    Box(modifier = Modifier.fillMaxSize()) {
         Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalArrangement = Arrangement.SpaceBetween
         ) {
+            IconButton(onClick = {  }) {
+                Icon(Icons.Default.Info, contentDescription = "Информация")
+            }
+            IconButton(onClick = {  }) {
+                Icon(Icons.Default.Settings, contentDescription = "Настройки")
+            }
+        }
+
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                TextField(
+                    value = zabbixIp,
+                    onValueChange = { zabbixIp = it },
+                    modifier = Modifier.weight(3f)
+                )
+
+                Button(
+                    onClick = { trapper.init(zabbixIp) },
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Text(stringResource(R.string.init_button))
+                }
+            }
+
             TextField(
-                value = zabbixIp,
-                onValueChange = { zabbixIp = it },
-                modifier = Modifier.weight(3f)
+                value = zabbixHost,
+                onValueChange = { zabbixHost = it },
+                modifier = Modifier.fillMaxWidth()
+            )
+
+            TextField(
+                value = zabbixKey,
+                onValueChange = { zabbixKey = it },
+                modifier = Modifier.fillMaxWidth()
+            )
+
+            TextField(
+                value = text,
+                onValueChange = { text = it },
+                modifier = Modifier.fillMaxWidth()
             )
 
             Button(
-                onClick = { trapper.init(zabbixIp) },
-                modifier = Modifier.weight(1f)
+                onClick = { trapper.send(zabbixHost, zabbixKey, text) }
             ) {
-                Text("Init Server")
+                Text("Send")
             }
-        }
 
-        TextField(
-            value = zabbixHost,
-            onValueChange = { zabbixHost = it },
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        TextField(
-            value = zabbixKey,
-            onValueChange = { zabbixKey = it },
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        TextField(
-            value = text,
-            onValueChange = { text = it },
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Button(
-            onClick = { trapper.send(zabbixHost, zabbixKey, text) }
-        ) {
-            Text("Send")
-        }
-
-        Button(
-            onClick = {
-                trapper.send("Motorola-Host", "Motorola-Key", text)
+            Button(
+                onClick = {
+                    trapper.send("Motorola-Host", "Motorola-Key", text)
+                }
+            ) {
+                Text("Trash Button")
             }
-        ) {
-            Text("Trash Button")
         }
     }
 }
