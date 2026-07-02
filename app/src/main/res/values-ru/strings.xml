@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ZabbixTrapperNDK</string>
+    <string name="init_button">Инициализировать сервер</string>
+</resources>
