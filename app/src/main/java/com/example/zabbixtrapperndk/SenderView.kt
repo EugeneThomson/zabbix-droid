@@ -7,12 +7,14 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.icons.Icons
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Button
+import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ExperimentalMaterial3Api
+//import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.Icon
@@ -32,7 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import kotlin.random.Random
 
-@OptIn(ExperimentalMaterial3Api::class)
+//@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
 
@@ -75,30 +77,30 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
 //                modifier = Modifier.fillMaxWidth()
 //            )
 
-            ExposedDropdownMenuBox(
-                expanded = expanded,
-                onExpandedChange = { expanded = !expanded }
-            ) {
-                TextField(
-                    value = selectedItem?.let { "${it.host} ${it.key}" } ?: "",
-                    onValueChange = {},
-                    readOnly = true,
-                    trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
-                    modifier = Modifier.menuAnchor()
-                )
-                ExposedDropdownMenu(
-                    expanded = expanded,
-                    onDismissRequest = { expanded = false }
-                ) {
-                    HostKeyPairHolder.items.forEach { item ->
-                        DropdownMenuItem(
-                            text = { Text("${item.host} ${item.key}") },
-                            onClick = {
-                                selectedItem = item
-                                expanded = false
-                            }
-                        )
+            TextField(
+                value = selectedItem?.let { "${it.host} ${it.key}" } ?: "",
+                onValueChange = {},
+                readOnly = true,
+                trailingIcon = {
+                    IconButton(onClick = { expanded = !expanded }) {
+                        Icon(Icons.Default.ArrowDropDown, null)
                     }
+                },
+                modifier = Modifier.fillMaxWidth()
+            )
+
+            DropdownMenu(
+                expanded = expanded,
+                onDismissRequest = { expanded = false }
+            ) {
+                HostKeyPairHolder.items.forEach { item ->
+                    DropdownMenuItem(
+                        text = { Text("${item.host} ${item.key}") }, // обязательно
+                        onClick = {
+                            selectedItem = item
+                            expanded = false
+                        }
+                    )
                 }
             }
 
