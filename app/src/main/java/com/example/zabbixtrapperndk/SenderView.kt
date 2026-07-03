@@ -7,10 +7,14 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
+import androidx.compose.material3.icons.Icons
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Button
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExposedDropdownMenuBox
+import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -28,13 +32,13 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import kotlin.random.Random
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
 
-//    var zabbixIp by remember { mutableStateOf("") }
-    var zabbixHost by remember { mutableStateOf("") }
-    var zabbixKey by remember { mutableStateOf("") }
     var text by remember { mutableStateOf("") }
+    var expanded by remember { mutableStateOf(false) }
+    var selectedItem by remember { mutableStateOf(HostKeyPair("", "")) }
 
     Box(modifier = Modifier.fillMaxSize()) {
         Row(
@@ -71,6 +75,33 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
 //                modifier = Modifier.fillMaxWidth()
 //            )
 
+            ExposedDropdownMenuBox(
+                expanded = expanded,
+                onExpandedChange = { expanded = !expanded }
+            ) {
+                TextField(
+                    value = selectedItem?.let { "${it.host} ${it.key}" } ?: "",
+                    onValueChange = {},
+                    readOnly = true,
+                    trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+                    modifier = Modifier.menuAnchor()
+                )
+                ExposedDropdownMenu(
+                    expanded = expanded,
+                    onDismissRequest = { expanded = false }
+                ) {
+                    HostKeyPairHolder.items.forEach { item ->
+                        DropdownMenuItem(
+                            text = { Text("${item.host} ${item.key}") },
+                            onClick = {
+                                selectedItem = item
+                                expanded = false
+                            }
+                        )
+                    }
+                }
+            }
+
             TextField(
                 value = text,
                 onValueChange = { text = it },
@@ -78,7 +109,7 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
             )
 
             Button(
-                onClick = { TrapperHolder.trapper.send(zabbixHost, zabbixKey, text) }
+                onClick = { TrapperHolder.trapper.send(selectedItem.host, selectedItem.key,  text) }
             ) {
                 Text("Send")
             }

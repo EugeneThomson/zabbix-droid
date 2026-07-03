@@ -33,6 +33,7 @@ import androidx.navigation.NavController
 
 @Composable
 fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
+
     var zabbixIp by remember { mutableStateOf("") }
     var zabbixHost by remember { mutableStateOf("") }
     var zabbixKey by remember { mutableStateOf("") }
