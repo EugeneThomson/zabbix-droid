@@ -263,7 +263,7 @@ protected:
       case 451:
         return "Unavailable For Legal Reasons";
       case 500:
-        return "Internal Server Error";
+        return "Internal Server Status";
       case 501:
         return "Not Implemented";
       case 502:

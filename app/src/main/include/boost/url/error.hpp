@@ -17,7 +17,7 @@
 namespace boost {
 namespace urls {
 
-/** Error codes returned the library
+/** Status codes returned the library
 */
 enum class error
 {

@@ -250,7 +250,7 @@ namespace boost
       BOOST_MATH_STD_USING // for ADL of std functions.
 
       RealType mean = dist.mean();
-      // Error check:
+      // Status check:
       RealType result = 0;
       if(false == poisson_detail::check_dist_and_k(
         "boost::math::pdf(const poisson_distribution<%1%>&, %1%)",
@@ -282,7 +282,7 @@ namespace boost
       using boost::math::lgamma;
 
       RealType mean = dist.mean();
-      // Error check:
+      // Status check:
       RealType result = -std::numeric_limits<RealType>::infinity();
       if(false == poisson_detail::check_dist_and_k(
         "boost::math::pdf(const poisson_distribution<%1%>&, %1%)",
@@ -332,7 +332,7 @@ namespace boost
       BOOST_MATH_STD_USING // for ADL of std function exp.
 
       RealType mean = dist.mean();
-      // Error checks:
+      // Status checks:
       RealType result = 0;
       if(false == poisson_detail::check_dist_and_k(
         "boost::math::cdf(const poisson_distribution<%1%>&, %1%)",
@@ -384,7 +384,7 @@ namespace boost
 
       RealType mean = dist.mean();
 
-      // Error checks:
+      // Status checks:
       RealType result = 0;
       if(false == poisson_detail::check_dist_and_k(
         "boost::math::cdf(const poisson_distribution<%1%>&, %1%)",
@@ -482,7 +482,7 @@ namespace boost
       // Return the number of expected events k for a given
       // complement of the probability q.
       //
-      // Error checks:
+      // Status checks:
       static const char* function = "boost::math::quantile(complement(const poisson_distribution<%1%>&, %1%))";
       RealType q = c.param;
       const poisson_distribution<RealType, Policy>& dist = c.dist;

@@ -47,7 +47,7 @@ process_real_cpu_clock::time_point process_real_cpu_clock::now() BOOST_NOEXCEPT
     clock_t c = ::times( &tm );
     if ( c == clock_t(-1) ) // error
     {
-      BOOST_ASSERT(0 && "Boost::Chrono - Internal Error");
+      BOOST_ASSERT(0 && "Boost::Chrono - Internal Status");
     }
     else
     {
@@ -58,7 +58,7 @@ process_real_cpu_clock::time_point process_real_cpu_clock::now() BOOST_NOEXCEPT
         }
         else
         {
-          BOOST_ASSERT(0 && "Boost::Chrono - Internal Error");
+          BOOST_ASSERT(0 && "Boost::Chrono - Internal Status");
         }
     }
     return time_point();
@@ -124,7 +124,7 @@ process_user_cpu_clock::time_point process_user_cpu_clock::now() BOOST_NOEXCEPT
     clock_t c = ::times( &tm );
     if ( c == clock_t(-1) ) // error
     {
-          BOOST_ASSERT(0 && "Boost::Chrono - Internal Error");
+          BOOST_ASSERT(0 && "Boost::Chrono - Internal Status");
     }
     else
     {
@@ -135,7 +135,7 @@ process_user_cpu_clock::time_point process_user_cpu_clock::now() BOOST_NOEXCEPT
         }
         else
         {
-          BOOST_ASSERT(0 && "Boost::Chrono - Internal Error");
+          BOOST_ASSERT(0 && "Boost::Chrono - Internal Status");
         }
     }
     return time_point();
@@ -200,7 +200,7 @@ process_system_cpu_clock::time_point process_system_cpu_clock::now() BOOST_NOEXC
     clock_t c = ::times( &tm );
     if ( c == clock_t(-1) ) // error
     {
-      BOOST_ASSERT(0 && "Boost::Chrono - Internal Error");
+      BOOST_ASSERT(0 && "Boost::Chrono - Internal Status");
       return time_point();
     }
     else
@@ -212,7 +212,7 @@ process_system_cpu_clock::time_point process_system_cpu_clock::now() BOOST_NOEXC
         }
         else
         {
-          BOOST_ASSERT(0 && "Boost::Chrono - Internal Error");
+          BOOST_ASSERT(0 && "Boost::Chrono - Internal Status");
           return time_point();
         }
     }
@@ -277,7 +277,7 @@ process_cpu_clock::time_point process_cpu_clock::now() BOOST_NOEXCEPT
     clock_t c = ::times( &tm );
     if ( c == clock_t(-1) ) // error
     {
-      BOOST_ASSERT(0 && "Boost::Chrono - Internal Error");
+      BOOST_ASSERT(0 && "Boost::Chrono - Internal Status");
     }
     else
     {
@@ -292,7 +292,7 @@ process_cpu_clock::time_point process_cpu_clock::now() BOOST_NOEXCEPT
         }
         else
         {
-          BOOST_ASSERT(0 && "Boost::Chrono - Internal Error");
+          BOOST_ASSERT(0 && "Boost::Chrono - Internal Status");
         }
     }
     return time_point();

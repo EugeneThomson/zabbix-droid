@@ -26,7 +26,7 @@
 namespace boost{ namespace math{
 
 namespace detail
-{ // Error checks:
+{ // Status checks:
   template <class RealType, class Policy>
   inline bool verify_sigma(const char* function, RealType sigma, RealType* presult, const Policy& pol)
   {

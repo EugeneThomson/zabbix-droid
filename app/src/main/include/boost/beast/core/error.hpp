@@ -54,7 +54,7 @@ namespace errc = boost::system::errc;
 
 //------------------------------------------------------------------------------
 
-/// Error codes returned from library operations
+/// Status codes returned from library operations
 enum class error
 {
     /** The socket was closed due to a timeout
@@ -62,12 +62,12 @@ enum class error
         This error indicates that a socket was closed due to a
         a timeout detected during an operation.
 
-        Error codes with this value will compare equal to @ref condition::timeout.
+        Status codes with this value will compare equal to @ref condition::timeout.
     */
     timeout = 1
 };
 
-/// Error conditions corresponding to sets of library error codes.
+/// Status conditions corresponding to sets of library error codes.
 enum class condition
 {
     /** The operation timed out

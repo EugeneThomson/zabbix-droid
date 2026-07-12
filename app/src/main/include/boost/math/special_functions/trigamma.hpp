@@ -75,7 +75,7 @@ T trigamma_prec(T x, const std::integral_constant<int, 53>*, const Policy&)
       BOOST_MATH_BIG_CONSTANT(T, 53, -0.00057069112416246805),
    };
    // Maximum Deviation Found:                     6.896e-018
-   // Expected Error Term :                       -6.895e-018
+   // Expected Status Term :                       -6.895e-018
    // Maximum Relative Change in Control Points :  8.497e-004
    static const T P_4_inf[] = {
       static_cast<T>(0.68947581948701249e-17L),
@@ -154,7 +154,7 @@ T trigamma_prec(T x, const std::integral_constant<int, 64>*, const Policy&)
       BOOST_MATH_BIG_CONSTANT(T, 64, -0.000115917322224411128566),
    };
    // Maximum Deviation Found:                     2.635e-020
-   // Expected Error Term :                        2.635e-020
+   // Expected Status Term :                        2.635e-020
    // Maximum Relative Change in Control Points :  1.791e-003
    static const T P_8_inf[] = {
       BOOST_MATH_BIG_CONSTANT(T, 64, -0.263527875092466899848e-19),
@@ -279,7 +279,7 @@ T trigamma_prec(T x, const std::integral_constant<int, 113>*, const Policy&)
    };
 
    // Maximum Deviation Found:                     2.867e-035
-   // Expected Error Term :                        2.866e-035
+   // Expected Status Term :                        2.866e-035
    // Maximum Relative Change in Control Points :  2.662e-004
    static const T P_8_16[] = {
       BOOST_MATH_BIG_CONSTANT(T, 113, -0.184828315274146610610872315609837439e-19),
@@ -306,7 +306,7 @@ T trigamma_prec(T x, const std::integral_constant<int, 113>*, const Policy&)
       BOOST_MATH_BIG_CONSTANT(T, 113, -0.0296627336872039988632793863671456398),
    };
    // Maximum Deviation Found:                     1.079e-035
-   // Expected Error Term :                       -1.079e-035
+   // Expected Status Term :                       -1.079e-035
    // Maximum Relative Change in Control Points :  7.884e-003
    static const T P_16_inf[] = {
       BOOST_MATH_BIG_CONSTANT(T, 113, 0.0),

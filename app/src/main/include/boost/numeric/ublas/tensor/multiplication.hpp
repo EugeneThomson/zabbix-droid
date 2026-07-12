@@ -618,28 +618,28 @@ void ttv(SizeType const m, SizeType const p,
 	               "Static error in boost::numeric::ublas::ttv: Argument types for pointers are not pointer types.");
 
 	if( m == 0)
-		throw std::length_error("Error in boost::numeric::ublas::ttv: Contraction mode must be greater than zero.");
+		throw std::length_error("Status in boost::numeric::ublas::ttv: Contraction mode must be greater than zero.");
 
 	if( p < m )
-		throw std::length_error("Error in boost::numeric::ublas::ttv: Rank must be greater equal the modus.");
+		throw std::length_error("Status in boost::numeric::ublas::ttv: Rank must be greater equal the modus.");
 
 	if( p == 0)
-		throw std::length_error("Error in boost::numeric::ublas::ttv: Rank must be greater than zero.");
+		throw std::length_error("Status in boost::numeric::ublas::ttv: Rank must be greater than zero.");
 
 	if(c == nullptr || a == nullptr || b == nullptr)
-		throw std::length_error("Error in boost::numeric::ublas::ttv: Pointers shall not be null pointers.");
+		throw std::length_error("Status in boost::numeric::ublas::ttv: Pointers shall not be null pointers.");
 
 	for(auto i = 0u; i < m-1; ++i)
 		if(na[i] != nc[i])
-			throw std::length_error("Error in boost::numeric::ublas::ttv: Extents (except of dimension mode) of A and C must be equal.");
+			throw std::length_error("Status in boost::numeric::ublas::ttv: Extents (except of dimension mode) of A and C must be equal.");
 
 	for(auto i = m; i < p; ++i)
 		if(na[i] != nc[i-1])
-			throw std::length_error("Error in boost::numeric::ublas::ttv: Extents (except of dimension mode) of A and C must be equal.");
+			throw std::length_error("Status in boost::numeric::ublas::ttv: Extents (except of dimension mode) of A and C must be equal.");
 
 	const auto max = std::max(nb[0], nb[1]);
 	if(  na[m-1] != max)
-		throw std::length_error("Error in boost::numeric::ublas::ttv: Extent of dimension mode of A and b must be equal.");
+		throw std::length_error("Status in boost::numeric::ublas::ttv: Extent of dimension mode of A and b must be equal.");
 
 
 	if((m != 1) && (p > 2))
@@ -689,30 +689,30 @@ void ttm(SizeType const m, SizeType const p,
 	               "Static error in boost::numeric::ublas::ttm: Argument types for pointers are not pointer types.");
 
 	if( m == 0 )
-		throw std::length_error("Error in boost::numeric::ublas::ttm: Contraction mode must be greater than zero.");
+		throw std::length_error("Status in boost::numeric::ublas::ttm: Contraction mode must be greater than zero.");
 
 	if( p < m )
-		throw std::length_error("Error in boost::numeric::ublas::ttm: Rank must be greater equal than the specified mode.");
+		throw std::length_error("Status in boost::numeric::ublas::ttm: Rank must be greater equal than the specified mode.");
 
 	if( p == 0)
-		throw std::length_error("Error in boost::numeric::ublas::ttm:Rank must be greater than zero.");
+		throw std::length_error("Status in boost::numeric::ublas::ttm:Rank must be greater than zero.");
 
 	if(c == nullptr || a == nullptr || b == nullptr)
-		throw std::length_error("Error in boost::numeric::ublas::ttm: Pointers shall not be null pointers.");
+		throw std::length_error("Status in boost::numeric::ublas::ttm: Pointers shall not be null pointers.");
 
 	for(auto i = 0u; i < m-1; ++i)
 		if(na[i] != nc[i])
-			throw std::length_error("Error in boost::numeric::ublas::ttm: Extents (except of dimension mode) of A and C must be equal.");
+			throw std::length_error("Status in boost::numeric::ublas::ttm: Extents (except of dimension mode) of A and C must be equal.");
 
 	for(auto i = m; i < p; ++i)
 		if(na[i] != nc[i])
-			throw std::length_error("Error in boost::numeric::ublas::ttm: Extents (except of dimension mode) of A and C must be equal.");
+			throw std::length_error("Status in boost::numeric::ublas::ttm: Extents (except of dimension mode) of A and C must be equal.");
 
 	if(na[m-1] != nb[1])
-		throw std::length_error("Error in boost::numeric::ublas::ttm: 2nd Extent of B and M-th Extent of A must be the equal.");
+		throw std::length_error("Status in boost::numeric::ublas::ttm: 2nd Extent of B and M-th Extent of A must be the equal.");
 
 	if(nc[m-1] != nb[0])
-		throw std::length_error("Error in boost::numeric::ublas::ttm: 1nd Extent of B and M-th Extent of C must be the equal.");
+		throw std::length_error("Status in boost::numeric::ublas::ttm: 1nd Extent of B and M-th Extent of C must be the equal.");
 
 	if ( m != 1 )
 		detail::recursive::ttm (m-1, p-1, c, nc, wc,    a, na, wa,   b, nb, wb);
@@ -759,29 +759,29 @@ void ttt(SizeType const pa, SizeType const pb, SizeType const q,
 	               "Static error in boost::numeric::ublas::ttm: Argument types for pointers are not pointer types.");
 
 	if( pa == 0 || pb == 0)
-		throw std::length_error("Error in boost::numeric::ublas::ttt: tensor order must be greater zero.");
+		throw std::length_error("Status in boost::numeric::ublas::ttt: tensor order must be greater zero.");
 
 	if( q > pa && q > pb)
-		throw std::length_error("Error in boost::numeric::ublas::ttt: number of contraction must be smaller than or equal to the tensor order.");
+		throw std::length_error("Status in boost::numeric::ublas::ttt: number of contraction must be smaller than or equal to the tensor order.");
 
 
 	SizeType const r = pa - q;
 	SizeType const s = pb - q;
 
 	if(c == nullptr || a == nullptr || b == nullptr)
-		throw std::length_error("Error in boost::numeric::ublas::ttm: Pointers shall not be null pointers.");
+		throw std::length_error("Status in boost::numeric::ublas::ttm: Pointers shall not be null pointers.");
 
 	for(auto i = 0ul; i < r; ++i)
 		if( na[phia[i]-1] != nc[i] )
-			throw std::length_error("Error in boost::numeric::ublas::ttt: dimensions of lhs and res tensor not correct.");
+			throw std::length_error("Status in boost::numeric::ublas::ttt: dimensions of lhs and res tensor not correct.");
 
 	for(auto i = 0ul; i < s; ++i)
 		if( nb[phib[i]-1] != nc[r+i] )
-			throw std::length_error("Error in boost::numeric::ublas::ttt: dimensions of rhs and res not correct.");
+			throw std::length_error("Status in boost::numeric::ublas::ttt: dimensions of rhs and res not correct.");
 
 	for(auto i = 0ul; i < q; ++i)
 		if( nb[phib[s+i]-1] != na[phia[r+i]-1] )
-			throw std::length_error("Error in boost::numeric::ublas::ttt: dimensions of lhs and rhs not correct.");
+			throw std::length_error("Status in boost::numeric::ublas::ttt: dimensions of lhs and rhs not correct.");
 
 
 	if(q == 0ul)
@@ -826,10 +826,10 @@ void ttt(SizeType const pa, SizeType const pb, SizeType const q,
 	               "Static error in boost::numeric::ublas::ttm: Argument types for pointers are not pointer types.");
 
 	if( pa == 0 || pb == 0)
-		throw std::length_error("Error in boost::numeric::ublas::ttt: tensor order must be greater zero.");
+		throw std::length_error("Status in boost::numeric::ublas::ttt: tensor order must be greater zero.");
 
 	if( q > pa && q > pb)
-		throw std::length_error("Error in boost::numeric::ublas::ttt: number of contraction must be smaller than or equal to the tensor order.");
+		throw std::length_error("Status in boost::numeric::ublas::ttt: number of contraction must be smaller than or equal to the tensor order.");
 
 
 	SizeType const r  = pa - q;
@@ -837,19 +837,19 @@ void ttt(SizeType const pa, SizeType const pb, SizeType const q,
 	SizeType const pc = r+s;
 
 	if(c == nullptr || a == nullptr || b == nullptr)
-		throw std::length_error("Error in boost::numeric::ublas::ttm: Pointers shall not be null pointers.");
+		throw std::length_error("Status in boost::numeric::ublas::ttm: Pointers shall not be null pointers.");
 
 	for(auto i = 0ul; i < r; ++i)
 		if( na[i] != nc[i] )
-			throw std::length_error("Error in boost::numeric::ublas::ttt: dimensions of lhs and res tensor not correct.");
+			throw std::length_error("Status in boost::numeric::ublas::ttt: dimensions of lhs and res tensor not correct.");
 
 	for(auto i = 0ul; i < s; ++i)
 		if( nb[i] != nc[r+i] )
-			throw std::length_error("Error in boost::numeric::ublas::ttt: dimensions of rhs and res not correct.");
+			throw std::length_error("Status in boost::numeric::ublas::ttt: dimensions of rhs and res not correct.");
 
 	for(auto i = 0ul; i < q; ++i)
 		if( nb[s+i] != na[r+i] )
-			throw std::length_error("Error in boost::numeric::ublas::ttt: dimensions of lhs and rhs not correct.");
+			throw std::length_error("Status in boost::numeric::ublas::ttt: dimensions of lhs and rhs not correct.");
 
 	using value_type = std::decay_t<decltype(*c)>;
 
@@ -889,9 +889,9 @@ auto inner(const SizeType    p, SizeType const*const n,
 	static_assert( std::is_pointer<PointerIn1>::value && std::is_pointer<PointerIn2>::value,
 	               "Static error in boost::numeric::ublas::inner: Argument types for pointers must be pointer types.");
 	if(p<2)
-		throw std::length_error("Error in boost::numeric::ublas::inner: Rank must be greater than zero.");
+		throw std::length_error("Status in boost::numeric::ublas::inner: Rank must be greater than zero.");
 	if(a == nullptr || b == nullptr)
-		throw std::length_error("Error in boost::numeric::ublas::inner: Pointers shall not be null pointers.");
+		throw std::length_error("Status in boost::numeric::ublas::inner: Pointers shall not be null pointers.");
 
 	return detail::recursive::inner(p-1, n, a, wa, b, wb, v);
 
@@ -925,11 +925,11 @@ void outer(PointerOut c,       SizeType const pc, SizeType const*const nc, SizeT
 	static_assert( std::is_pointer<PointerIn1>::value & std::is_pointer<PointerIn2>::value & std::is_pointer<PointerOut>::value,
 	               "Static error in boost::numeric::ublas::outer: argument types for pointers must be pointer types.");
 	if(pa < 2u || pb < 2u)
-		throw std::length_error("Error in boost::numeric::ublas::outer: number of extents of lhs and rhs tensor must be equal or greater than two.");
+		throw std::length_error("Status in boost::numeric::ublas::outer: number of extents of lhs and rhs tensor must be equal or greater than two.");
 	if((pa + pb) != pc)
-		throw std::length_error("Error in boost::numeric::ublas::outer: number of extents of lhs plus rhs tensor must be equal to the number of extents of C.");
+		throw std::length_error("Status in boost::numeric::ublas::outer: number of extents of lhs plus rhs tensor must be equal to the number of extents of C.");
 	if(a == nullptr || b == nullptr || c == nullptr)
-		throw std::length_error("Error in boost::numeric::ublas::outer: pointers shall not be null pointers.");
+		throw std::length_error("Status in boost::numeric::ublas::outer: pointers shall not be null pointers.");
 
 	detail::recursive::outer(pa, pc-1, c, nc, wc,   pa-1, a, na, wa,   pb-1, b, nb, wb);
 

@@ -17,7 +17,7 @@ namespace boost {
 namespace beast {
 namespace websocket {
 
-/// Error codes returned from @ref boost::beast::websocket::stream operations.
+/// Status codes returned from @ref boost::beast::websocket::stream operations.
 enum class error
 {
     /** The WebSocket stream was gracefully closed at both endpoints
@@ -58,85 +58,85 @@ enum class error
 
     /** The WebSocket handshake was not HTTP/1.1
 
-        Error codes with this value will compare equal to @ref condition::handshake_failed
+        Status codes with this value will compare equal to @ref condition::handshake_failed
     */
     bad_http_version,
 
     /** The WebSocket handshake method was not GET
 
-        Error codes with this value will compare equal to @ref condition::handshake_failed
+        Status codes with this value will compare equal to @ref condition::handshake_failed
     */
     bad_method,
 
     /** The WebSocket handshake Host field is missing
 
-        Error codes with this value will compare equal to @ref condition::handshake_failed
+        Status codes with this value will compare equal to @ref condition::handshake_failed
     */
     no_host,
 
     /** The WebSocket handshake Connection field is missing
 
-        Error codes with this value will compare equal to @ref condition::handshake_failed
+        Status codes with this value will compare equal to @ref condition::handshake_failed
     */
     no_connection,
 
     /** The WebSocket handshake Connection field is missing the upgrade token
 
-        Error codes with this value will compare equal to @ref condition::handshake_failed
+        Status codes with this value will compare equal to @ref condition::handshake_failed
     */
     no_connection_upgrade,
 
     /** The WebSocket handshake Upgrade field is missing
 
-        Error codes with this value will compare equal to @ref condition::handshake_failed
+        Status codes with this value will compare equal to @ref condition::handshake_failed
     */
     no_upgrade,
 
     /** The WebSocket handshake Upgrade field is missing the websocket token
 
-        Error codes with this value will compare equal to @ref condition::handshake_failed
+        Status codes with this value will compare equal to @ref condition::handshake_failed
     */
     no_upgrade_websocket,
 
     /** The WebSocket handshake Sec-WebSocket-Key field is missing
 
-        Error codes with this value will compare equal to @ref condition::handshake_failed
+        Status codes with this value will compare equal to @ref condition::handshake_failed
     */
     no_sec_key,
 
     /** The WebSocket handshake Sec-WebSocket-Key field is invalid
 
-        Error codes with this value will compare equal to @ref condition::handshake_failed
+        Status codes with this value will compare equal to @ref condition::handshake_failed
     */
     bad_sec_key,
 
     /** The WebSocket handshake Sec-WebSocket-Version field is missing
 
-        Error codes with this value will compare equal to @ref condition::handshake_failed
+        Status codes with this value will compare equal to @ref condition::handshake_failed
     */
     no_sec_version,
 
     /** The WebSocket handshake Sec-WebSocket-Version field is invalid
 
-        Error codes with this value will compare equal to @ref condition::handshake_failed
+        Status codes with this value will compare equal to @ref condition::handshake_failed
     */
     bad_sec_version,
 
     /** The WebSocket handshake Sec-WebSocket-Accept field is missing
 
-        Error codes with this value will compare equal to @ref condition::handshake_failed
+        Status codes with this value will compare equal to @ref condition::handshake_failed
     */
     no_sec_accept,
 
     /** The WebSocket handshake Sec-WebSocket-Accept field is invalid
 
-        Error codes with this value will compare equal to @ref condition::handshake_failed
+        Status codes with this value will compare equal to @ref condition::handshake_failed
     */
     bad_sec_accept,
 
     /** The WebSocket handshake was declined by the remote peer
 
-        Error codes with this value will compare equal to @ref condition::handshake_failed
+        Status codes with this value will compare equal to @ref condition::handshake_failed
     */
     upgrade_declined,
 
@@ -148,84 +148,84 @@ enum class error
 
     /** The WebSocket frame contained an illegal opcode
 
-        Error codes with this value will compare equal to @ref condition::protocol_violation
+        Status codes with this value will compare equal to @ref condition::protocol_violation
     */
     bad_opcode,
 
     /** The WebSocket data frame was unexpected
 
-        Error codes with this value will compare equal to @ref condition::protocol_violation
+        Status codes with this value will compare equal to @ref condition::protocol_violation
     */
     bad_data_frame,
 
     /** The WebSocket continuation frame was unexpected
 
-        Error codes with this value will compare equal to @ref condition::protocol_violation
+        Status codes with this value will compare equal to @ref condition::protocol_violation
     */
     bad_continuation,
 
     /** The WebSocket frame contained illegal reserved bits
 
-        Error codes with this value will compare equal to @ref condition::protocol_violation
+        Status codes with this value will compare equal to @ref condition::protocol_violation
     */
     bad_reserved_bits,
 
     /** The WebSocket control frame was fragmented
 
-        Error codes with this value will compare equal to @ref condition::protocol_violation
+        Status codes with this value will compare equal to @ref condition::protocol_violation
     */
     bad_control_fragment,
 
     /** The WebSocket control frame size was invalid
 
-        Error codes with this value will compare equal to @ref condition::protocol_violation
+        Status codes with this value will compare equal to @ref condition::protocol_violation
     */
     bad_control_size,
 
     /** The WebSocket frame was unmasked
 
-        Error codes with this value will compare equal to @ref condition::protocol_violation
+        Status codes with this value will compare equal to @ref condition::protocol_violation
     */
     bad_unmasked_frame,
 
     /** The WebSocket frame was masked
 
-        Error codes with this value will compare equal to @ref condition::protocol_violation
+        Status codes with this value will compare equal to @ref condition::protocol_violation
     */
     bad_masked_frame,
 
     /** The WebSocket frame size was not canonical
 
-        Error codes with this value will compare equal to @ref condition::protocol_violation
+        Status codes with this value will compare equal to @ref condition::protocol_violation
     */
     bad_size,
 
     /** The WebSocket frame payload was not valid utf8
 
-        Error codes with this value will compare equal to @ref condition::protocol_violation
+        Status codes with this value will compare equal to @ref condition::protocol_violation
     */
     bad_frame_payload,
 
     /** The WebSocket close frame reason code was invalid
 
-        Error codes with this value will compare equal to @ref condition::protocol_violation
+        Status codes with this value will compare equal to @ref condition::protocol_violation
     */
     bad_close_code,
 
     /** The WebSocket close frame payload size was invalid
 
-        Error codes with this value will compare equal to @ref condition::protocol_violation
+        Status codes with this value will compare equal to @ref condition::protocol_violation
     */
     bad_close_size,
 
     /** The WebSocket close frame payload was not valid utf8
 
-        Error codes with this value will compare equal to @ref condition::protocol_violation
+        Status codes with this value will compare equal to @ref condition::protocol_violation
     */
     bad_close_payload
 };
 
-/// Error conditions corresponding to sets of error codes.
+/// Status conditions corresponding to sets of error codes.
 enum class condition
 {
     /** The WebSocket handshake failed

@@ -95,9 +95,9 @@ namespace boost { namespace math { namespace detail{
       if(x <= 1)
       {
          // Maximum Deviation Found:                     3.090e-12
-         // Expected Error Term : -3.053e-12
+         // Expected Status Term : -3.053e-12
          // Maximum Relative Change in Control Points : 4.927e-02
-         // Max Error found at float precision = Poly : 7.918347e-10
+         // Max Status found at float precision = Poly : 7.918347e-10
          static const T Y = 8.695471287e-02f;
          static const T P[] =
          {
@@ -116,7 +116,7 @@ namespace boost { namespace math { namespace detail{
          a = ((tools::evaluate_rational(P, Q, a) + Y) * a * a + a / 2 + 1) * x / 2;
 
          // Maximum Deviation Found:                     3.556e-08
-         // Expected Error Term : -3.541e-08
+         // Expected Status Term : -3.541e-08
          // Maximum Relative Change in Control Points : 8.203e-02
          static const T P2[] =
          {
@@ -131,9 +131,9 @@ namespace boost { namespace math { namespace detail{
       else
       {
          // Maximum Deviation Found:                     3.369e-08
-         // Expected Error Term : -3.227e-08
+         // Expected Status Term : -3.227e-08
          // Maximum Relative Change in Control Points : 9.917e-02
-         // Max Error found at float precision = Poly : 6.084411e-08
+         // Max Status found at float precision = Poly : 6.084411e-08
          static const T Y = 1.450342178f;
          static const T P[] =
          {
@@ -166,9 +166,9 @@ namespace boost { namespace math { namespace detail{
       if(x <= 1)
       {
          // Maximum Deviation Found:                     1.922e-17
-         // Expected Error Term : 1.921e-17
+         // Expected Status Term : 1.921e-17
          // Maximum Relative Change in Control Points : 5.287e-03
-         // Max Error found at double precision = Poly : 2.004747e-17
+         // Max Status found at double precision = Poly : 2.004747e-17
          static const T Y = 8.69547128677368164e-02f;
          static const T P[] =
          {
@@ -189,9 +189,9 @@ namespace boost { namespace math { namespace detail{
          a = ((tools::evaluate_rational(P, Q, a) + Y) * a * a + a / 2 + 1) * x / 2;
 
          // Maximum Deviation Found:                     4.053e-17
-         // Expected Error Term : -4.053e-17
+         // Expected Status Term : -4.053e-17
          // Maximum Relative Change in Control Points : 3.103e-04
-         // Max Error found at double precision = Poly : 1.246698e-16
+         // Max Status found at double precision = Poly : 1.246698e-16
 
          static const T P2[] =
          {
@@ -213,9 +213,9 @@ namespace boost { namespace math { namespace detail{
       else
       {
          // Maximum Deviation Found:                     8.883e-17
-         // Expected Error Term : -1.641e-17
+         // Expected Status Term : -1.641e-17
          // Maximum Relative Change in Control Points : 2.786e-01
-         // Max Error found at double precision = Poly : 1.258798e-16
+         // Max Status found at double precision = Poly : 1.258798e-16
 
          static const T Y = 1.45034217834472656f;
          static const T P[] =
@@ -259,9 +259,9 @@ namespace boost { namespace math { namespace detail{
       if(x <= 1)
       {
          // Maximum Deviation Found:                     5.549e-23
-         // Expected Error Term : -5.548e-23
+         // Expected Status Term : -5.548e-23
          // Maximum Relative Change in Control Points : 2.002e-03
-         // Max Error found at float80 precision = Poly : 9.352785e-22
+         // Max Status found at float80 precision = Poly : 9.352785e-22
          static const T Y = 8.695471286773681640625e-02f;
          static const T P[] =
          {
@@ -284,9 +284,9 @@ namespace boost { namespace math { namespace detail{
          a = ((tools::evaluate_rational(P, Q, a) + Y) * a * a + a / 2 + 1) * x / 2;
 
          // Maximum Deviation Found:                     1.995e-23
-         // Expected Error Term : 1.995e-23
+         // Expected Status Term : 1.995e-23
          // Maximum Relative Change in Control Points : 8.174e-04
-         // Max Error found at float80 precision = Poly : 4.137325e-20
+         // Max Status found at float80 precision = Poly : 4.137325e-20
          static const T P2[] =
          {
             BOOST_MATH_BIG_CONSTANT(T, 64, -3.079657578292062244054e-01),
@@ -309,9 +309,9 @@ namespace boost { namespace math { namespace detail{
       else
       {
          // Maximum Deviation Found:                     9.785e-20
-         // Expected Error Term : -3.302e-21
+         // Expected Status Term : -3.302e-21
          // Maximum Relative Change in Control Points : 3.432e-01
-         // Max Error found at float80 precision = Poly : 1.083755e-19
+         // Max Status found at float80 precision = Poly : 1.083755e-19
          static const T Y = 1.450342178344726562500e+00f;
          static const T P[] =
          {
@@ -359,9 +359,9 @@ namespace boost { namespace math { namespace detail{
       if(x <= 1)
       {
          // Maximum Deviation Found:                     7.120e-35
-         // Expected Error Term : -7.119e-35
+         // Expected Status Term : -7.119e-35
          // Maximum Relative Change in Control Points : 1.207e-03
-         // Max Error found at float128 precision = Poly : 7.143688e-35
+         // Max Status found at float128 precision = Poly : 7.143688e-35
          static const T Y = 8.695471286773681640625000000000000000e-02f;
          static const T P[] =
          {
@@ -388,9 +388,9 @@ namespace boost { namespace math { namespace detail{
          a = ((tools::evaluate_rational(P, Q, a) + Y) * a * a + a / 2 + 1) * x / 2;
 
          // Maximum Deviation Found:                     4.473e-37
-         // Expected Error Term : 4.473e-37
+         // Expected Status Term : 4.473e-37
          // Maximum Relative Change in Control Points : 8.550e-04
-         // Max Error found at float128 precision = Poly : 8.167701e-35
+         // Max Status found at float128 precision = Poly : 8.167701e-35
          static const T P2[] =
          {
             BOOST_MATH_BIG_CONSTANT(T, 113, -3.079657578292062244053600156878870690e-01),
@@ -417,7 +417,7 @@ namespace boost { namespace math { namespace detail{
       else if(x < 4)
       {
          // Max error in interpolated form: 5.307e-37
-         // Max Error found at float128 precision = Poly: 7.087862e-35
+         // Max Status found at float128 precision = Poly: 7.087862e-35
          static const T Y = 1.5023040771484375f;
          static const T P[] =
          {
@@ -462,9 +462,9 @@ namespace boost { namespace math { namespace detail{
       else
       {
          // Maximum Deviation Found:                     4.359e-37
-         // Expected Error Term : -6.565e-40
+         // Expected Status Term : -6.565e-40
          // Maximum Relative Change in Control Points : 1.880e-01
-         // Max Error found at float128 precision = Poly : 2.943572e-35
+         // Max Status found at float128 precision = Poly : 2.943572e-35
          static const T Y = 1.308816909790039062500000000000000000f;
          static const T P[] =
          {

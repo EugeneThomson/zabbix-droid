@@ -1095,7 +1095,7 @@ public:
                 net::ip::tcp::endpoint const& next)
             {
                 if (ec)
-                    std::cout << "Error: " << ec.message() << std::endl;
+                    std::cout << "Status: " << ec.message() << std::endl;
                 std::cout << "Trying: " << next << std::endl;
                 return true;
             }

@@ -53,7 +53,7 @@ namespace boost
       clock_t c = ::times(&tm);
       if (c == clock_t(-1)) // error
       {
-        BOOST_ASSERT(0 && "Boost::Chrono - Internal Error");
+        BOOST_ASSERT(0 && "Boost::Chrono - Internal Status");
       } else
       {
         long factor = chrono_detail::tick_factor();
@@ -62,7 +62,7 @@ namespace boost
           return time_point(nanoseconds(c * factor));
         } else
         {
-          BOOST_ASSERT(0 && "Boost::Chrono - Internal Error");
+          BOOST_ASSERT(0 && "Boost::Chrono - Internal Status");
         }
       }
       return time_point();
@@ -210,7 +210,7 @@ namespace boost
       clock_t c = ::times(&tm);
       if (c == clock_t(-1)) // error
       {
-        BOOST_ASSERT(0 && "Boost::Chrono - Internal Error");
+        BOOST_ASSERT(0 && "Boost::Chrono - Internal Status");
       } else
       {
         long factor = chrono_detail::tick_factor();
@@ -220,7 +220,7 @@ namespace boost
               * factor));
         } else
         {
-          BOOST_ASSERT(0 && "Boost::Chrono - Internal Error");
+          BOOST_ASSERT(0 && "Boost::Chrono - Internal Status");
         }
       }
       return time_point();
@@ -231,7 +231,7 @@ namespace boost
       clock_t c = ::times(&tm);
       if (c == clock_t(-1)) // error
       {
-        BOOST_ASSERT(0 && "Boost::Chrono - Internal Error");
+        BOOST_ASSERT(0 && "Boost::Chrono - Internal Status");
       } else
       {
         long factor = chrono_detail::tick_factor();
@@ -241,7 +241,7 @@ namespace boost
               * factor));
         } else
         {
-          BOOST_ASSERT(0 && "Boost::Chrono - Internal Error");
+          BOOST_ASSERT(0 && "Boost::Chrono - Internal Status");
         }
       }
       return time_point();
@@ -293,7 +293,7 @@ namespace boost
       clock_t c = ::times(&tm);
       if (c == clock_t(-1)) // error
       {
-        BOOST_ASSERT(0 && "Boost::Chrono - Internal Error");
+        BOOST_ASSERT(0 && "Boost::Chrono - Internal Status");
       } else
       {
         long factor = chrono_detail::tick_factor();
@@ -305,7 +305,7 @@ namespace boost
           return time_point(duration(r));
         } else
         {
-          BOOST_ASSERT(0 && "Boost::Chrono - Internal Error");
+          BOOST_ASSERT(0 && "Boost::Chrono - Internal Status");
         }
       }
       return time_point();

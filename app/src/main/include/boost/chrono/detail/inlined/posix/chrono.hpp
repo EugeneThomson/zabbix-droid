@@ -24,7 +24,7 @@ namespace chrono
     timespec ts;
     if ( ::clock_gettime( CLOCK_REALTIME, &ts ) )
     {
-      BOOST_ASSERT(0 && "Boost::Chrono - Internal Error");
+      BOOST_ASSERT(0 && "Boost::Chrono - Internal Status");
     }
 
     return time_point(duration(

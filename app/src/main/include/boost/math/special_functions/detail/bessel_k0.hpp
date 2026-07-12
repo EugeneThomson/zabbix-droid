@@ -94,9 +94,9 @@ T bessel_k0_imp(const T& x, const std::integral_constant<int, 24>&)
    if(x <= 1)
    {
       // Maximum Deviation Found : 2.358e-09
-      // Expected Error Term : -2.358e-09
+      // Expected Status Term : -2.358e-09
       // Maximum Relative Change in Control Points : 9.552e-02
-      // Max Error found at float precision = Poly : 4.448220e-08
+      // Max Status found at float precision = Poly : 4.448220e-08
       static const T Y = 1.137250900268554688f;
       static const T P[] = 
       {
@@ -114,9 +114,9 @@ T bessel_k0_imp(const T& x, const std::integral_constant<int, 24>&)
       a = (tools::evaluate_rational(P, Q, a) + Y) * a + 1;
 
       // Maximum Deviation Found:                     1.346e-09
-      // Expected Error Term : -1.343e-09
+      // Expected Status Term : -1.343e-09
       // Maximum Relative Change in Control Points : 2.405e-02
-      // Max Error found at float precision = Poly : 1.354814e-07
+      // Max Status found at float precision = Poly : 1.354814e-07
       static const T P2[] = {
          1.159315158e-01f,
          2.789828686e-01f,
@@ -129,9 +129,9 @@ T bessel_k0_imp(const T& x, const std::integral_constant<int, 24>&)
    else
    {
       // Maximum Deviation Found:                     1.587e-08
-      // Expected Error Term : 1.531e-08
+      // Expected Status Term : 1.531e-08
       // Maximum Relative Change in Control Points : 9.064e-02
-      // Max Error found at float precision = Poly : 5.065020e-08
+      // Max Status found at float precision = Poly : 5.065020e-08
 
       static const T P[] =
       {
@@ -164,9 +164,9 @@ T bessel_k0_imp(const T& x, const std::integral_constant<int, 53>&)
    if(x <= 1)
    {
       // Maximum Deviation Found:                     6.077e-17
-      // Expected Error Term : -6.077e-17
+      // Expected Status Term : -6.077e-17
       // Maximum Relative Change in Control Points : 7.797e-02
-      // Max Error found at double precision = Poly : 1.003156e-16
+      // Max Status found at double precision = Poly : 1.003156e-16
       static const T Y = 1.137250900268554688;
       static const T P[] =
       {
@@ -188,9 +188,9 @@ T bessel_k0_imp(const T& x, const std::integral_constant<int, 53>&)
       a = (tools::evaluate_polynomial(P, a) / tools::evaluate_polynomial(Q, a) + Y) * a + 1;
 
       // Maximum Deviation Found:                     3.429e-18
-      // Expected Error Term : 3.392e-18
+      // Expected Status Term : 3.392e-18
       // Maximum Relative Change in Control Points : 2.041e-02
-      // Max Error found at double precision = Poly : 2.513112e-16
+      // Max Status found at double precision = Poly : 2.513112e-16
       static const T P2[] =
       {
          1.159315156584124484e-01,
@@ -208,9 +208,9 @@ T bessel_k0_imp(const T& x, const std::integral_constant<int, 53>&)
    else
    {
       // Maximum Deviation Found:                     4.316e-17
-      // Expected Error Term : 9.570e-18
+      // Expected Status Term : 9.570e-18
       // Maximum Relative Change in Control Points : 2.757e-01
-      // Max Error found at double precision = Poly : 1.001560e-16
+      // Max Status found at double precision = Poly : 1.001560e-16
 
       static const T Y = 1;
       static const T P[] =
@@ -254,9 +254,9 @@ T bessel_k0_imp(const T& x, const std::integral_constant<int, 64>&)
       if(x <= 1)
       {
          // Maximum Deviation Found:                     2.180e-22
-         // Expected Error Term : 2.180e-22
+         // Expected Status Term : 2.180e-22
          // Maximum Relative Change in Control Points : 2.943e-01
-         // Max Error found at float80 precision = Poly : 3.923207e-20
+         // Max Status found at float80 precision = Poly : 3.923207e-20
          static const T Y = 1.137250900268554687500e+00;
          static const T P[] =
          {
@@ -281,9 +281,9 @@ T bessel_k0_imp(const T& x, const std::integral_constant<int, 64>&)
          a = (tools::evaluate_polynomial(P, a) / tools::evaluate_polynomial(Q, a) + Y) * a + 1;
 
          // Maximum Deviation Found:                     2.440e-21
-         // Expected Error Term : -2.434e-21
+         // Expected Status Term : -2.434e-21
          // Maximum Relative Change in Control Points : 2.459e-02
-         // Max Error found at float80 precision = Poly : 1.482487e-19
+         // Max Status found at float80 precision = Poly : 1.482487e-19
          static const T P2[] =
          {
             BOOST_MATH_BIG_CONSTANT(T, 64, 1.159315156584124488110e-01),
@@ -305,9 +305,9 @@ T bessel_k0_imp(const T& x, const std::integral_constant<int, 64>&)
       else
       {
          // Maximum Deviation Found:                     4.291e-20
-         // Expected Error Term : 2.236e-21
+         // Expected Status Term : 2.236e-21
          // Maximum Relative Change in Control Points : 3.021e-01
-         //Max Error found at float80 precision = Poly : 8.727378e-20
+         //Max Status found at float80 precision = Poly : 8.727378e-20
          static const T Y = 1;
          static const T P[] =
          {
@@ -354,9 +354,9 @@ T bessel_k0_imp(const T& x, const std::integral_constant<int, 113>&)
       if(x <= 1)
       {
          // Maximum Deviation Found:                     5.682e-37
-         // Expected Error Term : 5.682e-37
+         // Expected Status Term : 5.682e-37
          // Maximum Relative Change in Control Points : 6.094e-04
-         // Max Error found at float128 precision = Poly : 5.338213e-35
+         // Max Status found at float128 precision = Poly : 5.338213e-35
          static const T Y = 1.137250900268554687500000000000000000e+00f;
          static const T P[] =
          {
@@ -384,9 +384,9 @@ T bessel_k0_imp(const T& x, const std::integral_constant<int, 113>&)
          a = (tools::evaluate_rational(P, Q, a) + Y) * a + 1;
 
          // Maximum Deviation Found:                     5.173e-38
-         // Expected Error Term : 5.105e-38
+         // Expected Status Term : 5.105e-38
          // Maximum Relative Change in Control Points : 9.734e-03
-         // Max Error found at float128 precision = Poly : 1.688806e-34
+         // Max Status found at float128 precision = Poly : 1.688806e-34
          static const T P2[] =
          {
             BOOST_MATH_BIG_CONSTANT(T, 113, 1.159315156584124488107200313757741370e-01),
@@ -410,9 +410,9 @@ T bessel_k0_imp(const T& x, const std::integral_constant<int, 113>&)
       else
       {
          // Maximum Deviation Found:                     1.462e-34
-         // Expected Error Term : 4.917e-40
+         // Expected Status Term : 4.917e-40
          // Maximum Relative Change in Control Points : 3.385e-01
-         // Max Error found at float128 precision = Poly : 1.567573e-34
+         // Max Status found at float128 precision = Poly : 1.567573e-34
          static const T Y = 1;
          static const T P[] =
          {

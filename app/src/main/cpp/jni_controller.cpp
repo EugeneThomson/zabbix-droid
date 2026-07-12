@@ -24,32 +24,33 @@ std::string jstring2string(JNIEnv *env, jstring jStr) {
 }
 
 extern "C" {
-JNIEXPORT jlong JNICALL
-Java_com_example_zabbixtrapperndk_NativeTrapper_createTrapper(JNIEnv *env, jobject, jstring ip) {
-    auto* trapper = new ZabbixTrapper(jstring2string(env, ip), 10051, true, 150);
-    trapper->start();
-    return reinterpret_cast<jlong>(trapper);
-}
+    JNIEXPORT jlong JNICALL
+    Java_com_example_zabbixtrapperndk_NativeTrapper_createTrapper(JNIEnv *env, jobject, jstring ip) {
+        auto* trapper = new ZabbixTrapper(jstring2string(env, ip), 10051);
+//        trapper->start();
+        return reinterpret_cast<jlong>(trapper);
+    }
 
-JNIEXPORT void JNICALL
-Java_com_example_zabbixtrapperndk_NativeTrapper_destroyTrapper(
-        JNIEnv *env,
-        jobject /* this */,
-        jlong ptr) {
-    delete reinterpret_cast<ZabbixTrapper*>(ptr);
-}
+    JNIEXPORT void JNICALL
+    Java_com_example_zabbixtrapperndk_NativeTrapper_destroyTrapper(
+            JNIEnv *env,
+            jobject /* this */,
+            jlong ptr) {
+        delete reinterpret_cast<ZabbixTrapper*>(ptr);
+    }
 
-JNIEXPORT jint JNICALL
-Java_com_example_zabbixtrapperndk_NativeTrapper_dataSend(
-        JNIEnv *env,
-        jobject /* this */,
-        jlong ptr,
-        jstring host,
-        jstring key,
-        jstring data) {
-    ZabbixTrapper* trapper = reinterpret_cast<ZabbixTrapper*>(ptr);
-    trapper->hostKeySet(jstring2string(env, host), jstring2string(env, key));
-    return trapper->sendData<std::string>(jstring2string(env, data), true);
-}
-
+    JNIEXPORT jint JNICALL
+    Java_com_example_zabbixtrapperndk_NativeTrapper_dataSend(
+            JNIEnv *env,
+            jobject /* this */,
+            jlong ptr,
+            jstring host,
+            jstring key,
+            jstring data) {
+        ZabbixTrapper* trapper = reinterpret_cast<ZabbixTrapper*>(ptr);
+//        trapper->hostKeySet(jstring2string(env, host), jstring2string(env, key));
+        return trapper->sendData(jstring2string(env, host),
+                                 jstring2string(env, key),
+                                 jstring2string(env, data));
+    }
 }

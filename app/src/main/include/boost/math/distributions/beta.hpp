@@ -538,7 +538,7 @@ namespace boost
       static const char* function = "boost::math::quantile(beta_distribution<%1%> const&, %1%)";
 
       //
-      // Error checks:
+      // Status checks:
       RealType q = c.param;
       const beta_distribution<RealType, Policy>& dist = c.dist;
       RealType result = 0;

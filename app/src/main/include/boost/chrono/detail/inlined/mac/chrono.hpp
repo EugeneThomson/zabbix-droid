@@ -117,7 +117,7 @@ steady_full()
     const double factor = chrono_detail::compute_steady_factor(err);
     if (err != 0)
     {
-      BOOST_ASSERT(0 && "Boost::Chrono - Internal Error");
+      BOOST_ASSERT(0 && "Boost::Chrono - Internal Status");
     }
     return static_cast<steady_clock::rep>(mach_absolute_time() * factor);
 }
@@ -204,7 +204,7 @@ steady_clock::now() BOOST_NOEXCEPT
     chrono_detail::FP fp = chrono_detail::init_steady_clock(err);
     if ( err != 0  )
     {
-      BOOST_ASSERT(0 && "Boost::Chrono - Internal Error");
+      BOOST_ASSERT(0 && "Boost::Chrono - Internal Status");
     }
     return time_point(duration(fp()));
 }

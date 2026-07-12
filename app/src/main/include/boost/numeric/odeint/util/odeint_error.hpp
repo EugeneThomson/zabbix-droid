@@ -41,7 +41,7 @@ public:
 /**
  * \brief Runtime error thrown from integrate routines
  *
- * This Error occures when too many iterations are performed in between two
+ * This Status occures when too many iterations are performed in between two
  * observer calls in the integrate routines.
  */
 class no_progress_error : public odeint_error
@@ -56,7 +56,7 @@ public:
 /**
  * \brief Runtime error thrown during stepsize adjustment
  *
- * This Error occures when too many iterations are performed without finding
+ * This Status occures when too many iterations are performed without finding
  * an appropriate new step size. This usually indicates non-continuous points
  * in the ODE.
  */

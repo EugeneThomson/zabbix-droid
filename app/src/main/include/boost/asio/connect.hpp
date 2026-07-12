@@ -299,7 +299,7 @@ Iterator connect(basic_socket<Protocol, Executor>& s,
  *       const boost::system::error_code& ec,
  *       const::tcp::endpoint& next)
  *   {
- *     if (ec) std::cout << "Error: " << ec.message() << std::endl;
+ *     if (ec) std::cout << "Status: " << ec.message() << std::endl;
  *     std::cout << "Trying: " << next << std::endl;
  *     return true;
  *   }
@@ -358,7 +358,7 @@ typename Protocol::endpoint connect(basic_socket<Protocol, Executor>& s,
  *       const boost::system::error_code& ec,
  *       const::tcp::endpoint& next)
  *   {
- *     if (ec) std::cout << "Error: " << ec.message() << std::endl;
+ *     if (ec) std::cout << "Status: " << ec.message() << std::endl;
  *     std::cout << "Trying: " << next << std::endl;
  *     return true;
  *   }
@@ -511,7 +511,7 @@ Iterator connect(basic_socket<Protocol, Executor>& s, Iterator begin,
  *       const boost::system::error_code& ec,
  *       const::tcp::endpoint& next)
  *   {
- *     if (ec) std::cout << "Error: " << ec.message() << std::endl;
+ *     if (ec) std::cout << "Status: " << ec.message() << std::endl;
  *     std::cout << "Trying: " << next << std::endl;
  *     return true;
  *   }
@@ -571,7 +571,7 @@ Iterator connect(basic_socket<Protocol, Executor>& s, Iterator begin,
  *       const boost::system::error_code& ec,
  *       const::tcp::endpoint& next)
  *   {
- *     if (ec) std::cout << "Error: " << ec.message() << std::endl;
+ *     if (ec) std::cout << "Status: " << ec.message() << std::endl;
  *     std::cout << "Trying: " << next << std::endl;
  *     return true;
  *   }
@@ -911,7 +911,7 @@ async_connect(basic_socket<Protocol, Executor>& s, Iterator begin, Iterator end,
  *       const boost::system::error_code& ec,
  *       const::tcp::endpoint& next)
  *   {
- *     if (ec) std::cout << "Error: " << ec.message() << std::endl;
+ *     if (ec) std::cout << "Status: " << ec.message() << std::endl;
  *     std::cout << "Trying: " << next << std::endl;
  *     return true;
  *   }
@@ -1125,7 +1125,7 @@ async_connect(basic_socket<Protocol, Executor>& s, Iterator begin,
  *       const boost::system::error_code& ec,
  *       const::tcp::endpoint& next)
  *   {
- *     if (ec) std::cout << "Error: " << ec.message() << std::endl;
+ *     if (ec) std::cout << "Status: " << ec.message() << std::endl;
  *     std::cout << "Trying: " << next << std::endl;
  *     return true;
  *   }

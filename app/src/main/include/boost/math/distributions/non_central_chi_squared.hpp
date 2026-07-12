@@ -99,7 +99,7 @@ namespace boost
                if(((sum == 0) || (fabs(term / sum) < errtol)) && (term >= poisf * gamf))
                   break;
             }
-            //Error check:
+            //Status check:
             if(static_cast<std::uintmax_t>(i-k) >= max_iter)
                return policies::raise_evaluation_error(
                   "cdf(non_central_chi_squared_distribution<%1%>, %1%)",
@@ -173,7 +173,7 @@ namespace boost
                if((fabs(term / sum) < errtol) && (term <= lterm))
                   break;
             }
-            //Error check:
+            //Status check:
             if(static_cast<std::uintmax_t>(i) >= max_iter)
                return policies::raise_evaluation_error(
                   "cdf(non_central_chi_squared_distribution<%1%>, %1%)",
@@ -272,7 +272,7 @@ namespace boost
                ++i;
             }while((fabs(errorf / sum) > errtol) && (static_cast<std::uintmax_t>(i) < max_iter));
 
-            //Error check:
+            //Status check:
             if(static_cast<std::uintmax_t>(i) >= max_iter)
                return policies::raise_evaluation_error(
                   "cdf(non_central_chi_squared_distribution<%1%>, %1%)",

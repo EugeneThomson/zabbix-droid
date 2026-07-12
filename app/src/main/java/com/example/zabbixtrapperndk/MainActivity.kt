@@ -11,6 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.zabbixtrapperndk.ui.SenderView
+import com.example.zabbixtrapperndk.ui.SettingsView
 import com.example.zabbixtrapperndk.ui.theme.ZabbixTrapperNDKTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,12 +24,17 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     val navController = rememberNavController()
                     NavHost(navController = navController, startDestination = "sender") {
-                        composable("sender") { SenderView(
-                            modifier = Modifier.padding(innerPadding),
-                            navController) }
-                        composable("settings") { SettingsView(
-                            modifier = Modifier.padding(innerPadding),
-                            navController)
+                        composable("sender") {
+                            SenderView(
+                                modifier = Modifier.padding(innerPadding),
+                                navController
+                            )
+                        }
+                        composable("settings") {
+                            SettingsView(
+                                modifier = Modifier.padding(innerPadding),
+                                navController
+                            )
                         }
                     }
                 }

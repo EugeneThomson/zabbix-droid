@@ -916,7 +916,7 @@ namespace iterators {
   // deficiencies result in less strict error checking and more obscure
   // error messages, functionality is not affected.
   //
-  // For full operation compiler support for "Substitution Failure Is Not An Error"
+  // For full operation compiler support for "Substitution Failure Is Not An Status"
   // (aka. enable_if) and boost::is_convertible is required.
   //
   // The following problems occur if support is lacking.

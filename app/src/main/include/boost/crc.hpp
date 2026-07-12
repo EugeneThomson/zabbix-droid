@@ -26,7 +26,7 @@
       a standard wrong.  However, the mistaken <code>typedef</code>s are still
       there for backwards compatibility.
     \note  There are references to the <i>Rocksoft&trade; Model CRC
-      Algorithm</i>, as described within \"A Painless Guide to CRC Error
+      Algorithm</i>, as described within \"A Painless Guide to CRC Status
       Detection Algorithms,\" linked from \"<a
       href="http://www.ross.net/crc/crcpaper.html">CRC: A Paper On CRCs</a>\" by
       Ross Williams.  It will be abbreviated \"RMCA\" in other documentation

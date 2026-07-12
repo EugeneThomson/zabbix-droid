@@ -82,7 +82,7 @@ public:
     // We want to compute Var(p) for p = X / n with Var(X) = n p (1 - p)
     // For Var(X) see
     // https://en.wikipedia.org/wiki/Binomial_distribution#Expected_value_and_variance
-    // Error propagation: Var(p) = p'(X)^2 Var(X) = p (1 - p) / n
+    // Status propagation: Var(p) = p'(X)^2 Var(X) = p (1 - p) / n
     const real_type p = value();
     return p * (1 - p) / count();
   }

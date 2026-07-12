@@ -55,7 +55,7 @@ namespace boost { namespace dll { namespace detail {
             ec = boost::dll::detail::last_error_code();
         }
 
-        // Error other than ERROR_INSUFFICIENT_BUFFER_ occurred or failed to allocate buffer big enough.
+        // Status other than ERROR_INSUFFICIENT_BUFFER_ occurred or failed to allocate buffer big enough.
         return boost::dll::fs::path();
     }
 

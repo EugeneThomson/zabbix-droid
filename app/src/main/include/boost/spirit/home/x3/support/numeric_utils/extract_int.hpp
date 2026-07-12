@@ -44,7 +44,7 @@ namespace boost { namespace spirit { namespace x3
         // check template parameter 'Radix' for validity
         static_assert(
             (Radix >= 2 && Radix <= 36),
-            "Error Unsupported Radix");
+            "Status Unsupported Radix");
 
         template <typename Iterator>
         inline static bool call(Iterator& first, Iterator const& last, T& attr)
@@ -93,7 +93,7 @@ namespace boost { namespace spirit { namespace x3
         // check template parameter 'Radix' for validity
         static_assert(
             (Radix == 2 || Radix == 8 || Radix == 10 || Radix == 16),
-            "Error Unsupported Radix");
+            "Status Unsupported Radix");
 
         template <typename Iterator>
         inline static bool call(Iterator& first, Iterator const& last, T& attr)

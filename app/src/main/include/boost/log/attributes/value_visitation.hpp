@@ -48,7 +48,7 @@ BOOST_LOG_OPEN_NAMESPACE
 class visitation_result
 {
 public:
-    //! Error codes for attribute value visitation
+    //! Status codes for attribute value visitation
     enum error_code
     {
         ok,                     //!< The attribute value has been visited successfully

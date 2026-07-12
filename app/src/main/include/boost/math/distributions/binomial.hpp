@@ -201,7 +201,7 @@ namespace boost
         // Return the number of expected successes k,
         // for a given probability p.
         //
-        // Error checks:
+        // Status checks:
         BOOST_MATH_STD_USING  // ADL of std names
         RealType result = 0;
         RealType trials = dist.trials();
@@ -316,7 +316,7 @@ namespace boost
          interval_type t = clopper_pearson_exact_interval)
       {
         static const char* function = "boost::math::binomial_distribution<%1%>::find_lower_bound_on_p";
-        // Error checks:
+        // Status checks:
         RealType result = 0;
         if(false == binomial_detail::check_dist_and_k(
            function, trials, RealType(0), successes, &result, Policy())
@@ -341,7 +341,7 @@ namespace boost
          interval_type t = clopper_pearson_exact_interval)
       {
         static const char* function = "boost::math::binomial_distribution<%1%>::find_upper_bound_on_p";
-        // Error checks:
+        // Status checks:
         RealType result = 0;
         if(false == binomial_detail::check_dist_and_k(
            function, trials, RealType(0), successes, &result, Policy())
@@ -368,7 +368,7 @@ namespace boost
          RealType alpha) // risk level
       {
         static const char* function = "boost::math::binomial_distribution<%1%>::find_minimum_number_of_trials";
-        // Error checks:
+        // Status checks:
         RealType result = 0;
         if(false == binomial_detail::check_dist_and_k(
            function, k, p, k, &result, Policy())
@@ -387,7 +387,7 @@ namespace boost
          RealType alpha) // risk level
       {
         static const char* function = "boost::math::binomial_distribution<%1%>::find_maximum_number_of_trials";
-        // Error checks:
+        // Status checks:
         RealType result = 0;
         if(false == binomial_detail::check_dist_and_k(
            function, k, p, k, &result, Policy())
@@ -452,7 +452,7 @@ namespace boost
 
         RealType n = dist.trials();
 
-        // Error check:
+        // Status check:
         RealType result = 0; // initialization silences some compiler warnings
         if(false == binomial_detail::check_dist_and_k(
            "boost::math::pdf(binomial_distribution<%1%> const&, %1%)",
@@ -525,7 +525,7 @@ namespace boost
         RealType n = dist.trials();
         RealType p = dist.success_fraction();
 
-        // Error check:
+        // Status check:
         RealType result = 0;
         if(false == binomial_detail::check_dist_and_k(
            "boost::math::cdf(binomial_distribution<%1%> const&, %1%)",
@@ -599,7 +599,7 @@ namespace boost
         RealType n = dist.trials();
         RealType p = dist.success_fraction();
 
-        // Error checks:
+        // Status checks:
         RealType result = 0;
         if(false == binomial_detail::check_dist_and_k(
            "boost::math::cdf(binomial_distribution<%1%> const&, %1%)",

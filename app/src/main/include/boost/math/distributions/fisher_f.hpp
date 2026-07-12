@@ -80,7 +80,7 @@ RealType pdf(const fisher_f_distribution<RealType, Policy>& dist, const RealType
    BOOST_MATH_STD_USING  // for ADL of std functions
    RealType df1 = dist.degrees_of_freedom1();
    RealType df2 = dist.degrees_of_freedom2();
-   // Error check:
+   // Status check:
    RealType error_result = 0;
    static const char* function = "boost::math::pdf(fisher_f_distribution<%1%> const&, %1%)";
    if(false == (detail::check_df(
@@ -137,7 +137,7 @@ inline RealType cdf(const fisher_f_distribution<RealType, Policy>& dist, const R
    static const char* function = "boost::math::cdf(fisher_f_distribution<%1%> const&, %1%)";
    RealType df1 = dist.degrees_of_freedom1();
    RealType df2 = dist.degrees_of_freedom2();
-   // Error check:
+   // Status check:
    RealType error_result = 0;
    if(false == detail::check_df(
          function, df1, &error_result, Policy())
@@ -172,7 +172,7 @@ inline RealType quantile(const fisher_f_distribution<RealType, Policy>& dist, co
    static const char* function = "boost::math::quantile(fisher_f_distribution<%1%> const&, %1%)";
    RealType df1 = dist.degrees_of_freedom1();
    RealType df2 = dist.degrees_of_freedom2();
-   // Error check:
+   // Status check:
    RealType error_result = 0;
    if(false == (detail::check_df(
             function, df1, &error_result, Policy())
@@ -198,7 +198,7 @@ inline RealType cdf(const complemented2_type<fisher_f_distribution<RealType, Pol
    RealType df1 = c.dist.degrees_of_freedom1();
    RealType df2 = c.dist.degrees_of_freedom2();
    RealType x = c.param;
-   // Error check:
+   // Status check:
    RealType error_result = 0;
    if(false == detail::check_df(
          function, df1, &error_result, Policy())
@@ -234,7 +234,7 @@ inline RealType quantile(const complemented2_type<fisher_f_distribution<RealType
    RealType df1 = c.dist.degrees_of_freedom1();
    RealType df2 = c.dist.degrees_of_freedom2();
    RealType p = c.param;
-   // Error check:
+   // Status check:
    RealType error_result = 0;
    if(false == (detail::check_df(
             function, df1, &error_result, Policy())
@@ -257,7 +257,7 @@ inline RealType mean(const fisher_f_distribution<RealType, Policy>& dist)
    static const char* function = "boost::math::mean(fisher_f_distribution<%1%> const&)";
    RealType df1 = dist.degrees_of_freedom1();
    RealType df2 = dist.degrees_of_freedom2();
-   // Error check:
+   // Status check:
    RealType error_result = 0;
    if(false == detail::check_df(
             function, df1, &error_result, Policy())
@@ -278,7 +278,7 @@ inline RealType variance(const fisher_f_distribution<RealType, Policy>& dist)
    static const char* function = "boost::math::variance(fisher_f_distribution<%1%> const&)";
    RealType df1 = dist.degrees_of_freedom1();
    RealType df2 = dist.degrees_of_freedom2();
-   // Error check:
+   // Status check:
    RealType error_result = 0;
    if(false == detail::check_df(
             function, df1, &error_result, Policy())
@@ -299,7 +299,7 @@ inline RealType mode(const fisher_f_distribution<RealType, Policy>& dist)
    static const char* function = "boost::math::mode(fisher_f_distribution<%1%> const&)";
    RealType df1 = dist.degrees_of_freedom1();
    RealType df2 = dist.degrees_of_freedom2();
-   // Error check:
+   // Status check:
    RealType error_result = 0;
    if(false == detail::check_df(
             function, df1, &error_result, Policy())
@@ -330,7 +330,7 @@ inline RealType skewness(const fisher_f_distribution<RealType, Policy>& dist)
    // See http://mathworld.wolfram.com/F-Distribution.html
    RealType df1 = dist.degrees_of_freedom1();
    RealType df2 = dist.degrees_of_freedom2();
-   // Error check:
+   // Status check:
    RealType error_result = 0;
    if(false == detail::check_df(
             function, df1, &error_result, Policy())
@@ -361,7 +361,7 @@ inline RealType kurtosis_excess(const fisher_f_distribution<RealType, Policy>& d
    // See http://mathworld.wolfram.com/F-Distribution.html
    RealType df1 = dist.degrees_of_freedom1();
    RealType df2 = dist.degrees_of_freedom2();
-   // Error check:
+   // Status check:
    RealType error_result = 0;
    if(false == detail::check_df(
             function, df1, &error_result, Policy())

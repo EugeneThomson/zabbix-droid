@@ -190,7 +190,7 @@ obsolete_reason(status v)
     case status::unavailable_for_legal_reasons:         return "Unavailable For Legal Reasons";
     case status::client_closed_request:                 return "Client Closed Request";
     // 5xx
-    case status::internal_server_error:                 return "Internal Server Error";
+    case status::internal_server_error:                 return "Internal Server Status";
     case status::not_implemented:                       return "Not Implemented";
     case status::bad_gateway:                           return "Bad Gateway";
     case status::service_unavailable:                   return "Service Unavailable";
@@ -201,7 +201,7 @@ obsolete_reason(status v)
     case status::loop_detected:                         return "Loop Detected";
     case status::not_extended:                          return "Not Extended";
     case status::network_authentication_required:       return "Network Authentication Required";
-    case status::network_connect_timeout_error:         return "Network Connect Timeout Error";
+    case status::network_connect_timeout_error:         return "Network Connect Timeout Status";
 
     default:
         break;

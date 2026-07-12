@@ -1,4 +1,4 @@
-package com.example.zabbixtrapperndk
+package com.example.zabbixtrapperndk.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -20,7 +20,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -30,6 +29,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.zabbixtrapperndk.data.HostKeyPairStorage
+import com.example.zabbixtrapperndk.R
+import com.example.zabbixtrapperndk.data.TrapperHolder
 
 @Composable
 fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
@@ -89,7 +91,7 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
             Button(
                 onClick = {
                     if (zabbixHost.isNotBlank() || zabbixKey.isNotBlank()) {
-                        HostKeyPairHolder.add(zabbixHost, zabbixKey)
+                        HostKeyPairStorage.add(zabbixHost, zabbixKey)
                         zabbixHost = ""
                         zabbixKey = ""
                     }
@@ -102,7 +104,7 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
 
             LazyColumn {
                 items(
-                    items = HostKeyPairHolder.items,
+                    items = HostKeyPairStorage.items,
                     key = { it.hashCode() }
                 ) { item ->
                     Row(
@@ -110,7 +112,7 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Text("${item.host}  ${item.key}")
-                        IconButton(onClick = { HostKeyPairHolder.remove(item) }) {
+                        IconButton(onClick = { HostKeyPairStorage.remove(item) }) {
                             Icon(Icons.Default.Close, contentDescription = "Удалить")
                         }
                     }

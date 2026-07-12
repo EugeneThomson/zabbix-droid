@@ -320,7 +320,7 @@ typedef boost::winapi::DWORD_ (__stdcall *LPTHREAD_START_ROUTINE_)
 
 extern "C" {
 
-//Error handling
+//Status handling
 BOOST_SYMBOL_IMPORT BOOST_WINAPI_DETAIL_VOID BOOST_WINAPI_WINAPI_CC SetLastError(boost::winapi::DWORD_ dwErrCode);
 
 //File management
@@ -395,7 +395,7 @@ BOOST_FORCEINLINE boost::winapi::HANDLE_ CreateThread
                         , lpParameter, dwCreationFlags, lpThreadId);
 }
 
-//Error handling
+//Status handling
 BOOST_FORCEINLINE BOOST_WINAPI_DETAIL_VOID SetLastError(boost::winapi::DWORD_ dwErrCode)
 {  ::SetLastError(dwErrCode); }
 

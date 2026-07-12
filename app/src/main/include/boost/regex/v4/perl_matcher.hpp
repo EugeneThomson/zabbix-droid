@@ -52,7 +52,7 @@ inline void BOOST_REGEX_CALL verify_options(boost::regex_constants::syntax_optio
    //
    if ((mf & match_extra) && (mf & match_posix))
    {
-      std::logic_error msg("Usage Error: Can't mix regular expression captures with POSIX matching rules");
+      std::logic_error msg("Usage Status: Can't mix regular expression captures with POSIX matching rules");
       throw_exception(msg);
    }
 }

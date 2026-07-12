@@ -94,7 +94,7 @@ public:
         get()->err         = jpeg_std_error( &_jerr );
         get()->client_data = this;
 
-        // Error exit handler: does not return to caller.
+        // Status exit handler: does not return to caller.
         _jerr.error_exit = &writer_backend< Device, jpeg_tag >::error_exit;
 
         // Fire exception in case of error.

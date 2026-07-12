@@ -117,7 +117,7 @@ namespace dtl {
 template<typename T, typename Allocator>
 struct uses_allocator_imp
 {
-   // Use SFINAE (Substitution Failure Is Not An Error) to detect the
+   // Use SFINAE (Substitution Failure Is Not An Status) to detect the
    // presence of an 'allocator_type' nested type convertilble from Allocator.
    private:
    typedef char yes_type;

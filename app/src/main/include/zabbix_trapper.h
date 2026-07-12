@@ -8,7 +8,7 @@
 #include "boost/atomic.hpp"
 #include "boost/chrono.hpp"
 
-enum class Error : int {
+enum class Status : int {
 	succesed = 1,
 	failed_connect = 2,
 	failed_send = 3,
@@ -21,66 +21,68 @@ enum class Error : int {
 class ZabbixTrapper
 {
 public:
-	ZabbixTrapper(const std::string zabbixHost, int zabbixPort, bool ready = false, int ttl = 100) :
-			_zabbix_host(zabbixHost), _zabbix_port(zabbixPort), ready(ready), _ttl(ttl) {	}
+	ZabbixTrapper(const std::string zabbix_host, int zabbix_port) :
+            _zabbix_host(zabbix_host), _zabbix_port(zabbix_port) {}
 			// адрес хоста, его порт, нужен ли async (0 - нет, 1 - да) и time_to_life для сообщения
 
-	void start() {
-		_sender_thread = std::thread(&ZabbixTrapper::queueControl, this);
-	}
+//	void start() {
+//		_sender_thread = std::thread(&ZabbixTrapper::queueControl, this);
+//	}
+//
+//	virtual ~ZabbixTrapper() {
+//		stop();
+//	}
+//
+//	void stop() {
+//		ready = false;
+//		if (_sender_thread.joinable()) {
+//			_sender_thread.join();
+//		}
+//	}
 
-	virtual ~ZabbixTrapper() {
-		stop();
-	}
+//    virtual void hostKeySet(const std::string client_host, const std::string client_key);
+	int sendData(const std::string client_host, const std::string client_key, std::string raw_data);
 
-	void stop() {
-		ready = false;
-		if (_sender_thread.joinable()) {
-			_sender_thread.join();
-		}
-	}
-
-    virtual void hostKeySet(const std::string client_host, const std::string client_key);
-
-    template<typename Type> int sendData(Type raw_data, bool sync) {
-		std::string data;
-		if ((std::is_same<Type, char>::value) || (std::is_same<Type, std::string>::value)
-			|| (std::is_same<Type, unsigned int>::value) || (std::is_same<Type, float>::value)) {
-			std::ostringstream temp;
-			temp << raw_data;
-			data = temp.str();
-		} else {
-			return static_cast<int>(Error::type_error);
-		}
-		if (sync) {
-			Error check_sending = Error::not_enough_time;
-			std::thread sender(&ZabbixTrapper::sending, this, data, &check_sending);
-			sender.detach();
-			std::this_thread::sleep_for(std::chrono::milliseconds(_ttl));
-			return static_cast<int>(check_sending);
-		} 
-		else {
-			queue.push(data);
-			return asyncCheck.size() + 1; //возвращает количество сообщений после PUSH
-									//по этому числу можно будет проверить статус отправки
-		}
-	};
+//    template<typename Type> int sendData(Type raw_data, bool sync) {
+//		std::string data;
+//		if ((std::is_same<Type, char>::value) || (std::is_same<Type, std::string>::value)
+//			|| (std::is_same<Type, unsigned int>::value) || (std::is_same<Type, float>::value)) {
+//			std::ostringstream temp;
+//			temp << raw_data;
+//			data = temp.str();
+//		} else {
+//			return static_cast<int>(Status::type_error);
+//		}
+//		if (sync) {
+//			Status check_sending = Status::not_enough_time;
+//			std::thread sender(&ZabbixTrapper::sending, this, data, &check_sending);
+//			sender.detach();
+//			std::this_thread::sleep_for(std::chrono::milliseconds(_ttl));
+//			return static_cast<int>(check_sending);
+//		}
+//		else {
+//			queue.push(data);
+//			return asyncCheck.size() + 1; //возвращает количество сообщений после PUSH
+//									//по этому числу можно будет проверить статус отправки
+//		}
+//	};
 
 protected:
-	int _ttl;
+//	int _ttl;
     int _zabbix_port;
     std::string _zabbix_host;
     std::string _client_host;
     std::string _client_key;
-	std::uint64_t _payload_size;
-    std::queue<std::string> queue;
+//	std::uint64_t _payload_size;
 	std::thread _sender_thread;
-	std::atomic<bool> ready;
 	mutable std::mutex _host_key_mutex;
 
-    virtual Error sending(std::string value, Error *checkSending);
+//	std::queue<std::string> queue;
+//	std::atomic<bool> ready;
+//	std::vector<Status> asyncCheck;
+
+    virtual Status sendPacket(std::string value);
 	std::vector<char> createZabbixPacket(const std::string& value);
-    virtual void queueControl();
-	virtual Error asyncCheckControl(unsigned int number_message);
-	std::vector<Error> asyncCheck;
+//    virtual void queueControl();
+//	virtual Status asyncCheckControl(unsigned int number_message);
 };

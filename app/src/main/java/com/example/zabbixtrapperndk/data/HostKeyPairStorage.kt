@@ -1,8 +1,8 @@
-package com.example.zabbixtrapperndk
+package com.example.zabbixtrapperndk.data
 
 import androidx.compose.runtime.mutableStateListOf
 
-object HostKeyPairHolder {
+object HostKeyPairStorage {
     private val _items = mutableStateListOf<HostKeyPair>()
     val items: List<HostKeyPair> = _items
 

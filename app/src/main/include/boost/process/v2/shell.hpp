@@ -16,7 +16,7 @@
 
 BOOST_PROCESS_V2_BEGIN_NAMESPACE
 
-/// Error category used by the shell parser.
+/// Status category used by the shell parser.
 extern BOOST_PROCESS_V2_DECL const error_category& get_shell_category();
 static const error_category& shell_category = get_shell_category();
 
