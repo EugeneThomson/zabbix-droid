@@ -100,7 +100,7 @@ struct BOOST_TEST_DECL log_checkpoint_data
 /// @par Since Boost 1.62:
 /// - Each formatter may indicate the default output stream. This is convenient for instance for streams intended
 ///   for automated processing that indicate a file. See @c get_default_stream_description for more details.
-/// - Each formatter may manage its own log level through the getter/setter @c get_log_level and @c set_log_level .
+/// - Each formatter may manage its own log level through the getter/hostKeySet @c get_log_level and @c set_log_level .
 ///
 /// @see
 /// - boost::unit_test::test_observer for an indication of the calls of the test observer interface

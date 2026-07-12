@@ -1,18 +1,3 @@
-/*
-Trapper принимает на вход данные типов:
-unsigned int, float, char и string
-При создании класса указывают:
-ip хоста, его порт, нужна ли async передача 
-и время жизни сообщения
-С помощью setter указывают:
-Имя отправителя и ключ элемента данных
-Для отправки используется функция sendData
-Функция asyncCheckControl проверяет статус
-асинхронного сообщения
-Максимальная длина сообщения:
-65534 с вычетом сервисных знаков (-71)
-*/
-
 #pragma once
 
 #include <string>
@@ -37,14 +22,11 @@ class ZabbixTrapper
 {
 public:
 	ZabbixTrapper(const std::string zabbixHost, int zabbixPort, bool ready = false, int ttl = 100) :
-		zabbixHost(zabbixHost), zabbixPort(zabbixPort), ready(ready), ttl(ttl)
-	{
-//		std::thread sender(&ZabbixTrapper::queueControl, this);
-//		sender.detach();
-	} // адрес хоста, его порт, нужен ли async (0 - нет, 1 - да) и time_to_life для сообщения
+			_zabbix_host(zabbixHost), _zabbix_port(zabbixPort), ready(ready), _ttl(ttl) {	}
+			// адрес хоста, его порт, нужен ли async (0 - нет, 1 - да) и time_to_life для сообщения
 
 	void start() {
-		senderThread = std::thread(&ZabbixTrapper::queueControl, this);
+		_sender_thread = std::thread(&ZabbixTrapper::queueControl, this);
 	}
 
 	virtual ~ZabbixTrapper() {
@@ -53,55 +35,52 @@ public:
 
 	void stop() {
 		ready = false;
-		if (senderThread.joinable()) {
-			senderThread.join();
+		if (_sender_thread.joinable()) {
+			_sender_thread.join();
 		}
 	}
 
-    virtual void setter(const std::string clientHost, const std::string clientKey); // имя узла, как оно указано на сервере, и ключ элемента данных соответственно
+    virtual void hostKeySet(const std::string client_host, const std::string client_key);
 
-    template<typename Type> int sendData(Type rawData, bool sync)
-	{
+    template<typename Type> int sendData(Type raw_data, bool sync) {
 		std::string data;
 		if ((std::is_same<Type, char>::value) || (std::is_same<Type, std::string>::value)
-			|| (std::is_same<Type, unsigned int>::value) || (std::is_same<Type, float>::value))
-		{
+			|| (std::is_same<Type, unsigned int>::value) || (std::is_same<Type, float>::value)) {
 			std::ostringstream temp;
-			temp << rawData;
+			temp << raw_data;
 			data = temp.str();
-		}
-		else
-		{
+		} else {
 			return static_cast<int>(Error::type_error);
 		}
-		if (sync)
-		{
-			Error checkSending = Error::not_enough_time;
-			std::thread sender(&ZabbixTrapper::sending, this, data, &checkSending);
+		if (sync) {
+			Error check_sending = Error::not_enough_time;
+			std::thread sender(&ZabbixTrapper::sending, this, data, &check_sending);
 			sender.detach();
-			std::this_thread::sleep_for(std::chrono::milliseconds(ttl));
-			return static_cast<int>(checkSending);
+			std::this_thread::sleep_for(std::chrono::milliseconds(_ttl));
+			return static_cast<int>(check_sending);
 		} 
-		else
-		{
-			int asyncCheckSize = asyncCheck.size();
+		else {
 			queue.push(data);
-			return asyncCheckSize+1; //возвращает количество сообщений после PUSH
+			return asyncCheck.size() + 1; //возвращает количество сообщений после PUSH
 									//по этому числу можно будет проверить статус отправки
 		}
 	};
 
 protected:
-	int ttl;
-    int zabbixPort;
-    std::string zabbixHost;
-    std::string clientHost;
-    std::string clientKey;
+	int _ttl;
+    int _zabbix_port;
+    std::string _zabbix_host;
+    std::string _client_host;
+    std::string _client_key;
+	std::uint64_t _payload_size;
     std::queue<std::string> queue;
-	std::thread senderThread;
+	std::thread _sender_thread;
 	std::atomic<bool> ready;
+	mutable std::mutex _host_key_mutex;
+
     virtual Error sending(std::string value, Error *checkSending);
+	std::vector<char> createZabbixPacket(const std::string& value);
     virtual void queueControl();
-	virtual Error asyncCheckControl(unsigned int numberMessage);
+	virtual Error asyncCheckControl(unsigned int number_message);
 	std::vector<Error> asyncCheck;
 };

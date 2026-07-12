@@ -52,7 +52,7 @@
     };
 
 
-// Getter/setter version
+// Getter/hostKeySet version
 #define BOOST_GEOMETRY_DETAIL_SPECIALIZE_POINT_ACCESS_GET_SET(Point, Dim, CoordinateType, Get, Set) \
     template<> struct access<Point, Dim> \
     { \

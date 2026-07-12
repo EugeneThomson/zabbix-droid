@@ -66,8 +66,8 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
         ) {
 
 //            TextField(
-//                value = zabbixHost,
-//                onValueChange = { zabbixHost = it },
+//                value = _zabbix_host,
+//                onValueChange = { _zabbix_host = it },
 //                modifier = Modifier.fillMaxWidth()
 //            )
 //

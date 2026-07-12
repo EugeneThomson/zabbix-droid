@@ -147,7 +147,7 @@ public:
     }
 
     /*!
-     * The setter of the channel name
+     * The hostKeySet of the channel name
      *
      * \param ch The channel name to be set for the logger
      */

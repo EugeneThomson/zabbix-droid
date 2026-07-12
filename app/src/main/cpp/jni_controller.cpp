@@ -4,8 +4,9 @@
 #include "zabbix_trapper.h"
 
 std::string jstring2string(JNIEnv *env, jstring jStr) {
-    if (!jStr)
+    if (!jStr) {
         return "";
+    }
 
     const jclass stringClass = env->GetObjectClass(jStr);
     const jmethodID getBytes = env->GetMethodID(stringClass, "getBytes", "(Ljava/lang/String;)[B");
@@ -47,7 +48,7 @@ Java_com_example_zabbixtrapperndk_NativeTrapper_dataSend(
         jstring key,
         jstring data) {
     ZabbixTrapper* trapper = reinterpret_cast<ZabbixTrapper*>(ptr);
-    trapper->setter(jstring2string(env, host), jstring2string(env, key));
+    trapper->hostKeySet(jstring2string(env, host), jstring2string(env, key));
     return trapper->sendData<std::string>(jstring2string(env, data), true);
 }
 
