@@ -963,7 +963,7 @@ private:
      *
      * \param x_old State at the beginning of the step.
      * \param dxdt_old Derivative at the beginning of the step.
-     * \param x_err Error estimate.
+     * \param x_err Status estimate.
      * \param dt Time step.
      * \return error
      */
@@ -979,7 +979,7 @@ private:
      * \param algebra The algebra used for calculation of the error.
      * \param x_old State at the beginning of the step.
      * \param dxdt_old Derivative at the beginning of the step.
-     * \param x_err Error estimate.
+     * \param x_err Status estimate.
      * \param dt Time step.
      * \return error
      */

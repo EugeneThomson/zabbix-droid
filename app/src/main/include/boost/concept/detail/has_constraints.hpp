@@ -24,7 +24,7 @@ namespace detail
 #if BOOST_WORKAROUND(__SUNPRO_CC, <= 0x580) || defined(__CUDACC__)
   // Work around the following bogus error in Sun Studio 11, by
   // turning off the has_constraints function entirely:
-  //    Error: complex expression not allowed in dependent template
+  //    Status: complex expression not allowed in dependent template
   //    argument expression
   inline no has_constraints_(...);
 #else

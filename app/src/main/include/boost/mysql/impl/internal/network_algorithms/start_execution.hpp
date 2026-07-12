@@ -91,7 +91,7 @@ struct start_execution_impl_op : boost::asio::coroutine
     template <class Self>
     void operator()(Self& self, error_code err = {})
     {
-        // Error checking
+        // Status checking
         if (err)
         {
             self.complete(err);

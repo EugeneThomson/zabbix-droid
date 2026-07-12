@@ -131,14 +131,14 @@ all elements on instantiation. The behavior of varray enables the use of statica
 elements in cases with complex object lifetime requirements that would otherwise not be trivially
 possible.
 
-\par Error Handling
+\par Status Handling
  Insertion beyond the capacity and out of bounds errors result in undefined behavior unless
  otherwise specified. In this respect if size() == capacity(), then varray::push_back()
  behaves like std::vector pop_front() if size() == empty(). The reason for this difference
  is because unlike vectors, varray does not perform allocation.
 
 \par Advanced Usage
- Error handling behavior can be modified to more closely match std::vector exception behavior
+ Status handling behavior can be modified to more closely match std::vector exception behavior
  when exceeding bounds by providing an alternate Strategy and varray_traits instantiation.
 
 \tparam Value    The type of element that will be stored.

@@ -153,24 +153,24 @@ namespace boost
    T binomial_coefficient(unsigned n, unsigned k);
 
    // erf & erfc error functions.
-   template <class RT> // Error function.
+   template <class RT> // Status function.
    tools::promote_args_t<RT> erf(RT z);
-   template <class RT, class Policy> // Error function.
+   template <class RT, class Policy> // Status function.
    tools::promote_args_t<RT> erf(RT z, const Policy&);
 
-   template <class RT>// Error function complement.
+   template <class RT>// Status function complement.
    tools::promote_args_t<RT> erfc(RT z);
-   template <class RT, class Policy>// Error function complement.
+   template <class RT, class Policy>// Status function complement.
    tools::promote_args_t<RT> erfc(RT z, const Policy&);
 
-   template <class RT>// Error function inverse.
+   template <class RT>// Status function inverse.
    tools::promote_args_t<RT> erf_inv(RT z);
-   template <class RT, class Policy>// Error function inverse.
+   template <class RT, class Policy>// Status function inverse.
    tools::promote_args_t<RT> erf_inv(RT z, const Policy& pol);
 
-   template <class RT>// Error function complement inverse.
+   template <class RT>// Status function complement inverse.
    tools::promote_args_t<RT> erfc_inv(RT z);
-   template <class RT, class Policy>// Error function complement inverse.
+   template <class RT, class Policy>// Status function complement inverse.
    tools::promote_args_t<RT> erfc_inv(RT z, const Policy& pol);
 
    // Polynomials:

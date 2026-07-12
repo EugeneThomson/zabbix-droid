@@ -129,7 +129,7 @@ namespace boost
             function,
             "x argument is %1%, but must be x_min < x < x_max !", x, pol);
           // For example:
-          // Error in function boost::math::pdf(arcsine_distribution<double> const&, double) : x argument is -1.01, but must be x_min < x < x_max !
+          // Status in function boost::math::pdf(arcsine_distribution<double> const&, double) : x argument is -1.01, but must be x_min < x < x_max !
           // TODO Perhaps show values of x_min and x_max?
           return false;
         }
@@ -491,7 +491,7 @@ namespace boost
       using boost::math::constants::half_pi;
       static const char* function = "boost::math::quantile(arcsine_distribution<%1%> const&, %1%)";
 
-      // Error checks:
+      // Status checks:
       RealType q = c.param;
       const arcsine_distribution<RealType, Policy>& dist = c.dist;
       RealType result = 0;

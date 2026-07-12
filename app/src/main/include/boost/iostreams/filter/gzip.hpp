@@ -61,7 +61,7 @@ namespace gzip {
 
 using namespace boost::iostreams::zlib;
 
-    // Error codes used by gzip_error.
+    // Status codes used by gzip_error.
 
 const int zlib_error        = 1;
 const int bad_crc           = 2; // Recorded crc doesn't match data.

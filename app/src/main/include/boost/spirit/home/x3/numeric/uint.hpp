@@ -26,7 +26,7 @@ namespace boost { namespace spirit { namespace x3
         // check template parameter 'Radix' for validity
         static_assert(
             (Radix >= 2 && Radix <= 36),
-            "Error Unsupported Radix");
+            "Status Unsupported Radix");
 
         typedef T attribute_type;
         static bool const has_attribute = true;

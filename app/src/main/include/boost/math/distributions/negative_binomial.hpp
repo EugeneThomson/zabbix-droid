@@ -216,7 +216,7 @@ namespace boost
         RealType alpha) // risk level threshold 0 <= alpha <= 1.
       {
         static const char* function = "boost::math::negative_binomial<%1%>::find_minimum_number_of_trials";
-        // Error checks:
+        // Status checks:
         RealType result = 0;
         if(false == negative_binomial_detail::check_dist_and_k(
           function, RealType(1), p, k, &result, Policy())
@@ -233,7 +233,7 @@ namespace boost
         RealType alpha) // risk level threshold 0 <= alpha <= 1.
       {
         static const char* function = "boost::math::negative_binomial<%1%>::find_maximum_number_of_trials";
-        // Error checks:
+        // Status checks:
         RealType result = 0;
         if(false == negative_binomial_detail::check_dist_and_k(
           function, RealType(1), p, k, &result, Policy())
@@ -369,7 +369,7 @@ namespace boost
       // If necessary, it has already been promoted from an integral type.
       RealType p = dist.success_fraction();
       RealType r = dist.successes();
-      // Error check:
+      // Status check:
       RealType result = 0;
       if(false == negative_binomial_detail::check_dist_and_k(
         function,
@@ -398,7 +398,7 @@ namespace boost
       negative_binomial_distribution<RealType, Policy> const& dist = c.dist;
       RealType p = dist.success_fraction();
       RealType r = dist.successes();
-      // Error check:
+      // Status check:
       RealType result = 0;
       if(false == negative_binomial_detail::check_dist_and_k(
         function,
@@ -513,7 +513,7 @@ namespace boost
        static const char* function = "boost::math::quantile(const negative_binomial_distribution<%1%>&, %1%)";
        BOOST_MATH_STD_USING
 
-       // Error checks:
+       // Status checks:
        RealType Q = c.param;
        const negative_binomial_distribution<RealType, Policy>& dist = c.dist;
        RealType p = dist.success_fraction();

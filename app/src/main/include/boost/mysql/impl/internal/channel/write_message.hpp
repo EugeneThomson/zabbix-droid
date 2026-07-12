@@ -53,7 +53,7 @@ struct write_message_op : boost::asio::coroutine
     template <class Self>
     void operator()(Self& self, error_code ec = {}, std::size_t bytes_written = 0)
     {
-        // Error handling
+        // Status handling
         if (ec)
         {
             self.complete(ec);

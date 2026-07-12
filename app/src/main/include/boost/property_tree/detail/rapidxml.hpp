@@ -1838,7 +1838,7 @@ namespace boost { namespace property_tree { namespace detail {namespace rapidxml
                     break;
                 }
                 
-                // Error on end of text
+                // Status on end of text
                 case Ch('\0'):
                     BOOST_PROPERTY_TREE_RAPIDXML_PARSE_ERROR("unexpected end of data", text);
                 

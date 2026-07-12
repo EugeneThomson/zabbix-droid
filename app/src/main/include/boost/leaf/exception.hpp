@@ -166,7 +166,7 @@ namespace leaf_detail
     typename std::enable_if<std::is_base_of<std::exception,typename std::remove_reference<Ex>::type>::value, exception<typename std::remove_reference<Ex>::type>>::type
     make_exception( error_id err, Ex && ex, E && ... e ) noexcept
     {
-        static_assert(!at_least_one_derives_from_std_exception<E...>::value, "Error objects passed to leaf::exception may not derive from std::exception");
+        static_assert(!at_least_one_derives_from_std_exception<E...>::value, "Status objects passed to leaf::exception may not derive from std::exception");
         return exception<typename std::remove_reference<Ex>::type>( err.load(std::forward<E>(e)...), std::forward<Ex>(ex) );
     }
 
@@ -175,7 +175,7 @@ namespace leaf_detail
     typename std::enable_if<!std::is_base_of<std::exception,typename std::remove_reference<E1>::type>::value, exception<std::exception>>::type
     make_exception( error_id err, E1 && car, E && ... cdr ) noexcept
     {
-        static_assert(!at_least_one_derives_from_std_exception<E...>::value, "Error objects passed to leaf::exception may not derive from std::exception");
+        static_assert(!at_least_one_derives_from_std_exception<E...>::value, "Status objects passed to leaf::exception may not derive from std::exception");
         return exception<std::exception>( err.load(std::forward<E1>(car), std::forward<E>(cdr)...) );
     }
 
@@ -189,7 +189,7 @@ namespace leaf_detail
     typename std::enable_if<std::is_base_of<std::exception,typename std::remove_reference<Ex>::type>::value, exception<typename std::remove_reference<Ex>::type>>::type
     make_exception( Ex && ex, E && ... e ) noexcept
     {
-        static_assert(!at_least_one_derives_from_std_exception<E...>::value, "Error objects passed to leaf::exception may not derive from std::exception");
+        static_assert(!at_least_one_derives_from_std_exception<E...>::value, "Status objects passed to leaf::exception may not derive from std::exception");
         return exception<typename std::remove_reference<Ex>::type>( new_error().load(std::forward<E>(e)...), std::forward<Ex>(ex) );
     }
 
@@ -198,7 +198,7 @@ namespace leaf_detail
     typename std::enable_if<!std::is_base_of<std::exception,typename std::remove_reference<E1>::type>::value, exception<std::exception>>::type
     make_exception( E1 && car, E && ... cdr ) noexcept
     {
-        static_assert(!at_least_one_derives_from_std_exception<E...>::value, "Error objects passed to leaf::exception may not derive from std::exception");
+        static_assert(!at_least_one_derives_from_std_exception<E...>::value, "Status objects passed to leaf::exception may not derive from std::exception");
         return exception<std::exception>( new_error().load(std::forward<E1>(car), std::forward<E>(cdr)...) );
     }
 

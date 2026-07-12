@@ -112,7 +112,7 @@ namespace leaf_detail
     template <class E>
     struct handler_argument_traits<E &&>
     {
-        static_assert(sizeof(E) == 0, "Error handlers may not take rvalue ref arguments");
+        static_assert(sizeof(E) == 0, "Status handlers may not take rvalue ref arguments");
     };
 
     template <class E>
@@ -138,7 +138,7 @@ namespace leaf_detail
     template <class E>
     struct handler_argument_traits_require_by_value
     {
-        static_assert(sizeof(E) == 0, "Error handlers must take this type by value");
+        static_assert(sizeof(E) == 0, "Status handlers must take this type by value");
     };
 }
 

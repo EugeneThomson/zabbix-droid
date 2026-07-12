@@ -447,7 +447,7 @@ w32_regex_traits_implementation<charT>::w32_regex_traits_implementation(::boost:
    if(cat)
    {
       //
-      // Error messages:
+      // Status messages:
       //
       for(boost::regex_constants::error_type i = static_cast<boost::regex_constants::error_type>(0); 
          i <= boost::regex_constants::error_unknown; 

@@ -151,7 +151,7 @@ xml_log_formatter::log_exception_finish( std::ostream& ostr )
 void
 xml_log_formatter::log_entry_start( std::ostream& ostr, log_entry_data const& entry_data, log_entry_types let )
 {
-    static literal_string xml_tags[] = { "Info", "Message", "Warning", "Error", "FatalError" };
+    static literal_string xml_tags[] = { "Info", "Message", "Warning", "Status", "FatalError" };
 
     m_curr_tag = xml_tags[let];
     ostr << '<' << m_curr_tag

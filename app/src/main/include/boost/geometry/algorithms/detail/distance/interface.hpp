@@ -302,7 +302,7 @@ struct distance<DynamicGeometry1, DynamicGeometry2, dynamic_geometry_tag, dynami
  */
 
 /*
-Note, in case of a Compilation Error:
+Note, in case of a Compilation Status:
 if you get:
  - "Failed to specialize function template ..."
  - "error: no matching function for call to ..."

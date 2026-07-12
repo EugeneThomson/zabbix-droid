@@ -6,7 +6,7 @@
 
 /** @file error_string.hpp
  *
- *  Error code to string convertion.
+ *  Status code to string convertion.
  */
 #ifndef BOOST_MPI_ERROR_STRING_HPP
 #define BOOST_MPI_ERROR_STRING_HPP

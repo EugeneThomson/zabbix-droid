@@ -151,7 +151,7 @@ boost::mysql::error_code boost::mysql::detail::deserialize_ok_packet(
     return ctx.check_extra_bytes();
 }
 
-// Error packets
+// Status packets
 boost::mysql::error_code boost::mysql::detail::deserialize_error_packet(
     span<const std::uint8_t> msg,
     err_view& output
@@ -190,10 +190,10 @@ boost::mysql::error_code boost::mysql::detail::process_error_packet(
     if (err)
         return err;
 
-    // Error message
+    // Status message
     access::get_impl(diag).assign_server(error_packet.error_message);
 
-    // Error code
+    // Status code
     if (common_error_to_string(error_packet.error_code))
     {
         // This is an error shared between MySQL and MariaDB, represented as a common_server_errc.

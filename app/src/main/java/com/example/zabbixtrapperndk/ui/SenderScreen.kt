@@ -1,4 +1,4 @@
-package com.example.zabbixtrapperndk
+package com.example.zabbixtrapperndk.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -15,24 +15,24 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 //import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.ExposedDropdownMenuBox
-import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import kotlin.random.Random
+import com.example.zabbixtrapperndk.data.HostKeyPair
+import com.example.zabbixtrapperndk.data.HostKeyPairStorage
+import com.example.zabbixtrapperndk.data.TrapperHolder
+import kotlinx.coroutines.launch
 
 //@OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -41,6 +41,7 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
     var text by remember { mutableStateOf("") }
     var expanded by remember { mutableStateOf(false) }
     var selectedItem by remember { mutableStateOf(HostKeyPair("", "")) }
+//    val scope = rememberCoroutineScope()
 
     Box(modifier = Modifier.fillMaxSize()) {
         Row(
@@ -93,7 +94,7 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
                 expanded = expanded,
                 onDismissRequest = { expanded = false }
             ) {
-                HostKeyPairHolder.items.forEach { item ->
+                HostKeyPairStorage.items.forEach { item ->
                     DropdownMenuItem(
                         text = { Text("${item.host} ${item.key}") }, // обязательно
                         onClick = {
@@ -111,13 +112,21 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
             )
 
             Button(
-                onClick = { TrapperHolder.trapper.send(selectedItem.host, selectedItem.key,  text) }
+                onClick = {
+//                    scope.launch {
+//                        TrapperHolder.trapper.send(selectedItem.host, selectedItem.key,  text)
+//                    }
+                    TrapperHolder.trapper.send(selectedItem.host, selectedItem.key,  text)
+                }
             ) {
                 Text("Send")
             }
 
             Button(
                 onClick = {
+//                    scope.launch {
+//                        TrapperHolder.trapper.send("Motorola-Host", "Motorola-Key", text)
+//                    }
                     TrapperHolder.trapper.send("Motorola-Host", "Motorola-Key", text)
                 }
             ) {

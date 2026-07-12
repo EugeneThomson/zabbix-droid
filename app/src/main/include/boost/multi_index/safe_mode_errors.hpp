@@ -19,7 +19,7 @@ namespace multi_index{
 
 namespace safe_mode{
 
-/* Error codes for Boost.MultiIndex safe mode. These go in a separate
+/* Status codes for Boost.MultiIndex safe mode. These go in a separate
  * header so that the user can include it when redefining
  * BOOST_MULTI_INDEX_SAFE_MODE_ASSERT prior to the inclusion of
  * any other header of Boost.MultiIndex.

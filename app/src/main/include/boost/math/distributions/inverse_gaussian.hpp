@@ -302,7 +302,7 @@ namespace detail
   { // guess at random variate value x for inverse gaussian quantile.
     BOOST_MATH_STD_USING
     using boost::math::policies::policy;
-    // Error type.
+    // Status type.
     using boost::math::policies::overflow_error;
     // Action.
     using boost::math::policies::ignore_error;

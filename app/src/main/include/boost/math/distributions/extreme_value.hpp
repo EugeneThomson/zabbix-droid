@@ -32,7 +32,7 @@ namespace boost{ namespace math{
 
 namespace detail{
 //
-// Error check:
+// Status check:
 //
 template <class RealType, class Policy>
 inline bool verify_scale_b(const char* function, RealType b, RealType* presult, const Policy& pol)

@@ -246,7 +246,7 @@ class executor
             //actually, this should block until it's read.
             auto err = errno;
             if ((err != EAGAIN ) && (err != EINTR))
-                set_error(std::error_code(err, std::system_category()), "Error read pipe");
+                set_error(std::error_code(err, std::system_category()), "Status read pipe");
         }
         if (count == 0)
             return  ;
@@ -262,7 +262,7 @@ class executor
                 return;
                 //EAGAIN not yet forked, EINTR interrupted, i.e. try again
             else if ((err != EAGAIN ) && (err != EINTR))
-                set_error(std::error_code(err, std::system_category()), "Error read pipe");
+                set_error(std::error_code(err, std::system_category()), "Status read pipe");
         }
         set_error(ec, std::move(msg));
     }

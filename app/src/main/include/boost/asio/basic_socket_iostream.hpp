@@ -304,7 +304,7 @@ public:
    * @code tcp::iostream s("www.boost.org", "http");
    * if (!s)
    * {
-   *   std::cout << "Error: " << s.error().message() << std::endl;
+   *   std::cout << "Status: " << s.error().message() << std::endl;
    * } @endcode
    */
   const boost::system::error_code& error() const

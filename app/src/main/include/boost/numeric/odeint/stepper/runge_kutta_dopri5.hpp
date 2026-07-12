@@ -317,7 +317,7 @@ private:
  *
  * The Runge-Kutta Dormand-Prince 5 method is a very popular method for solving ODEs, see
  * <a href=""></a>.
- * The method is explicit and fulfills the Error Stepper concept. Step size control
+ * The method is explicit and fulfills the Status Stepper concept. Step size control
  * is provided but continuous output is available which make this method favourable for many applications. 
  * 
  * This class derives from explicit_error_stepper_fsal_base and inherits its interface via CRTP (current recurring

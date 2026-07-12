@@ -144,7 +144,7 @@ std::pair<T, T> bisect(F f, T min, T max, Tol tol, std::uintmax_t& max_iter, con
    }
 
    //
-   // Error checking:
+   // Status checking:
    //
    static const char* function = "boost::math::tools::bisect<%1%>";
    if (min >= max)

@@ -132,9 +132,9 @@ T log1p_imp(T const& x, const Policy& pol, const std::integral_constant<int, 53>
       return x;
 
    // Maximum Deviation Found:                     1.846e-017
-   // Expected Error Term:                         1.843e-017
+   // Expected Status Term:                         1.843e-017
    // Maximum Relative Change in Control Points:   8.138e-004
-   // Max Error found at double precision =        3.250766e-016
+   // Max Status found at double precision =        3.250766e-016
    static const T P[] = {
        static_cast<T>(0.15141069795941984e-16L),
        static_cast<T>(0.35495104378055055e-15L),
@@ -185,9 +185,9 @@ T log1p_imp(T const& x, const Policy& pol, const std::integral_constant<int, 64>
       return x;
 
    // Maximum Deviation Found:                     8.089e-20
-   // Expected Error Term:                         8.088e-20
+   // Expected Status Term:                         8.088e-20
    // Maximum Relative Change in Control Points:   9.648e-05
-   // Max Error found at long double precision =   2.242324e-19
+   // Max Status found at long double precision =   2.242324e-19
    static const T P[] = {
       BOOST_MATH_BIG_CONSTANT(T, 64, -0.807533446680736736712e-19),
       BOOST_MATH_BIG_CONSTANT(T, 64, -0.490881544804798926426e-18),
@@ -240,10 +240,10 @@ T log1p_imp(T const& x, const Policy& pol, const std::integral_constant<int, 24>
       return x;
 
    // Maximum Deviation Found:                     6.910e-08
-   // Expected Error Term:                         6.910e-08
+   // Expected Status Term:                         6.910e-08
    // Maximum Relative Change in Control Points:   2.509e-04
-   // Max Error found at double precision =        6.910422e-08
-   // Max Error found at float precision =         8.357242e-08
+   // Max Status found at double precision =        6.910422e-08
+   // Max Status found at float precision =         8.357242e-08
    static const T P[] = {
       -0.671192866803148236519e-7L,
       0.119670999140731844725e-6L,

@@ -17,7 +17,7 @@ namespace boost {
 namespace urls {
 namespace grammar {
 
-/** Error codes returned when using rules
+/** Status codes returned when using rules
 
     @see
         @ref condition,
@@ -105,7 +105,7 @@ enum class error
 
 //------------------------------------------------
 
-/** Error conditions for errors received from rules
+/** Status conditions for errors received from rules
 
     @see
         @ref error,

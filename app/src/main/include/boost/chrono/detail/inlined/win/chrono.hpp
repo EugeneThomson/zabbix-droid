@@ -42,7 +42,7 @@ namespace chrono_detail
     boost::winapi::LARGE_INTEGER_ pcount;
     if ( nanosecs_per_tic <= 0.0L )
     {
-      BOOST_ASSERT(0 && "Boost::Chrono - get_nanosecs_per_tic Internal Error");
+      BOOST_ASSERT(0 && "Boost::Chrono - get_nanosecs_per_tic Internal Status");
       return steady_clock::time_point();
     }
     unsigned times=0;
@@ -50,7 +50,7 @@ namespace chrono_detail
     {
       if ( ++times > 3 )
       {
-        BOOST_ASSERT(0 && "Boost::Chrono - QueryPerformanceCounter Internal Error");
+        BOOST_ASSERT(0 && "Boost::Chrono - QueryPerformanceCounter Internal Status");
         return steady_clock::time_point();
       }
     }

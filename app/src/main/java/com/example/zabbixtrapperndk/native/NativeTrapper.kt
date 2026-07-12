@@ -1,4 +1,7 @@
-package com.example.zabbixtrapperndk
+package com.example.zabbixtrapperndk.native
+
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class NativeTrapper {
 
@@ -45,4 +48,12 @@ class NativeTrapper {
             return dataSend(nativePtr, host, key, data)
         }
     }
+//    suspend fun send(host: String, key: String, data: String): Int = withContext(Dispatchers.IO) {
+//        synchronized(lock) {
+//            if (!isInitialized) {
+//                return@synchronized -1
+//            }
+//            dataSend(nativePtr, host, key, data)
+//        }
+//    }
 }

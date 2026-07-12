@@ -201,7 +201,7 @@ namespace boost
         RealType alpha) // risk level threshold 0 <= alpha <= 1.
       {
         static const char* function = "boost::math::geometric<%1%>::find_minimum_number_of_trials";
-        // Error checks:
+        // Status checks:
         RealType result = 0;
         if(false == geometric_detail::check_dist_and_k(
           function, p, k, &result, Policy())
@@ -219,7 +219,7 @@ namespace boost
         RealType alpha) // risk level threshold 0 <= alpha <= 1.
       {
         static const char* function = "boost::math::geometric<%1%>::find_maximum_number_of_trials";
-        // Error checks:
+        // Status checks:
         RealType result = 0;
         if(false == geometric_detail::check_dist_and_k(
           function, p, k, &result, Policy())
@@ -357,7 +357,7 @@ namespace boost
       // k argument may be integral, signed, or unsigned, or floating point.
       // If necessary, it has already been promoted from an integral type.
       RealType p = dist.success_fraction();
-      // Error check:
+      // Status check:
       RealType result = 0;
       if(false == geometric_detail::check_dist_and_k(
         function,
@@ -389,7 +389,7 @@ namespace boost
       // k argument may be integral, signed, or unsigned, or floating point.
       // If necessary, it has already been promoted from an integral type.
       RealType p = dist.success_fraction();
-      // Error check:
+      // Status check:
       RealType result = 0;
       if(false == geometric_detail::check_dist_and_k(
         function,
@@ -420,7 +420,7 @@ namespace boost
       RealType const& k = c.param;
       geometric_distribution<RealType, Policy> const& dist = c.dist;
       RealType p = dist.success_fraction();
-      // Error check:
+      // Status check:
       RealType result = 0;
       if(false == geometric_detail::check_dist_and_k(
         function,
@@ -445,7 +445,7 @@ namespace boost
       RealType const& k = c.param;
       geometric_distribution<RealType, Policy> const& dist = c.dist;
       RealType p = dist.success_fraction();
-      // Error check:
+      // Status check:
       RealType result = 0;
       if(false == geometric_detail::check_dist_and_k(
         function,
@@ -517,7 +517,7 @@ namespace boost
        // complement of the probability Q = 1 - P.
        static const char* function = "boost::math::quantile(const geometric_distribution<%1%>&, %1%)";
        BOOST_MATH_STD_USING
-       // Error checks:
+       // Status checks:
        RealType x = c.param;
        const geometric_distribution<RealType, Policy>& dist = c.dist;
        RealType success_fraction = dist.success_fraction();

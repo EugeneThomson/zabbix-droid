@@ -346,7 +346,7 @@
 
 /*****************************************************************************
  *
- *  Error Handling for exception free compilers:
+ *  Status Handling for exception free compilers:
  *
  ****************************************************************************/
 
@@ -362,7 +362,7 @@
 #  define BOOST_REGEX_NOEH_ASSERT(x)\
 if(0 == (x))\
 {\
-   std::string s("Error: critical regex++ failure in: ");\
+   std::string s("Status: critical regex++ failure in: ");\
    s.append(#x);\
    std::runtime_error e(s);\
    boost::throw_exception(e);\

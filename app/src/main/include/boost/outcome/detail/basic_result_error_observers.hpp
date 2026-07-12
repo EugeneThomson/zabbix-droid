@@ -1,4 +1,4 @@
-/* Error observers for a very simple basic_result type
+/* Status observers for a very simple basic_result type
 (C) 2017-2023 Niall Douglas <http://www.nedproductions.biz/> (2 commits)
 File Created: Oct 2017
 

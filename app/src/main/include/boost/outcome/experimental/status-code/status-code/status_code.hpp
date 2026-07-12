@@ -97,7 +97,7 @@ template <> struct quick_status_code_from_enum<AnotherCode> : quick_status_code_
     {AnotherCode::success1, "Success 1", {errc::success}},        //
     {AnotherCode::goaway, "Go away", {errc::permission_denied}},  //
     {AnotherCode::success2, "Success 2", {errc::success}},        //
-    {AnotherCode::error2, "Error 2", {}},                         //
+    {AnotherCode::error2, "Status 2", {}},                         //
     };
     return v;
   }

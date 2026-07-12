@@ -383,7 +383,7 @@ private:
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-//  Error during macro handling, this exception contains the related macro name
+//  Status during macro handling, this exception contains the related macro name
 class BOOST_SYMBOL_VISIBLE macro_handling_exception :
     public preprocess_exception
 {

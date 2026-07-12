@@ -568,7 +568,7 @@ public:
 
 private:
    //
-   // Error handler called when an uninitialized match_results is accessed:
+   // Status handler called when an uninitialized match_results is accessed:
    //
    static void raise_logic_error()
    {
