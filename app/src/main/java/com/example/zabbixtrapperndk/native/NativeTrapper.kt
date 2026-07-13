@@ -40,20 +40,20 @@ class NativeTrapper {
         }
     }
 
-    fun send(host: String, key: String, data: String): Int {
-        synchronized(lock) {
-            if (!isInitialized) {
-                return -1
-            }
-            return dataSend(nativePtr, host, key, data)
-        }
-    }
-//    suspend fun send(host: String, key: String, data: String): Int = withContext(Dispatchers.IO) {
+//    fun send(host: String, key: String, data: String): Int {
 //        synchronized(lock) {
 //            if (!isInitialized) {
-//                return@synchronized -1
+//                return -1
 //            }
-//            dataSend(nativePtr, host, key, data)
+//            return dataSend(nativePtr, host, key, data)
 //        }
 //    }
+    suspend fun send(host: String, key: String, data: String): Int = withContext(Dispatchers.IO) {
+        synchronized(lock) {
+            if (!isInitialized) {
+                return@synchronized -1
+            }
+            dataSend(nativePtr, host, key, data)
+        }
+    }
 }

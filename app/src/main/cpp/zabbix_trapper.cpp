@@ -66,8 +66,7 @@ Status ZabbixTrapper::sendPacket(std::string value) {
 
 	if (error) {
 		return Status::failed_send;
-	}
-	else {
+	} else {
 		return Status::succesed;
 	}
 }
@@ -78,14 +77,15 @@ std::vector<char> ZabbixTrapper::createZabbixPacket(const std::string& value) {
 	                      + std::string(kJsonKey)
 	                      + _client_key
 	                      + std::string(kJsonValue)
-	                          + value.substr(0, value.length())
-	                          + std::string(kJsonSuffix);
+						  + value.substr(0, value.length())
+						  + std::string(kJsonSuffix);
 	std::uint64_t payload_size = payload.size();
 
-	std::vector<char> msg(kMinMessageSize + kHeaderSize);
-	if (payload_size > kMinMessageSize) {
-		msg.resize(payload_size + kHeaderSize);
-	}
+//	std::vector<char> msg(kMinMessageSize + kHeaderSize);
+//	if (payload_size > kMinMessageSize) {
+//		msg.resize(payload_size + kHeaderSize);
+//	}
+    std::vector<char> msg(payload_size + kHeaderSize);
 
 	memset(msg.data(), 0x00, payload_size + kHeaderSize);
 
