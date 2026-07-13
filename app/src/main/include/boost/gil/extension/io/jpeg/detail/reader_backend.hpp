@@ -98,7 +98,7 @@ public:
         get()->err         = jpeg_std_error( &_jerr );
         get()->client_data = this;
 
-        // Status exit handler: does not return to caller.
+        // Error exit handler: does not return to caller.
         _jerr.error_exit = &reader_backend::error_exit;
 
         if( setjmp( _mark ))
@@ -215,7 +215,7 @@ protected:
 
     // Taken from jerror.c
     /*
-     * Status exit handler: must not return to caller.
+     * Error exit handler: must not return to caller.
      *
      * Applications may override this if they want to get control back after
      * an error.  Typically one would longjmp somewhere instead of exiting.

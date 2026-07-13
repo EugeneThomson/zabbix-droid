@@ -26,7 +26,7 @@ namespace boost{ namespace math{
 
 namespace detail{
 //
-// Status check:
+// Error check:
 //
 template <class RealType, class Policy>
 inline bool verify_lambda(const char* function, RealType l, RealType* presult, const Policy& pol)

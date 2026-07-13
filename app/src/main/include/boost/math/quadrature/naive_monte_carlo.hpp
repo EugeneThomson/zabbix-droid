@@ -337,7 +337,7 @@ private:
                break;
             }
          } while (m_total_calls < 2048 || this->current_error_estimate() > m_error_goal.load(std::memory_order_consume));
-         // Status bound met; signal the threads:
+         // Error bound met; signal the threads:
          m_done = true; // relaxed store, threads will get the message in the end
          std::for_each(threads.begin(), threads.end(),
             std::mem_fn(&std::thread::join));

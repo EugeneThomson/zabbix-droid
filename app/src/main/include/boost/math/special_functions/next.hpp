@@ -470,7 +470,7 @@ T float_distance_imp(const T& a, const T& b, const std::true_type&, const Policy
 {
    BOOST_MATH_STD_USING
    //
-   // Status handling:
+   // Error handling:
    //
    static const char* function = "float_distance<%1%>(%1%, %1%)";
    if(!(boost::math::isfinite)(a))
@@ -578,7 +578,7 @@ T float_distance_imp(const T& a, const T& b, const std::false_type&, const Polic
 
    BOOST_MATH_STD_USING
    //
-   // Status handling:
+   // Error handling:
    //
    static const char* function = "float_distance<%1%>(%1%, %1%)";
    if(!(boost::math::isfinite)(a))
@@ -724,7 +724,7 @@ T float_advance_imp(T val, int distance, const std::true_type&, const Policy& po
 {
    BOOST_MATH_STD_USING
    //
-   // Status handling:
+   // Error handling:
    //
    static const char* function = "float_advance<%1%>(%1%, int)";
 
@@ -810,7 +810,7 @@ T float_advance_imp(T val, int distance, const std::false_type&, const Policy& p
 
    BOOST_MATH_STD_USING
    //
-   // Status handling:
+   // Error handling:
    //
    static const char* function = "float_advance<%1%>(%1%, int)";
 

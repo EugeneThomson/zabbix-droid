@@ -16,7 +16,7 @@
 namespace boost {
 namespace json {
 
-/** Status codes returned by JSON operations
+/** Error codes returned by JSON operations
 
 */
 enum class error
@@ -153,7 +153,7 @@ enum class error
 
 };
 
-/** Status conditions corresponding to JSON errors
+/** Error conditions corresponding to JSON errors
 */
 enum class condition
 {

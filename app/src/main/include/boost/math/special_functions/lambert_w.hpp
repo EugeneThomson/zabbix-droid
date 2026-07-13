@@ -1046,7 +1046,7 @@ T lambert_w_positive_rational_float(T z)
       if (z < T(0.5))
       { // 0.05 < z < 0.5
         // Maximum Deviation Found:                     2.993e-08
-        // Expected Status Term : 2.993e-08
+        // Expected Error Term : 2.993e-08
         // Maximum Relative Change in Control Points : 7.555e-04 Y offset : -8.196592331e-01
          static const T Y = 8.196592331e-01f;
          static const T P[] = {
@@ -1512,7 +1512,7 @@ T lambert_w_negative_rational_double(T z, const Policy& pol)
       {
          // -0.1 < z < -0.051
          // Maximum Deviation Found:                     4.402e-22
-         // Expected Status Term : 4.240e-22
+         // Expected Error Term : 4.240e-22
          // Maximum Relative Change in Control Points : 4.115e-03
          static const T Y = 1.08633995056152344e+00;
          static const T P[] = {
@@ -1543,7 +1543,7 @@ T lambert_w_negative_rational_double(T z, const Policy& pol)
    {
       // -0.2 < z < -0.1
       // Maximum Deviation Found:                     2.898e-20
-      // Expected Status Term : 2.873e-20
+      // Expected Error Term : 2.873e-20
       // Maximum Relative Change in Control Points : 3.779e-04
       static const T Y = 1.20359611511230469e+00;
       static const T P[] = {

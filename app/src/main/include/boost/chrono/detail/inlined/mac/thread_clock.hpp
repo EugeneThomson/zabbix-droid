@@ -31,7 +31,7 @@ namespace boost { namespace chrono {
         mach_msg_type_number_t count = THREAD_BASIC_INFO_COUNT;
         if ( thread_info(port, THREAD_BASIC_INFO, (thread_info_t)&info, &count) != KERN_SUCCESS )
         {
-            BOOST_ASSERT(0 && "Boost::Chrono - Internal Status");
+            BOOST_ASSERT(0 && "Boost::Chrono - Internal Error");
             return time_point();
         }
 

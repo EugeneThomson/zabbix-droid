@@ -38,7 +38,7 @@ namespace boost
     };
 
     //
-    // For compilers that don't support "Substitution Failure Is Not An Status"
+    // For compilers that don't support "Substitution Failure Is Not An Error"
     // enable_if falls back to always enabled. See comments
     // on operator implementation for consequences.
     //

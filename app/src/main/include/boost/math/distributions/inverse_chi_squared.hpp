@@ -195,7 +195,7 @@ inline RealType quantile(const inverse_chi_squared_distribution<RealType, Policy
    RealType scale = dist.scale();
 
    static const char* function = "boost::math::quantile(const inverse_chi_squared_distribution<%1%>&, %1%)";
-   // Status check:
+   // Error check:
    RealType error_result;
    if(false == detail::check_df(
          function, df, &error_result, Policy())
@@ -227,7 +227,7 @@ inline RealType cdf(const complemented2_type<inverse_chi_squared_distribution<Re
    RealType const& scale = c.dist.scale();
    RealType const& x = c.param;
    static const char* function = "boost::math::cdf(const inverse_chi_squared_distribution<%1%>&, %1%)";
-   // Status check:
+   // Error check:
    RealType error_result;
    if(false == detail::check_df(
          function, df, &error_result, Policy()))
@@ -259,7 +259,7 @@ inline RealType quantile(const complemented2_type<inverse_chi_squared_distributi
    RealType const& scale = c.dist.scale();
    RealType const& q = c.param;
    static const char* function = "boost::math::quantile(const inverse_chi_squared_distribution<%1%>&, %1%)";
-   // Status check:
+   // Error check:
    RealType error_result;
    if(false == detail::check_df(function, df, &error_result, Policy()))
    {

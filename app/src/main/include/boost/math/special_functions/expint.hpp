@@ -56,7 +56,7 @@ T expint_1_rational(const T& z, const std::integral_constant<int, 53>&)
    if(z <= 1)
    {
       // Maximum Deviation Found:                     2.006e-18
-      // Expected Status Term:                         2.006e-18
+      // Expected Error Term:                         2.006e-18
       // Max error found at double precision:         2.760e-17
       static const T Y = 0.66373538970947265625F;
       static const T P[6] = {
@@ -130,7 +130,7 @@ T expint_1_rational(const T& z, const std::integral_constant<int, 64>&)
    if(z <= 1)
    {
       // Maximum Deviation Found:                     3.807e-20
-      // Expected Status Term:                         3.807e-20
+      // Expected Error Term:                         3.807e-20
       // Max error found at long double precision:    6.249e-20
 
       static const T Y = 0.66373538970947265625F;
@@ -211,7 +211,7 @@ T expint_1_rational(const T& z, const std::integral_constant<int, 113>&)
    if(z <= 1)
    {
       // Maximum Deviation Found:                     2.477e-35
-      // Expected Status Term:                         2.477e-35
+      // Expected Error Term:                         2.477e-35
       // Max error found at long double precision:    6.810e-35
 
       static const T Y = 0.66373538970947265625F;
@@ -539,8 +539,8 @@ T expint_i_imp(T z, const Policy& pol, const std::integral_constant<int, 53>& ta
    if(z <= 6)
    {
       // Maximum Deviation Found:                     2.852e-18
-      // Expected Status Term:                         2.852e-18
-      // Max Status found at double precision =        Poly: 2.636335e-16   Cheb: 4.187027e-16
+      // Expected Error Term:                         2.852e-18
+      // Max Error found at double precision =        Poly: 2.636335e-16   Cheb: 4.187027e-16
       static const T P[10] = {
          BOOST_MATH_BIG_CONSTANT(T, 53, 2.98677224343598593013),
          BOOST_MATH_BIG_CONSTANT(T, 53, 0.356343618769377415068),
@@ -586,8 +586,8 @@ T expint_i_imp(T z, const Policy& pol, const std::integral_constant<int, 53>& ta
    else if (z <= 10)
    {
       // Maximum Deviation Found:                     6.546e-17
-      // Expected Status Term:                         6.546e-17
-      // Max Status found at double precision =        Poly: 6.890169e-17   Cheb: 6.772128e-17
+      // Expected Error Term:                         6.546e-17
+      // Max Error found at double precision =        Poly: 6.890169e-17   Cheb: 6.772128e-17
       static const T Y = 1.158985137939453125F;
       static const T P[8] = {
          BOOST_MATH_BIG_CONSTANT(T, 53, 0.00139324086199402804173),
@@ -618,8 +618,8 @@ T expint_i_imp(T z, const Policy& pol, const std::integral_constant<int, 53>& ta
    else if(z <= 20)
    {
       // Maximum Deviation Found:                     1.843e-17
-      // Expected Status Term:                         -1.842e-17
-      // Max Status found at double precision =        Poly: 4.375868e-17   Cheb: 5.860967e-17
+      // Expected Error Term:                         -1.842e-17
+      // Max Error found at double precision =        Poly: 4.375868e-17   Cheb: 5.860967e-17
 
       static const T Y = 1.0869731903076171875F;
       static const T P[9] = {
@@ -653,8 +653,8 @@ T expint_i_imp(T z, const Policy& pol, const std::integral_constant<int, 53>& ta
    else if(z <= 40)
    {
       // Maximum Deviation Found:                     5.102e-18
-      // Expected Status Term:                         5.101e-18
-      // Max Status found at double precision =        Poly: 1.441088e-16   Cheb: 1.864792e-16
+      // Expected Error Term:                         5.101e-18
+      // Max Error found at double precision =        Poly: 1.441088e-16   Cheb: 1.864792e-16
 
 
       static const T Y = 1.03937530517578125F;
@@ -687,7 +687,7 @@ T expint_i_imp(T z, const Policy& pol, const std::integral_constant<int, 53>& ta
    }
    else
    {
-      // Max Status found at double precision =        3.381886e-17
+      // Max Error found at double precision =        3.381886e-17
       static const T exp40 = static_cast<T>(BOOST_MATH_BIG_CONSTANT(T, 53, 2.35385266837019985407899910749034804508871617254555467236651e17));
       static const T Y= 1.013065338134765625F;
       static const T P[6] = {
@@ -753,8 +753,8 @@ T expint_i_imp(T z, const Policy& pol, const std::integral_constant<int, 64>& ta
    if(z <= 6)
    {
       // Maximum Deviation Found:                     3.883e-21
-      // Expected Status Term:                         3.883e-21
-      // Max Status found at long double precision =   Poly: 3.344801e-19   Cheb: 4.989937e-19
+      // Expected Error Term:                         3.883e-21
+      // Max Error found at long double precision =   Poly: 3.344801e-19   Cheb: 4.989937e-19
 
       static const T P[11] = {
          BOOST_MATH_BIG_CONSTANT(T, 64, 2.98677224343598593764),
@@ -803,8 +803,8 @@ T expint_i_imp(T z, const Policy& pol, const std::integral_constant<int, 64>& ta
    else if (z <= 10)
    {
       // Maximum Deviation Found:                     2.622e-21
-      // Expected Status Term:                         -2.622e-21
-      // Max Status found at long double precision =   Poly: 1.208328e-20   Cheb: 1.073723e-20
+      // Expected Error Term:                         -2.622e-21
+      // Max Error found at long double precision =   Poly: 1.208328e-20   Cheb: 1.073723e-20
 
       static const T Y = 1.158985137939453125F;
       static const T P[9] = {
@@ -839,8 +839,8 @@ T expint_i_imp(T z, const Policy& pol, const std::integral_constant<int, 64>& ta
    else if(z <= 20)
    {
       // Maximum Deviation Found:                     3.220e-20
-      // Expected Status Term:                         3.220e-20
-      // Max Status found at long double precision =   Poly: 7.696841e-20   Cheb: 6.205163e-20
+      // Expected Error Term:                         3.220e-20
+      // Max Error found at long double precision =   Poly: 7.696841e-20   Cheb: 6.205163e-20
 
 
       static const T Y = 1.0869731903076171875F;
@@ -877,8 +877,8 @@ T expint_i_imp(T z, const Policy& pol, const std::integral_constant<int, 64>& ta
    else if(z <= 40)
    {
       // Maximum Deviation Found:                     2.940e-21
-      // Expected Status Term:                         -2.938e-21
-      // Max Status found at long double precision =   Poly: 3.419893e-19   Cheb: 3.359874e-19
+      // Expected Error Term:                         -2.938e-21
+      // Max Error found at long double precision =   Poly: 3.419893e-19   Cheb: 3.359874e-19
 
       static const T Y = 1.03937530517578125F;
       static const T P[12] = {
@@ -918,7 +918,7 @@ T expint_i_imp(T z, const Policy& pol, const std::integral_constant<int, 64>& ta
    else
    {
       // Maximum Deviation Found:                     3.536e-20
-      // Max Status found at long double precision =   Poly: 1.310671e-19   Cheb: 8.630943e-11
+      // Max Error found at long double precision =   Poly: 1.310671e-19   Cheb: 8.630943e-11
 
       static const T exp40 = static_cast<T>(BOOST_MATH_BIG_CONSTANT(T, 64, 2.35385266837019985407899910749034804508871617254555467236651e17));
       static const T Y= 1.013065338134765625F;
@@ -980,8 +980,8 @@ void expint_i_imp_113a(T& result, const T& z, const Policy& pol)
 {
    BOOST_MATH_STD_USING
    // Maximum Deviation Found:                     1.230e-36
-   // Expected Status Term:                         -1.230e-36
-   // Max Status found at long double precision =   Poly: 4.355299e-34   Cheb: 7.512581e-34
+   // Expected Error Term:                         -1.230e-36
+   // Max Error found at long double precision =   Poly: 4.355299e-34   Cheb: 7.512581e-34
 
 
    static const T P[15] = {
@@ -1048,8 +1048,8 @@ void expint_i_113b(T& result, const T& z)
 {
    BOOST_MATH_STD_USING
    // Maximum Deviation Found:                     7.779e-36
-   // Expected Status Term:                         -7.779e-36
-   // Max Status found at long double precision =   Poly: 2.576723e-35   Cheb: 1.236001e-34
+   // Expected Error Term:                         -7.779e-36
+   // Max Error found at long double precision =   Poly: 2.576723e-35   Cheb: 1.236001e-34
 
    static const T Y = 1.158985137939453125F;
    static const T P[15] = {
@@ -1098,8 +1098,8 @@ void expint_i_113c(T& result, const T& z)
 {
    BOOST_MATH_STD_USING
    // Maximum Deviation Found:                     1.082e-34
-   // Expected Status Term:                         1.080e-34
-   // Max Status found at long double precision =   Poly: 1.958294e-34   Cheb: 2.472261e-34
+   // Expected Error Term:                         1.080e-34
+   // Max Error found at long double precision =   Poly: 1.958294e-34   Cheb: 2.472261e-34
 
 
    static const T Y = 1.091579437255859375F;
@@ -1151,8 +1151,8 @@ void expint_i_113d(T& result, const T& z)
 {
    BOOST_MATH_STD_USING
    // Maximum Deviation Found:                     3.163e-35
-   // Expected Status Term:                         3.163e-35
-   // Max Status found at long double precision =   Poly: 4.158110e-35   Cheb: 5.385532e-35
+   // Expected Error Term:                         3.163e-35
+   // Max Error found at long double precision =   Poly: 4.158110e-35   Cheb: 5.385532e-35
 
    static const T Y = 1.051731109619140625F;
    static const T P[14] = {
@@ -1202,8 +1202,8 @@ void expint_i_113e(T& result, const T& z)
 {
    BOOST_MATH_STD_USING
    // Maximum Deviation Found:                     7.972e-36
-   // Expected Status Term:                         7.962e-36
-   // Max Status found at long double precision =   Poly: 1.711721e-34   Cheb: 3.100018e-34
+   // Expected Error Term:                         7.962e-36
+   // Max Error found at long double precision =   Poly: 1.711721e-34   Cheb: 3.100018e-34
 
    static const T Y = 1.032726287841796875F;
    static const T P[15] = {
@@ -1256,8 +1256,8 @@ void expint_i_113f(T& result, const T& z)
 {
    BOOST_MATH_STD_USING
    // Maximum Deviation Found:                     4.469e-36
-   // Expected Status Term:                         4.468e-36
-   // Max Status found at long double precision =   Poly: 1.288958e-35   Cheb: 2.304586e-35
+   // Expected Error Term:                         4.468e-36
+   // Max Error found at long double precision =   Poly: 1.288958e-35   Cheb: 2.304586e-35
 
    static const T Y = 1.0216197967529296875F;
    static const T P[12] = {
@@ -1303,8 +1303,8 @@ void expint_i_113g(T& result, const T& z)
 {
    BOOST_MATH_STD_USING
    // Maximum Deviation Found:                     5.588e-35
-   // Expected Status Term:                         -5.566e-35
-   // Max Status found at long double precision =   Poly: 9.976345e-35   Cheb: 8.358865e-35
+   // Expected Error Term:                         -5.566e-35
+   // Max Error found at long double precision =   Poly: 9.976345e-35   Cheb: 8.358865e-35
 
    static const T Y = 1.015148162841796875F;
    static const T P[11] = {
@@ -1348,8 +1348,8 @@ void expint_i_113h(T& result, const T& z)
 {
    BOOST_MATH_STD_USING
    // Maximum Deviation Found:                     4.448e-36
-   // Expected Status Term:                         4.445e-36
-   // Max Status found at long double precision =   Poly: 2.058532e-35   Cheb: 2.165465e-27
+   // Expected Error Term:                         4.445e-36
+   // Max Error found at long double precision =   Poly: 2.058532e-35   Cheb: 2.165465e-27
 
    static const T Y= 1.00849151611328125F;
    static const T P[9] = {
@@ -1429,8 +1429,8 @@ T expint_i_imp(T z, const Policy& pol, const std::integral_constant<int, 113>& t
    else // z > 210
    {
       // Maximum Deviation Found:                     3.963e-37
-      // Expected Status Term:                         3.963e-37
-      // Max Status found at long double precision =   Poly: 1.248049e-36   Cheb: 2.843486e-29
+      // Expected Error Term:                         3.963e-37
+      // Max Error found at long double precision =   Poly: 1.248049e-36   Cheb: 2.843486e-29
 
       static const T exp40 = static_cast<T>(BOOST_MATH_BIG_CONSTANT(T, 113, 2.35385266837019985407899910749034804508871617254555467236651e17));
       static const T Y= 1.00252532958984375F;

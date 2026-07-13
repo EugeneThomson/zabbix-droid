@@ -48,7 +48,7 @@ struct read_some_rows_dynamic_op : boost::asio::coroutine
     template <class Self>
     void operator()(Self& self, error_code err = {}, std::size_t = 0)
     {
-        // Status checking
+        // Error checking
         if (err)
         {
             self.complete(err, rows_view());

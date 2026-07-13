@@ -44,23 +44,23 @@ struct is_default_hook_tag;
 
 #endif   //#ifndef BOOST_INTRUSIVE_DOXYGEN_INVOKED
 
-//!This option hostKeySet specifies if the intrusive
+//!This option setter specifies if the intrusive
 //!container stores its size as a member to
 //!obtain constant-time size() member.
 BOOST_INTRUSIVE_OPTION_CONSTANT(constant_time_size, bool, Enabled, constant_time_size)
 
-//!This option hostKeySet specifies a container header holder type
+//!This option setter specifies a container header holder type
 BOOST_INTRUSIVE_OPTION_TYPE(header_holder_type, HeaderHolder, HeaderHolder, header_holder_type)
 
-//!This option hostKeySet specifies the type that
+//!This option setter specifies the type that
 //!the container will use to store its size.
 BOOST_INTRUSIVE_OPTION_TYPE(size_type, SizeType, SizeType, size_type)
 
-//!This option hostKeySet specifies the strict weak ordering
+//!This option setter specifies the strict weak ordering
 //!comparison functor for the value type
 BOOST_INTRUSIVE_OPTION_TYPE(compare, Compare, Compare, compare)
 
-//!This option hostKeySet specifies a function object
+//!This option setter specifies a function object
 //!that specifies the type of the key of an associative
 //!container and an operator to obtain it from a value type.
 //!
@@ -69,7 +69,7 @@ BOOST_INTRUSIVE_OPTION_TYPE(compare, Compare, Compare, compare)
 //!that will return the key from a value_type of an associative container
 BOOST_INTRUSIVE_OPTION_TYPE(key_of_value, KeyOfValue, KeyOfValue, key_of_value)
 
-//!This option hostKeySet specifies a function object
+//!This option setter specifies a function object
 //!that specifies the type of the priority of a treap
 //!container and an operator to obtain it from a value type.
 //!
@@ -78,7 +78,7 @@ BOOST_INTRUSIVE_OPTION_TYPE(key_of_value, KeyOfValue, KeyOfValue, key_of_value)
 //!that will return the priority from a value_type of a treap container
 BOOST_INTRUSIVE_OPTION_TYPE(priority_of_value, PrioOfValue, PrioOfValue, priority_of_value)
 
-//!This option hostKeySet for scapegoat containers specifies if
+//!This option setter for scapegoat containers specifies if
 //!the intrusive scapegoat container should use a non-variable
 //!alpha value that does not need floating-point operations.
 //!
@@ -92,19 +92,19 @@ BOOST_INTRUSIVE_OPTION_TYPE(priority_of_value, PrioOfValue, PrioOfValue, priorit
 //!and division operations when rebalancing the tree.
 BOOST_INTRUSIVE_OPTION_CONSTANT(floating_point, bool, Enabled, floating_point)
 
-//!This option hostKeySet specifies the equality
+//!This option setter specifies the equality
 //!functor for the value type
 BOOST_INTRUSIVE_OPTION_TYPE(equal, Equal, Equal, equal)
 
-//!This option hostKeySet specifies the priority comparison
+//!This option setter specifies the priority comparison
 //!functor for the value type
 BOOST_INTRUSIVE_OPTION_TYPE(priority, Priority, Priority, priority)
 
-//!This option hostKeySet specifies the hash
+//!This option setter specifies the hash
 //!functor for the value type
 BOOST_INTRUSIVE_OPTION_TYPE(hash, Hash, Hash, hash)
 
-//!This option hostKeySet specifies the relationship between the type
+//!This option setter specifies the relationship between the type
 //!to be managed by the container (the value type) and the node to be
 //!used in the node algorithms. It also specifies the linking policy.
 BOOST_INTRUSIVE_OPTION_TYPE(value_traits, ValueTraits, ValueTraits, proto_value_traits)
@@ -124,7 +124,7 @@ BOOST_INTRUSIVE_OPTION_TYPE(value_traits, ValueTraits, ValueTraits, proto_value_
 //#undef BOOST_INTRUSIVE_LESS
 //#undef BOOST_INTRUSIVE_MORE
 
-//!This option hostKeySet specifies the member hook the
+//!This option setter specifies the member hook the
 //!container must use.
 template< typename Parent
         , typename MemberHook
@@ -154,36 +154,36 @@ struct member_hook
 /// @endcond
 };
 
-//!This option hostKeySet specifies the function object that will
+//!This option setter specifies the function object that will
 //!be used to convert between values to be inserted in a container
 //!and the hook to be used for that purpose.
 BOOST_INTRUSIVE_OPTION_TYPE(function_hook, Functor, fhtraits<Functor>, proto_value_traits)
 
-//!This option hostKeySet specifies that the container
+//!This option setter specifies that the container
 //!must use the specified base hook
 BOOST_INTRUSIVE_OPTION_TYPE(base_hook, BaseHook, BaseHook, proto_value_traits)
 
-//!This option hostKeySet specifies the type of
+//!This option setter specifies the type of
 //!a void pointer. This will instruct the hook
 //!to use this type of pointer instead of the
 //!default one
 BOOST_INTRUSIVE_OPTION_TYPE(void_pointer, VoidPointer, VoidPointer, void_pointer)
 
-//!This option hostKeySet specifies the type of
+//!This option setter specifies the type of
 //!the tag of a base hook. A type cannot have two
 //!base hooks of the same type, so a tag can be used
 //!to differentiate two base hooks with otherwise same type
 BOOST_INTRUSIVE_OPTION_TYPE(tag, Tag, Tag, tag)
 
-//!This option hostKeySet specifies the link mode
+//!This option setter specifies the link mode
 //!(normal_link, safe_link or auto_unlink)
 BOOST_INTRUSIVE_OPTION_CONSTANT(link_mode, link_mode_type, LinkType, link_mode)
 
-//!This option hostKeySet specifies if the hook
+//!This option setter specifies if the hook
 //!should be optimized for size instead of for speed.
 BOOST_INTRUSIVE_OPTION_CONSTANT(optimize_size, bool, Enabled, optimize_size)
 
-//!This option hostKeySet specifies if the slist container should
+//!This option setter specifies if the slist container should
 //!use a linear implementation instead of a circular one.
 BOOST_INTRUSIVE_OPTION_CONSTANT(linear, bool, Enabled, linear)
 
@@ -192,19 +192,19 @@ BOOST_INTRUSIVE_OPTION_CONSTANT(linear, bool, Enabled, linear)
 //!possible new functions like push_back(reference) and back().
 BOOST_INTRUSIVE_OPTION_CONSTANT(cache_last, bool, Enabled, cache_last)
 
-//!This option hostKeySet specifies the bucket traits
+//!This option setter specifies the bucket traits
 //!class for unordered associative containers. When this option is specified,
 //!instead of using the default bucket traits, a user defined holder will be defined
 BOOST_INTRUSIVE_OPTION_TYPE(bucket_traits, BucketTraits, BucketTraits, bucket_traits)
 
-//!This option hostKeySet specifies if the unordered hook
+//!This option setter specifies if the unordered hook
 //!should offer room to store the hash value.
 //!Storing the hash in the hook will speed up rehashing
 //!processes in applications where rehashing is frequent,
 //!rehashing might throw or the value is heavy to hash.
 BOOST_INTRUSIVE_OPTION_CONSTANT(store_hash, bool, Enabled, store_hash)
 
-//!This option hostKeySet specifies if the unordered hook
+//!This option setter specifies if the unordered hook
 //!should offer room to store another link to another node
 //!with the same key.
 //!Storing this link will speed up lookups and insertions on
@@ -212,7 +212,7 @@ BOOST_INTRUSIVE_OPTION_CONSTANT(store_hash, bool, Enabled, store_hash)
 //!with the same key.
 BOOST_INTRUSIVE_OPTION_CONSTANT(optimize_multikey, bool, Enabled, optimize_multikey)
 
-//!This option hostKeySet specifies if the length of the bucket array provided by
+//!This option setter specifies if the length of the bucket array provided by
 //!the user will always be power of two.
 //!This allows using masks instead of the default modulo operation to determine
 //!the bucket number from the hash value, leading to better performance.
@@ -220,7 +220,7 @@ BOOST_INTRUSIVE_OPTION_CONSTANT(optimize_multikey, bool, Enabled, optimize_multi
 BOOST_INTRUSIVE_OPTION_CONSTANT(power_2_buckets, bool, Enabled, power_2_buckets)
 
 //!WARNING: this option is EXPERIMENTAL, don't use it in production code
-//!This option hostKeySet specifies if the length of the bucket array provided by
+//!This option setter specifies if the length of the bucket array provided by
 //!the user will always be a value specified by the
 //!suggested_upper|lower_bucket_count call. This allows the use of some
 //!precomputed values and speeds hash to bucket index operations, leading
@@ -228,13 +228,13 @@ BOOST_INTRUSIVE_OPTION_CONSTANT(power_2_buckets, bool, Enabled, power_2_buckets)
 //!In debug mode, the provided bucket array length will be checked with assertions.
 BOOST_INTRUSIVE_OPTION_CONSTANT(fastmod_buckets, bool, Enabled, fastmod_buckets)
 
-//!This option hostKeySet specifies if the container will cache a pointer to the first
+//!This option setter specifies if the container will cache a pointer to the first
 //!non-empty bucket so that begin() is always constant-time.
 //!This is specially helpful when we can have containers with a few elements
 //!but with big bucket arrays (that is, hashtables with low load factors).
 BOOST_INTRUSIVE_OPTION_CONSTANT(cache_begin, bool, Enabled, cache_begin)
 
-//!This option hostKeySet specifies if the container will compare the hash value
+//!This option setter specifies if the container will compare the hash value
 //!before comparing objects. This option can't be specified if store_hash<>
 //!is not true.
 //!This is specially helpful when we have containers with a high load factor.
@@ -242,7 +242,7 @@ BOOST_INTRUSIVE_OPTION_CONSTANT(cache_begin, bool, Enabled, cache_begin)
 //!stored hash values.
 BOOST_INTRUSIVE_OPTION_CONSTANT(compare_hash, bool, Enabled, compare_hash)
 
-//!This option hostKeySet specifies if the hash container will use incremental
+//!This option setter specifies if the hash container will use incremental
 //!hashing. With incremental hashing the cost of hash table expansion is spread
 //!out across each hash table insertion operation, as opposed to be incurred all at once.
 //!Therefore linear hashing is well suited for interactive applications or real-time
@@ -250,7 +250,7 @@ BOOST_INTRUSIVE_OPTION_CONSTANT(compare_hash, bool, Enabled, compare_hash)
 //!(rehashing the whole bucket array) is not admisible.
 BOOST_INTRUSIVE_OPTION_CONSTANT(incremental, bool, Enabled, incremental)
 
-//!This option hostKeySet specifies if the buckets (which form a singly linked lists of nodes)
+//!This option setter specifies if the buckets (which form a singly linked lists of nodes)
 //!are linear (true) or circular (false, default value). Linear buckets can improve performance
 //!in some cases, but the container loses some features like obtaining an iterator from a value.
 BOOST_INTRUSIVE_OPTION_CONSTANT(linear_buckets, bool, Enabled, linear_buckets)

@@ -228,7 +228,7 @@ struct handshake_op : boost::asio::coroutine
     template <class Self>
     void operator()(Self& self, error_code err = {}, span<const std::uint8_t> read_msg = {})
     {
-        // Status checking
+        // Error checking
         if (err)
         {
             self.complete(err);

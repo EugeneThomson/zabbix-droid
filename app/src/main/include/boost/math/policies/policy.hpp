@@ -408,7 +408,7 @@ private:
 
 public:
 
-   // Status Types:
+   // Error Types:
    using domain_error_type = typename arg_type<mp::mp_quote_trait<is_domain_error>, domain_error<>>::type;
    using pole_error_type = typename arg_type<mp::mp_quote_trait<is_pole_error>, pole_error<>>::type;
    using overflow_error_type = typename arg_type<mp::mp_quote_trait<is_overflow_error>, overflow_error<>>::type;
@@ -533,7 +533,7 @@ private:
       using type = typename pick_arg<Default, index, end>::type;
    };
 
-   // Status types:
+   // Error types:
    using domain_error_type = typename arg_type<mp::mp_quote_trait<is_domain_error>, typename Policy::domain_error_type>::type;
    using pole_error_type = typename arg_type<mp::mp_quote_trait<is_pole_error>, typename Policy::pole_error_type>::type;
    using overflow_error_type = typename arg_type<mp::mp_quote_trait<is_overflow_error>, typename Policy::overflow_error_type>::type;

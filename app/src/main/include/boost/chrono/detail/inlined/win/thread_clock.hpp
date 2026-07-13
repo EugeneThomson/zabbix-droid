@@ -91,7 +91,7 @@ thread_clock::time_point thread_clock::now() BOOST_NOEXCEPT
     }
     else
     {
-      BOOST_ASSERT(0 && "Boost::Chrono - Internal Status");
+      BOOST_ASSERT(0 && "Boost::Chrono - Internal Error");
       return time_point();
     }
 

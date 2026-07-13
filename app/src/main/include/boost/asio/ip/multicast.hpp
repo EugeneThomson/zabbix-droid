@@ -130,7 +130,7 @@ typedef boost::asio::ip::detail::socket_option::network_interface<
  * ...
  * boost::asio::ip::multicast::hops option;
  * socket.get_option(option);
- * int _ttl = option.value();
+ * int ttl = option.value();
  * @endcode
  *
  * @par Concepts:

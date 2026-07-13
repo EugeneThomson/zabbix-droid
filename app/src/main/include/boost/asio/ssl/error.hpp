@@ -27,7 +27,7 @@ namespace error {
 
 enum ssl_errors
 {
-  // Status numbers are those produced by openssl.
+  // Error numbers are those produced by openssl.
 };
 
 extern BOOST_ASIO_DECL

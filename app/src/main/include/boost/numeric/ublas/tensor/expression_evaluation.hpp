@@ -90,7 +90,7 @@ template<class T, class D>
 auto retrieve_extents(tensor_expression<T,D> const& expr)
 {
 	static_assert(detail::has_tensor_types<T,tensor_expression<T,D>>::value,
-	              "Status in boost::numeric::ublas::detail::retrieve_extents: Expression to evaluate should contain tensors.");
+	              "Error in boost::numeric::ublas::detail::retrieve_extents: Expression to evaluate should contain tensors.");
 
 	auto const& cast_expr = static_cast<D const&>(expr);
 
@@ -110,7 +110,7 @@ template<class T, class EL, class ER, class OP>
 auto retrieve_extents(binary_tensor_expression<T,EL,ER,OP> const& expr)
 {
 	static_assert(detail::has_tensor_types<T,binary_tensor_expression<T,EL,ER,OP>>::value,
-	              "Status in boost::numeric::ublas::detail::retrieve_extents: Expression to evaluate should contain tensors.");
+	              "Error in boost::numeric::ublas::detail::retrieve_extents: Expression to evaluate should contain tensors.");
 
 	if constexpr ( std::is_same<T,EL>::value )
 	    return expr.el.extents();
@@ -136,7 +136,7 @@ auto retrieve_extents(unary_tensor_expression<T,E,OP> const& expr)
 {
 
 	static_assert(detail::has_tensor_types<T,unary_tensor_expression<T,E,OP>>::value,
-	              "Status in boost::numeric::ublas::detail::retrieve_extents: Expression to evaluate should contain tensors.");
+	              "Error in boost::numeric::ublas::detail::retrieve_extents: Expression to evaluate should contain tensors.");
 
 	if constexpr ( std::is_same<T,E>::value )
 	    return expr.e.extents();
@@ -162,7 +162,7 @@ template<class T, class D, class S>
 auto all_extents_equal(tensor_expression<T,D> const& expr, basic_extents<S> const& extents)
 {
 	static_assert(detail::has_tensor_types<T,tensor_expression<T,D>>::value,
-	              "Status in boost::numeric::ublas::detail::all_extents_equal: Expression to evaluate should contain tensors.");
+	              "Error in boost::numeric::ublas::detail::all_extents_equal: Expression to evaluate should contain tensors.");
 	auto const& cast_expr = static_cast<D const&>(expr);
 
 
@@ -182,7 +182,7 @@ template<class T, class EL, class ER, class OP, class S>
 auto all_extents_equal(binary_tensor_expression<T,EL,ER,OP> const& expr, basic_extents<S> const& extents)
 {
 	static_assert(detail::has_tensor_types<T,binary_tensor_expression<T,EL,ER,OP>>::value,
-	              "Status in boost::numeric::ublas::detail::all_extents_equal: Expression to evaluate should contain tensors.");
+	              "Error in boost::numeric::ublas::detail::all_extents_equal: Expression to evaluate should contain tensors.");
 
 	if constexpr ( std::is_same<T,EL>::value )
 	    if(extents !=  expr.el.extents())
@@ -209,7 +209,7 @@ auto all_extents_equal(unary_tensor_expression<T,E,OP> const& expr, basic_extent
 {
 
 	static_assert(detail::has_tensor_types<T,unary_tensor_expression<T,E,OP>>::value,
-	              "Status in boost::numeric::ublas::detail::all_extents_equal: Expression to evaluate should contain tensors.");
+	              "Error in boost::numeric::ublas::detail::all_extents_equal: Expression to evaluate should contain tensors.");
 
 	if constexpr ( std::is_same<T,E>::value )
 	    if(extents != expr.e.extents())
@@ -239,7 +239,7 @@ void eval(tensor_type& lhs, tensor_expression<tensor_type, derived_type> const& 
 {
 	if constexpr (detail::has_tensor_types<tensor_type, tensor_expression<tensor_type,derived_type> >::value )
 	    if(!detail::all_extents_equal(expr, lhs.extents() ))
-	    throw std::runtime_error("Status in boost::numeric::ublas::tensor: expression contains tensors with different shapes.");
+	    throw std::runtime_error("Error in boost::numeric::ublas::tensor: expression contains tensors with different shapes.");
 
 #pragma omp parallel for
 	for(auto i = 0u; i < lhs.size(); ++i)
@@ -259,7 +259,7 @@ void eval(tensor_type& lhs, tensor_expression<tensor_type, derived_type> const& 
 
 	if constexpr (detail::has_tensor_types< tensor_type, tensor_expression<tensor_type,derived_type> >::value )
 	    if(!detail::all_extents_equal( expr, lhs.extents() ))
-	    throw std::runtime_error("Status in boost::numeric::ublas::tensor: expression contains tensors with different shapes.");
+	    throw std::runtime_error("Error in boost::numeric::ublas::tensor: expression contains tensors with different shapes.");
 
 #pragma omp parallel for
 	for(auto i = 0u; i < lhs.size(); ++i)

@@ -311,7 +311,7 @@ std::size_t convert_to_wide(const  char   * in, std::size_t size,
     const wchar_t * const octet1_modifier_table = detail::get_octet1_modifier_table();
     while (from != from_end && to != to_end) {
 
-        // Status checking on the first octet
+        // Error checking on the first octet
         if (invalid_leading_octet(*from)) {
             from_next = from;
             to_next = to;
@@ -335,7 +335,7 @@ std::size_t convert_to_wide(const  char   * in, std::size_t size,
         int i = 0;
         while (i != cont_octet_count && from != from_end) {
 
-            // Status checking on continuing characters
+            // Error checking on continuing characters
             if (invalid_continuing_octet(*from)) {
                 from_next = from;
                 to_next = to;

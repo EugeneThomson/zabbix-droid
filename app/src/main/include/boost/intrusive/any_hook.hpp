@@ -241,7 +241,7 @@ namespace detail{
 
 BOOST_INTRUSIVE_INTERNAL_STATIC_BOOL_IS_TRUE(old_proto_value_traits_base_hook, hooktags::is_base_hook)
 
-//!This option hostKeySet specifies that the container
+//!This option setter specifies that the container
 //!must use the specified base hook
 template<class BasicHook, template <class> class NodeTraits>
 struct any_to_some_hook
@@ -275,7 +275,7 @@ struct any_to_some_hook
 
 /// @endcond
 
-//!This option hostKeySet specifies that
+//!This option setter specifies that
 //!any hook should behave as an slist hook
 template<class BasicHook>
 struct any_to_slist_hook
@@ -284,7 +284,7 @@ struct any_to_slist_hook
 /// @endcond
 {};
 
-//!This option hostKeySet specifies that
+//!This option setter specifies that
 //!any hook should behave as an list hook
 template<class BasicHook>
 struct any_to_list_hook
@@ -293,7 +293,7 @@ struct any_to_list_hook
 /// @endcond
 {};
 
-//!This option hostKeySet specifies that
+//!This option setter specifies that
 //!any hook should behave as a set hook
 template<class BasicHook>
 struct any_to_set_hook
@@ -302,7 +302,7 @@ struct any_to_set_hook
 /// @endcond
 {};
 
-//!This option hostKeySet specifies that
+//!This option setter specifies that
 //!any hook should behave as an avl_set hook
 template<class BasicHook>
 struct any_to_avl_set_hook
@@ -311,7 +311,7 @@ struct any_to_avl_set_hook
 /// @endcond
 {};
 
-//!This option hostKeySet specifies that any
+//!This option setter specifies that any
 //!hook should behave as a bs_set hook
 template<class BasicHook>
 struct any_to_bs_set_hook
@@ -320,7 +320,7 @@ struct any_to_bs_set_hook
 /// @endcond
 {};
 
-//!This option hostKeySet specifies that any hook
+//!This option setter specifies that any hook
 //!should behave as an unordered set hook
 template<class BasicHook>
 struct any_to_unordered_set_hook

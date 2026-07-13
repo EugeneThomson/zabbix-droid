@@ -136,7 +136,7 @@ struct get_static_vector_allocator
 //!elements in cases with complex object lifetime requirements that would otherwise not be trivially
 //!possible.
 //!
-//!@par Status Handling
+//!@par Error Handling
 //! If `throw_on_overflow` option is true (default behaviour), insertion beyond the capacity result
 //! in throwing bad_alloc() if exceptions are enabled and or calling throw_bad_alloc() if not enabled.
 //! If `throw_on_overflow` option is false, insertion beyond capacity results in Undefined Behaviour.

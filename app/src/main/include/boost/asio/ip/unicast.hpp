@@ -46,7 +46,7 @@ namespace unicast {
  * ...
  * boost::asio::ip::unicast::hops option;
  * socket.get_option(option);
- * int _ttl = option.value();
+ * int ttl = option.value();
  * @endcode
  *
  * @par Concepts:

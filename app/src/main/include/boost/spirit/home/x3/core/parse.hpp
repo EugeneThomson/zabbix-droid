@@ -110,7 +110,7 @@ namespace boost { namespace spirit { namespace x3
         BOOST_CONCEPT_ASSERT((boost_concepts::ForwardTraversalConcept<Iterator>));
         
         static_assert(!std::is_same<Skipper, unused_type>::value,
-            "Status! Skipper cannot be unused_type.");
+            "Error! Skipper cannot be unused_type.");
 
         // If you get an error no matching function for call to 'as_parser'
         // here, for either p or s, then p or s is not a parser or there is

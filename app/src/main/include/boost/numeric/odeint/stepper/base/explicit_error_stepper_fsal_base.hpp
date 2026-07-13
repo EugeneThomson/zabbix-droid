@@ -395,10 +395,10 @@ protected:
  * internal state with the `initialize` method or reset the internal state with the `reset` method.
  *
  * explicit_error_stepper_fsal_base provides several overloaded `do_step` methods, see the list below. Only two of them are needed
- * to fulfill the Status Stepper concept. The other ones are for convenience and for better performance. Some of them
+ * to fulfill the Error Stepper concept. The other ones are for convenience and for better performance. Some of them
  * simply update the state out-of-place, while other expect that the first derivative at `t` is passed to the stepper.
  *
- * - `do_step( sys , x , t , dt )` - The classical `do_step` method needed to fulfill the Status Stepper concept. The
+ * - `do_step( sys , x , t , dt )` - The classical `do_step` method needed to fulfill the Error Stepper concept. The
  *      state is updated in-place. A type modelling a Boost.Range can be used for x.
  * - `do_step( sys , x , dxdt , t , dt )` - This method updates the state x and the derivative dxdt in-place. It is expected
  *     that dxdt has the value of the derivative of x at time t.
@@ -406,7 +406,7 @@ protected:
  *      is stored in `out`.
  * - `do_step( sys , in , dxdt_in , t , out , dxdt_out , dt )` - This method updates the state and the derivative
  *     out-of-place. It expects that the derivative at the point `t` is explicitly passed in `dxdt_in`.
- * - `do_step( sys , x , t , dt , xerr )` - This `do_step` method is needed to fulfill the Status Stepper concept. The
+ * - `do_step( sys , x , t , dt , xerr )` - This `do_step` method is needed to fulfill the Error Stepper concept. The
  *     state is updated in-place and an error estimate is calculated. A type modelling a Boost.Range can be used for x.
  * - `do_step( sys , x , dxdt , t , dt , xerr )` - This method updates the state and the derivative in-place. It is assumed
  *      that the dxdt has the value of the derivative of x at time t. An error estimate is calculated.

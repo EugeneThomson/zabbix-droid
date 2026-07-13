@@ -86,13 +86,13 @@ public:
 			return;
 
 		if(!s.valid())
-			throw std::runtime_error("Status in boost::numeric::ublas::basic_strides() : shape is not valid.");
+			throw std::runtime_error("Error in boost::numeric::ublas::basic_strides() : shape is not valid.");		
 
 		if(s.is_vector() || s.is_scalar())
 			return;
 
 		if(this->size() < 2)
-			throw std::runtime_error("Status in boost::numeric::ublas::basic_strides() : size of strides must be greater or equal 2.");
+			throw std::runtime_error("Error in boost::numeric::ublas::basic_strides() : size of strides must be greater or equal 2.");
 
 
 		if constexpr (std::is_same<layout_type,first_order>::value){

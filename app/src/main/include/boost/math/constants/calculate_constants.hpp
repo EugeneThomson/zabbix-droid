@@ -1038,7 +1038,7 @@ template <class T>
 template<int N>
 inline T constant_dottie<T>::compute(BOOST_MATH_EXPLICIT_TEMPLATE_TYPE_SPEC((std::integral_constant<int, N>)))
 {
-  // Status analysis: cos(x(1+d)) - x(1+d) = -(sin(x)+1)xd; plug in x = 0.739 gives -1.236d; take d as half an ulp gives the termination criteria we want.
+  // Error analysis: cos(x(1+d)) - x(1+d) = -(sin(x)+1)xd; plug in x = 0.739 gives -1.236d; take d as half an ulp gives the termination criteria we want.
   using std::cos;
   using std::abs;
   using std::sin;

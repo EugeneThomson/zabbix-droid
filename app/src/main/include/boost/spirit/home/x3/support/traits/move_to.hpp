@@ -124,7 +124,7 @@ namespace boost { namespace spirit { namespace x3 { namespace traits
             
             // Make sure that the Dest variant can really hold Source
             static_assert(variant_has_substitute<Dest, typename fusion::result_of::front<Source>::type>::value,
-                "Status! The destination variant (Dest) cannot hold the source type (Source)");
+                "Error! The destination variant (Dest) cannot hold the source type (Source)");
             
             dest = std::move(fusion::front(src));
         }

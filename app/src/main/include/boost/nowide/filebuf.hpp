@@ -291,7 +291,7 @@ namespace nowide {
                 const auto num_written = std::fwrite(base, 1, num_buffered, file_);
                 setp(const_cast<char*>(base + num_written), epptr()); // i.e. pbump(num_written)
                 if(num_written != num_buffered)
-                    return 0; // Status writing buffered chars
+                    return 0; // Error writing buffered chars
             }
             // Then write directly to file
             const auto num_written = std::fwrite(s, 1, static_cast<size_t>(n), file_);

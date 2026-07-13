@@ -90,7 +90,7 @@ T bessel_i0_imp(const T& x, const std::integral_constant<int, 24>&)
    if(x < 7.75)
    {
       // Max error in interpolated form: 3.929e-08
-      // Max Status found at float precision = Poly: 1.991226e-07
+      // Max Error found at float precision = Poly: 1.991226e-07
       static const float P[] = {
          1.00000003928615375e+00f,
          2.49999576572179639e-01f,
@@ -108,7 +108,7 @@ T bessel_i0_imp(const T& x, const std::integral_constant<int, 24>&)
    else if(x < 50)
    {
       // Max error in interpolated form: 5.195e-08
-      // Max Status found at float precision = Poly: 8.502534e-08
+      // Max Error found at float precision = Poly: 8.502534e-08
       static const float P[] = {
          3.98942651588301770e-01f,
          4.98327234176892844e-02f,
@@ -121,7 +121,7 @@ T bessel_i0_imp(const T& x, const std::integral_constant<int, 24>&)
    else
    {
       // Max error in interpolated form: 1.782e-09
-      // Max Status found at float precision = Poly: 6.473568e-08
+      // Max Error found at float precision = Poly: 6.473568e-08
       static const float P[] = {
          3.98942391532752700e-01f,
          4.98455950638200020e-02f,
@@ -142,7 +142,7 @@ T bessel_i0_imp(const T& x, const std::integral_constant<int, 53>&)
    {
       // Bessel I0 over[10 ^ -16, 7.75]
       // Max error in interpolated form : 3.042e-18
-      // Max Status found at double precision = Poly : 5.106609e-16 Cheb : 5.239199e-16
+      // Max Error found at double precision = Poly : 5.106609e-16 Cheb : 5.239199e-16
       static const double P[] = {
          1.00000000000000000e+00,
          2.49999999999999909e-01,
@@ -166,7 +166,7 @@ T bessel_i0_imp(const T& x, const std::integral_constant<int, 53>&)
    else if(x < 500)
    {
       // Max error in interpolated form : 1.685e-16
-      // Max Status found at double precision = Poly : 2.575063e-16 Cheb : 2.247615e+00
+      // Max Error found at double precision = Poly : 2.575063e-16 Cheb : 2.247615e+00
       static const double P[] = {
          3.98942280401425088e-01,
          4.98677850604961985e-02,
@@ -196,7 +196,7 @@ T bessel_i0_imp(const T& x, const std::integral_constant<int, 53>&)
    else
    {
       // Max error in interpolated form : 2.437e-18
-      // Max Status found at double precision = Poly : 1.216719e-16
+      // Max Error found at double precision = Poly : 1.216719e-16
       static const double P[] = {
          3.98942280401432905e-01,
          4.98677850491434560e-02,
@@ -219,7 +219,7 @@ T bessel_i0_imp(const T& x, const std::integral_constant<int, 64>&)
    {
       // Bessel I0 over[10 ^ -16, 7.75]
       // Max error in interpolated form : 3.899e-20
-      // Max Status found at float80 precision = Poly : 1.770840e-19
+      // Max Error found at float80 precision = Poly : 1.770840e-19
       static const T P[] = {
          BOOST_MATH_BIG_CONSTANT(T, 64, 9.99999999999999999961011629e-01),
          BOOST_MATH_BIG_CONSTANT(T, 64, 2.50000000000000001321873912e-01),
@@ -244,9 +244,9 @@ T bessel_i0_imp(const T& x, const std::integral_constant<int, 64>&)
    else if(x < 10)
    {
       // Maximum Deviation Found:                     6.906e-21
-      // Expected Status Term : -6.903e-21
+      // Expected Error Term : -6.903e-21
       // Maximum Relative Change in Control Points : 1.631e-04
-      // Max Status found at float80 precision = Poly : 7.811948e-21
+      // Max Error found at float80 precision = Poly : 7.811948e-21
       static const T Y = 4.051098823547363281250e-01f;
       static const T P[] = {
          BOOST_MATH_BIG_CONSTANT(T, 64, -6.158081780620616479492e-03),
@@ -268,9 +268,9 @@ T bessel_i0_imp(const T& x, const std::integral_constant<int, 64>&)
    else if(x < 15)
    {
       // Maximum Deviation Found:                     4.083e-21
-      // Expected Status Term : -4.025e-21
+      // Expected Error Term : -4.025e-21
       // Maximum Relative Change in Control Points : 1.304e-03
-      // Max Status found at float80 precision = Poly : 2.303527e-20
+      // Max Error found at float80 precision = Poly : 2.303527e-20
       static const T Y = 4.033188819885253906250e-01f;
       static const T P[] = {
          BOOST_MATH_BIG_CONSTANT(T, 64, -4.376373876116109401062e-03),
@@ -293,7 +293,7 @@ T bessel_i0_imp(const T& x, const std::integral_constant<int, 64>&)
    else if(x < 50)
    {
       // Max error in interpolated form: 1.035e-21
-      // Max Status found at float80 precision = Poly: 1.885872e-21
+      // Max Error found at float80 precision = Poly: 1.885872e-21
       static const T Y = 4.011702537536621093750e-01f;
       static const T P[] = {
          BOOST_MATH_BIG_CONSTANT(T, 64, -2.227973351806078464328e-03),
@@ -320,7 +320,7 @@ T bessel_i0_imp(const T& x, const std::integral_constant<int, 64>&)
    {
       // Bessel I0 over[50, INF]
       // Max error in interpolated form : 5.587e-20
-      // Max Status found at float80 precision = Poly : 8.776852e-20
+      // Max Error found at float80 precision = Poly : 8.776852e-20
       static const T P[] = {
          BOOST_MATH_BIG_CONSTANT(T, 64, 3.98942280401432677955074061e-01),
          BOOST_MATH_BIG_CONSTANT(T, 64, 4.98677850501789875615574058e-02),
@@ -356,7 +356,7 @@ T bessel_i0_imp(const T& x, const std::integral_constant<int, 113>&)
    {
       // Bessel I0 over[10 ^ -34, 7.75]
       // Max error in interpolated form : 1.274e-34
-      // Max Status found at float128 precision = Poly : 3.096091e-34
+      // Max Error found at float128 precision = Poly : 3.096091e-34
       static const T P[] = {
          BOOST_MATH_BIG_CONSTANT(T, 113, 1.0000000000000000000000000000000001273856e+00),
          BOOST_MATH_BIG_CONSTANT(T, 113, 2.4999999999999999999999999999999107477496e-01),
@@ -389,7 +389,7 @@ T bessel_i0_imp(const T& x, const std::integral_constant<int, 113>&)
    {
       // Bessel I0 over[7.75, 15]
       // Max error in interpolated form : 7.534e-35
-      // Max Status found at float128 precision = Poly : 6.123912e-34
+      // Max Error found at float128 precision = Poly : 6.123912e-34
       static const T P[] = {
          BOOST_MATH_BIG_CONSTANT(T, 113, 9.9999999999999999992388573069504617493518e-01),
          BOOST_MATH_BIG_CONSTANT(T, 113, 2.5000000000000000007304739268173096975340e-01),
@@ -426,7 +426,7 @@ T bessel_i0_imp(const T& x, const std::integral_constant<int, 113>&)
    else if(x < 30)
    {
       // Max error in interpolated form : 1.808e-34
-      // Max Status found at float128 precision = Poly : 2.399403e-34
+      // Max Error found at float128 precision = Poly : 2.399403e-34
       static const T P[] = {
          BOOST_MATH_BIG_CONSTANT(T, 113, 3.9894228040870793650581242239624530714032e-01),
          BOOST_MATH_BIG_CONSTANT(T, 113, 4.9867780576714783790784348982178607842250e-02),
@@ -465,7 +465,7 @@ T bessel_i0_imp(const T& x, const std::integral_constant<int, 113>&)
    {
       // Bessel I0 over[30, 100]
       // Max error in interpolated form : 1.487e-34
-      // Max Status found at float128 precision = Poly : 1.929924e-34
+      // Max Error found at float128 precision = Poly : 1.929924e-34
       static const T P[] = {
          BOOST_MATH_BIG_CONSTANT(T, 113, 3.9894228040143267793996798658172135362278e-01),
          BOOST_MATH_BIG_CONSTANT(T, 113, 4.9867785050179084714910130342157246539820e-02),
@@ -498,7 +498,7 @@ T bessel_i0_imp(const T& x, const std::integral_constant<int, 113>&)
    {
       // Bessel I0 over[100, INF]
       // Max error in interpolated form : 5.459e-35
-      // Max Status found at float128 precision = Poly : 1.472240e-34
+      // Max Error found at float128 precision = Poly : 1.472240e-34
       static const T P[] = {
          BOOST_MATH_BIG_CONSTANT(T, 113, 3.9894228040143267793994605993438166526772e-01),
          BOOST_MATH_BIG_CONSTANT(T, 113, 4.9867785050179084742493257495245185241487e-02),

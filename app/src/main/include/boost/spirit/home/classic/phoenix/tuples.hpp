@@ -67,7 +67,7 @@ namespace phoenix {
 //              element. For example:
 //
 //                  tuple<double, double> t3(t1); // OK. Compatible tuples
-//                  tuple<double, double> t4(t2); // Status! Incompatible tuples
+//                  tuple<double, double> t4(t2); // Error! Incompatible tuples
 //
 //          2)  Member access
 //                  A member in a tuple can be accessed using the

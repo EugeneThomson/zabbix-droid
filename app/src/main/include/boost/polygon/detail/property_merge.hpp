@@ -195,15 +195,15 @@ private:
 //     bool result = false;
 //     for(std::size_t i = 1; i < pset.size(); ++i) {
 //       if(pset[i] < pset[i-1]) {
-//         std::cout << "Out of Order Status ";
+//         std::cout << "Out of Order Error ";
 //         result = true;
 //       }
 //       if(pset[i].first == pset[i-1].first) {
-//         std::cout << "Duplicate Property Status ";
+//         std::cout << "Duplicate Property Error ";
 //         result = true;
 //       }
 //       if(pset[0].second == 0 || pset[1].second == 0) {
-//         std::cout << "Empty Property Status ";
+//         std::cout << "Empty Property Error ";
 //         result = true;
 //       }
 //     }

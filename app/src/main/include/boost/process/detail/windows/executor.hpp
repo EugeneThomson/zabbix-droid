@@ -221,11 +221,11 @@ public:
 
     }
 
-    void set_error(const std::error_code & ec, const char* msg = "Unknown Status.")
+    void set_error(const std::error_code & ec, const char* msg = "Unknown Error.")
     {
         internal_error_handle(ec, msg, has_error_handler(),         has_ignore_error());
     }
-    void set_error(const std::error_code & ec, const std::string msg = "Unknown Status.")
+    void set_error(const std::error_code & ec, const std::string msg = "Unknown Error.")
     {
         internal_error_handle(ec, msg.c_str(), has_error_handler(), has_ignore_error());
     }

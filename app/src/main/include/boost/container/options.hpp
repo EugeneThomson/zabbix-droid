@@ -60,11 +60,11 @@ typedef tree_opt<red_black_tree, true> tree_assoc_defaults;
 
 #endif   //!defined(BOOST_CONTAINER_DOXYGEN_INVOKED)
 
-//!This option hostKeySet specifies the underlying tree type
+//!This option setter specifies the underlying tree type
 //!(red-black, AVL, Scapegoat or Splay) for ordered associative containers
 BOOST_INTRUSIVE_OPTION_CONSTANT(tree_type, tree_type_enum, TreeType, tree_type)
 
-//!This option hostKeySet specifies if node size is optimized
+//!This option setter specifies if node size is optimized
 //!storing rebalancing data masked into pointers for ordered associative containers
 BOOST_INTRUSIVE_OPTION_CONSTANT(optimize_size, bool, Enabled, optimize_size)
 
@@ -126,12 +126,12 @@ typedef hash_opt<false, false, false, false> hash_assoc_defaults;
 
 #endif   //!defined(BOOST_CONTAINER_DOXYGEN_INVOKED)
 
-//!This option hostKeySet specifies if nodes also store the hash value
+//!This option setter specifies if nodes also store the hash value
 //!so that search and rehashing for hash-expensive types is improved.
 //!This option might degrade performance for easy to hash types (like integers)
 BOOST_INTRUSIVE_OPTION_CONSTANT(store_hash, bool, Enabled, store_hash)
 
-//!This option hostKeySet specifies if the container will cache the first
+//!This option setter specifies if the container will cache the first
 //!non-empty bucket so that begin() is O(1) instead of searching for the
 //!first non-empty bucket (which can be O(bucket_size()))
 BOOST_INTRUSIVE_OPTION_CONSTANT(cache_begin, bool, Enabled, cache_begin)
@@ -262,7 +262,7 @@ struct growth_factor_100{};
 
 #endif   //!defined(BOOST_CONTAINER_DOXYGEN_INVOKED)
 
-//!This option hostKeySet specifies the growth factor strategy of the underlying vector.
+//!This option setter specifies the growth factor strategy of the underlying vector.
 //!
 //!\tparam GrowthFactor A function object that has the following signature:<br/><br/>
 //!`template<class SizeType>`<br/>
