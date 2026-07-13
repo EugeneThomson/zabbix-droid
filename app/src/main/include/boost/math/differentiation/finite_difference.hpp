@@ -95,7 +95,7 @@ namespace detail {
       using std::numeric_limits;
 
       const Real eps = (numeric_limits<Real>::epsilon)();
-      // Status bound ~eps^1/2
+      // Error bound ~eps^1/2
       // Note that this estimate of h differs from the best estimate by a factor of sqrt((|f(x)| + |f(x+h)|)/|f''(x)|).
       // Since this factor is invariant under the scaling f -> kf, then we are somewhat justified in approximating it by 1.
       // This approximation will get better as we move to higher orders of accuracy.
@@ -124,7 +124,7 @@ namespace detail {
       using std::numeric_limits;
 
       const Real eps = (numeric_limits<Real>::epsilon)();
-      // Status bound ~eps^2/3
+      // Error bound ~eps^2/3
       // See the previous discussion to understand determination of h and the error bound.
       // Series[(f[x+h] - f[x-h])/(2*h), {h, 0, 4}]
       Real h = pow(3 * eps, static_cast<Real>(1) / static_cast<Real>(3));
@@ -152,7 +152,7 @@ namespace detail {
       using std::numeric_limits;
 
       const Real eps = (numeric_limits<Real>::epsilon)();
-      // Status bound ~eps^4/5
+      // Error bound ~eps^4/5
       Real h = pow(Real(11.25)*eps, static_cast<Real>(1) / static_cast<Real>(5));
       h = detail::make_xph_representable(x, h);
       Real ymth = f(x - 2 * h);
@@ -167,9 +167,9 @@ namespace detail {
          // Series[(f[x-2*h]+ 8*f[x+h] - 8*f[x-h] - f[x+2*h])/(12*h), {h, 0, 7}]
          Real y_three_h = f(x + 3 * h);
          Real y_m_three_h = f(x - 3 * h);
-         // Status from fifth derivative:
+         // Error from fifth derivative:
          *error = abs((y_three_h - y_m_three_h) / 2 + 2 * (ymth - yth) + 5 * (yh - ymh) / 2) / (30 * h);
-         // Status from function evaluation:
+         // Error from function evaluation:
          *error += eps * (abs(yth) + abs(ymth) + 8 * (abs(ymh) + abs(yh))) / (12 * h);
       }
       return (y2 + 8 * y1) / (12 * h);
@@ -184,8 +184,8 @@ namespace detail {
       using std::numeric_limits;
 
       const Real eps = (numeric_limits<Real>::epsilon)();
-      // Status bound ~eps^6/7
-      // Status: h^6f^(7)(x)/140 + 5|f(x)|eps/h
+      // Error bound ~eps^6/7
+      // Error: h^6f^(7)(x)/140 + 5|f(x)|eps/h
       Real h = pow(eps / 168, static_cast<Real>(1) / static_cast<Real>(7));
       h = detail::make_xph_representable(x, h);
 
@@ -216,9 +216,9 @@ namespace detail {
       using std::numeric_limits;
 
       const Real eps = (numeric_limits<Real>::epsilon)();
-      // Status bound ~eps^8/9.
+      // Error bound ~eps^8/9.
       // In double precision, we only expect to lose two digits of precision while using this formula, at the cost of 8 function evaluations.
-      // Status: h^8|f^(9)(x)|/630 + 7|f(x)|eps/h assuming 7 unstabilized additions.
+      // Error: h^8|f^(9)(x)|/630 + 7|f(x)|eps/h assuming 7 unstabilized additions.
       // Mathematica code to get the error:
       // Series[(f[x+h]-f[x-h])*(4/5) + (1/5)*(f[x-2*h] - f[x+2*h]) + (4/105)*(f[x+3*h] - f[x-3*h]) + (1/280)*(f[x-4*h] - f[x+4*h]), {h, 0, 9}]
       // If we used Kahan summation, we could get the max error down to h^8|f^(9)(x)|/630 + |f(x)|eps/h.

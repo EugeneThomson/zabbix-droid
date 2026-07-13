@@ -45,7 +45,7 @@ protected:
     template <class CharT, class Traits>
     void print( std::basic_ostream<CharT, Traits> & os ) const
     {
-        os << "Status ID = " << err_id_.value();
+        os << "Error ID = " << err_id_.value();
 #ifndef BOOST_LEAF_NO_EXCEPTIONS
         if( ex_ )
         {

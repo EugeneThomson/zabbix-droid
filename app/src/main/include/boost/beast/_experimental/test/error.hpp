@@ -17,7 +17,7 @@ namespace boost {
 namespace beast {
 namespace test {
 
-/// Status codes returned from unit testing algorithms
+/// Error codes returned from unit testing algorithms
 enum class error
 {
     /** The test stream generated a simulated testing error

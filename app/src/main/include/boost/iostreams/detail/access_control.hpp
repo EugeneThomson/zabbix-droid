@@ -73,7 +73,7 @@ struct access_control_base {
 //          values access_base::prot or access_base::pub.
 //
 template< typename T, typename Access,
-          typename Base = // VC6 workaraound (Compiler Status C2516)
+          typename Base = // VC6 workaraound (Compiler Error C2516)
               typename detail::access_control_base<T, Access>::type >
 struct access_control : public Base { 
     access_control() { }

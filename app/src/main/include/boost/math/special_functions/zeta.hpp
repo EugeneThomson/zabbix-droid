@@ -207,7 +207,7 @@ inline T zeta_imp_prec(T s, T sc, const Policy&, const std::integral_constant<in
    {
       // Rational Approximation
       // Maximum Deviation Found:                     2.020e-18
-      // Expected Status Term:                         -2.020e-18
+      // Expected Error Term:                         -2.020e-18
       // Max error found at double precision:         3.994987e-17
       static const T P[6] = {
          static_cast<T>(0.24339294433593750202L),
@@ -233,7 +233,7 @@ inline T zeta_imp_prec(T s, T sc, const Policy&, const std::integral_constant<in
    else if(s <= 2)
    {
       // Maximum Deviation Found:        9.007e-20
-      // Expected Status Term:            9.007e-20
+      // Expected Error Term:            9.007e-20
       static const T P[6] = {
          static_cast<T>(0.577215664901532860516L),
          static_cast<T>(0.243210646940107164097L),
@@ -256,7 +256,7 @@ inline T zeta_imp_prec(T s, T sc, const Policy&, const std::integral_constant<in
    else if(s <= 4)
    {
       // Maximum Deviation Found:          5.946e-22
-      // Expected Status Term:              -5.946e-22
+      // Expected Error Term:              -5.946e-22
       static const float Y = 0.6986598968505859375;
       static const T P[6] = {
          static_cast<T>(-0.0537258300023595030676L),
@@ -281,7 +281,7 @@ inline T zeta_imp_prec(T s, T sc, const Policy&, const std::integral_constant<in
    else if(s <= 7)
    {
       // Maximum Deviation Found:                     2.955e-17
-      // Expected Status Term:                         2.955e-17
+      // Expected Error Term:                         2.955e-17
       // Max error found at double precision:         2.009135e-16
 
       static const T P[6] = {
@@ -309,7 +309,7 @@ inline T zeta_imp_prec(T s, T sc, const Policy&, const std::integral_constant<in
    else if(s < 15)
    {
       // Maximum Deviation Found:                     7.117e-16
-      // Expected Status Term:                         7.117e-16
+      // Expected Error Term:                         7.117e-16
       // Max error found at double precision:         9.387771e-16
       static const T P[7] = {
          static_cast<T>(-4.78558028495135619286L),
@@ -381,7 +381,7 @@ T zeta_imp_prec(T s, T sc, const Policy&, const std::integral_constant<int, 64>&
    {
       // Rational Approximation
       // Maximum Deviation Found:                     3.099e-20
-      // Expected Status Term:                         3.099e-20
+      // Expected Error Term:                         3.099e-20
       // Max error found at long double precision:    5.890498e-20
       static const T P[6] = {
          BOOST_MATH_BIG_CONSTANT(T, 64, 0.243392944335937499969),
@@ -408,7 +408,7 @@ T zeta_imp_prec(T s, T sc, const Policy&, const std::integral_constant<int, 64>&
    else if(s <= 2)
    {
       // Maximum Deviation Found:                     1.059e-21
-      // Expected Status Term:                         1.059e-21
+      // Expected Error Term:                         1.059e-21
       // Max error found at long double precision:    1.626303e-19
 
       static const T P[6] = {
@@ -434,7 +434,7 @@ T zeta_imp_prec(T s, T sc, const Policy&, const std::integral_constant<int, 64>&
    else if(s <= 4)
    {
       // Maximum Deviation Found:          5.946e-22
-      // Expected Status Term:              -5.946e-22
+      // Expected Error Term:              -5.946e-22
       static const float Y = 0.6986598968505859375;
       static const T P[7] = {
          BOOST_MATH_BIG_CONSTANT(T, 64, -0.053725830002359501027),
@@ -564,7 +564,7 @@ T zeta_imp_prec(T s, T sc, const Policy&, const std::integral_constant<int, 113>
    {
       // Rational Approximation
       // Maximum Deviation Found:                     9.493e-37
-      // Expected Status Term:                         9.492e-37
+      // Expected Error Term:                         9.492e-37
       // Max error found at long double precision:    7.281332e-31
 
       static const T P[10] = {
@@ -599,7 +599,7 @@ T zeta_imp_prec(T s, T sc, const Policy&, const std::integral_constant<int, 113>
    else if(s <= 2)
    {
       // Maximum Deviation Found:                     1.616e-37
-      // Expected Status Term:                         -1.615e-37
+      // Expected Error Term:                         -1.615e-37
 
       static const T P[10] = {
          BOOST_MATH_BIG_CONSTANT(T, 113, 0.577215664901532860606512090082402431),
@@ -632,7 +632,7 @@ T zeta_imp_prec(T s, T sc, const Policy&, const std::integral_constant<int, 113>
    else if(s <= 4)
    {
       // Maximum Deviation Found:                     1.891e-36
-      // Expected Status Term:                         -1.891e-36
+      // Expected Error Term:                         -1.891e-36
       // Max error found: 2.171527e-35
 
       static const float Y = 0.6986598968505859375;

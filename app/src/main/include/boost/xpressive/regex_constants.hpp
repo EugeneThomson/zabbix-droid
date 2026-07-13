@@ -184,7 +184,7 @@ enum match_flag_type
                                         ///<
 };
 
-/// Status codes used by the regex_error type
+/// Error codes used by the regex_error type
 ///
 enum error_type
 {

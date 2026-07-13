@@ -237,9 +237,9 @@ T erf_imp(T z, bool invert, const Policy& pol, const std::integral_constant<int,
       else
       {
          // Maximum Deviation Found:                     1.561e-17
-         // Expected Status Term:                         1.561e-17
+         // Expected Error Term:                         1.561e-17
          // Maximum Relative Change in Control Points:   1.155e-04
-         // Max Status found at double precision =        2.961182e-17
+         // Max Error found at double precision =        2.961182e-17
 
          static const T Y = 1.044948577880859375f;
          static const T P[] = {    
@@ -269,9 +269,9 @@ T erf_imp(T z, bool invert, const Policy& pol, const std::integral_constant<int,
       if(z < 1.5f)
       {
          // Maximum Deviation Found:                     3.702e-17
-         // Expected Status Term:                         3.702e-17
+         // Expected Error Term:                         3.702e-17
          // Maximum Relative Change in Control Points:   2.845e-04
-         // Max Status found at double precision =        4.841816e-17
+         // Max Error found at double precision =        4.841816e-17
          static const T Y = 0.405935764312744140625f;
          static const T P[] = {    
             BOOST_MATH_BIG_CONSTANT(T, 53, -0.098090592216281240205),
@@ -301,9 +301,9 @@ T erf_imp(T z, bool invert, const Policy& pol, const std::integral_constant<int,
       }
       else if(z < 2.5f)
       {
-         // Max Status found at double precision =        6.599585e-18
+         // Max Error found at double precision =        6.599585e-18
          // Maximum Deviation Found:                     3.909e-18
-         // Expected Status Term:                         3.909e-18
+         // Expected Error Term:                         3.909e-18
          // Maximum Relative Change in Control Points:   9.886e-05
          static const T Y = 0.50672817230224609375f;
          static const T P[] = {    
@@ -335,9 +335,9 @@ T erf_imp(T z, bool invert, const Policy& pol, const std::integral_constant<int,
       else if(z < 4.5f)
       {
          // Maximum Deviation Found:                     1.512e-17
-         // Expected Status Term:                         1.512e-17
+         // Expected Error Term:                         1.512e-17
          // Maximum Relative Change in Control Points:   2.222e-04
-         // Max Status found at double precision =        2.062515e-17
+         // Max Error found at double precision =        2.062515e-17
          static const T Y = 0.5405750274658203125f;
          static const T P[] = {    
             BOOST_MATH_BIG_CONSTANT(T, 53, 0.00295276716530971662634),
@@ -367,9 +367,9 @@ T erf_imp(T z, bool invert, const Policy& pol, const std::integral_constant<int,
       }
       else
       {
-         // Max Status found at double precision =        2.997958e-17
+         // Max Error found at double precision =        2.997958e-17
          // Maximum Deviation Found:                     2.860e-17
-         // Expected Status Term:                         2.859e-17
+         // Expected Error Term:                         2.859e-17
          // Maximum Relative Change in Control Points:   1.357e-05
          static const T Y = 0.5579090118408203125f;
          static const T P[] = {    
@@ -459,9 +459,9 @@ T erf_imp(T z, bool invert, const Policy& pol, const std::integral_constant<int,
       }
       else
       {
-         // Max Status found at long double precision =   1.623299e-20
+         // Max Error found at long double precision =   1.623299e-20
          // Maximum Deviation Found:                     4.326e-22
-         // Expected Status Term:                         -4.326e-22
+         // Expected Error Term:                         -4.326e-22
          // Maximum Relative Change in Control Points:   1.474e-04
          static const T Y = 1.044948577880859375f;
          static const T P[] = {    
@@ -491,9 +491,9 @@ T erf_imp(T z, bool invert, const Policy& pol, const std::integral_constant<int,
       invert = !invert;
       if(z < 1.5)
       {
-         // Max Status found at long double precision =   3.239590e-20
+         // Max Error found at long double precision =   3.239590e-20
          // Maximum Deviation Found:                     2.241e-20
-         // Expected Status Term:                         -2.241e-20
+         // Expected Error Term:                         -2.241e-20
          // Maximum Relative Change in Control Points:   5.110e-03
          static const T Y = 0.405935764312744140625f;
          static const T P[] = {    
@@ -527,9 +527,9 @@ T erf_imp(T z, bool invert, const Policy& pol, const std::integral_constant<int,
       }
       else if(z < 2.5)
       {
-         // Max Status found at long double precision =   3.686211e-21
+         // Max Error found at long double precision =   3.686211e-21
          // Maximum Deviation Found:                     1.495e-21
-         // Expected Status Term:                         -1.494e-21
+         // Expected Error Term:                         -1.494e-21
          // Maximum Relative Change in Control Points:   1.793e-04
          static const T Y = 0.50672817230224609375f;
          static const T P[] = {    
@@ -563,9 +563,9 @@ T erf_imp(T z, bool invert, const Policy& pol, const std::integral_constant<int,
       else if(z < 4.5)
       {
          // Maximum Deviation Found:                     1.107e-20
-         // Expected Status Term:                         -1.106e-20
+         // Expected Error Term:                         -1.106e-20
          // Maximum Relative Change in Control Points:   1.709e-04
-         // Max Status found at long double precision =   1.446908e-20
+         // Max Error found at long double precision =   1.446908e-20
          static const T Y  = 0.5405750274658203125f;
          static const T P[] = {    
             BOOST_MATH_BIG_CONSTANT(T, 64, 0.0029527671653097284033),
@@ -597,9 +597,9 @@ T erf_imp(T z, bool invert, const Policy& pol, const std::integral_constant<int,
       }
       else
       {
-         // Max Status found at long double precision =   7.961166e-21
+         // Max Error found at long double precision =   7.961166e-21
          // Maximum Deviation Found:                     6.677e-21
-         // Expected Status Term:                         6.676e-21
+         // Expected Error Term:                         6.676e-21
          // Maximum Relative Change in Control Points:   2.319e-05
          static const T Y = 0.55825519561767578125f;
          static const T P[] = {    
@@ -693,9 +693,9 @@ T erf_imp(T z, bool invert, const Policy& pol, const std::integral_constant<int,
       }
       else
       {
-         // Max Status found at long double precision =   2.342380e-35
+         // Max Error found at long double precision =   2.342380e-35
          // Maximum Deviation Found:                     6.124e-36
-         // Expected Status Term:                         -6.124e-36
+         // Expected Error Term:                         -6.124e-36
          // Maximum Relative Change in Control Points:   3.492e-10
          static const T Y = 1.0841522216796875f;
          static const T P[] = {    
@@ -729,9 +729,9 @@ T erf_imp(T z, bool invert, const Policy& pol, const std::integral_constant<int,
       invert = !invert;
       if(z < 1)
       {
-         // Max Status found at long double precision =   3.246278e-35
+         // Max Error found at long double precision =   3.246278e-35
          // Maximum Deviation Found:                     1.388e-35
-         // Expected Status Term:                         1.387e-35
+         // Expected Error Term:                         1.387e-35
          // Maximum Relative Change in Control Points:   6.127e-05
          static const T Y = 0.371877193450927734375f;
          static const T P[] = {    
@@ -771,9 +771,9 @@ T erf_imp(T z, bool invert, const Policy& pol, const std::integral_constant<int,
       }
       else if(z < 1.5)
       {
-         // Max Status found at long double precision =   2.215785e-35
+         // Max Error found at long double precision =   2.215785e-35
          // Maximum Deviation Found:                     1.539e-35
-         // Expected Status Term:                         1.538e-35
+         // Expected Error Term:                         1.538e-35
          // Maximum Relative Change in Control Points:   6.104e-05
          static const T Y = 0.45658016204833984375f;
          static const T P[] = {    
@@ -813,9 +813,9 @@ T erf_imp(T z, bool invert, const Policy& pol, const std::integral_constant<int,
       else if(z < 2.25)
       {
          // Maximum Deviation Found:                     1.418e-35
-         // Expected Status Term:                         1.418e-35
+         // Expected Error Term:                         1.418e-35
          // Maximum Relative Change in Control Points:   1.316e-04
-         // Max Status found at long double precision =   1.998462e-35
+         // Max Error found at long double precision =   1.998462e-35
          static const T Y = 0.50250148773193359375f;
          static const T P[] = {    
             BOOST_MATH_BIG_CONSTANT(T, 113, -0.0201233630504573402185161184151016606),
@@ -855,9 +855,9 @@ T erf_imp(T z, bool invert, const Policy& pol, const std::integral_constant<int,
       else if (z < 3)
       {
          // Maximum Deviation Found:                     3.575e-36
-         // Expected Status Term:                         3.575e-36
+         // Expected Error Term:                         3.575e-36
          // Maximum Relative Change in Control Points:   7.103e-05
-         // Max Status found at long double precision =   5.794737e-36
+         // Max Error found at long double precision =   5.794737e-36
          static const T Y = 0.52896785736083984375f;
          static const T P[] = {    
             BOOST_MATH_BIG_CONSTANT(T, 113, -0.00902152521745813634562524098263360074),
@@ -896,9 +896,9 @@ T erf_imp(T z, bool invert, const Policy& pol, const std::integral_constant<int,
       else if(z < 3.5)
       {
          // Maximum Deviation Found:                     8.126e-37
-         // Expected Status Term:                         -8.126e-37
+         // Expected Error Term:                         -8.126e-37
          // Maximum Relative Change in Control Points:   1.363e-04
-         // Max Status found at long double precision =   1.747062e-36
+         // Max Error found at long double precision =   1.747062e-36
          static const T Y = 0.54037380218505859375f;
          static const T P[] = {    
             BOOST_MATH_BIG_CONSTANT(T, 113, -0.0033703486408887424921155540591370375),
@@ -935,9 +935,9 @@ T erf_imp(T z, bool invert, const Policy& pol, const std::integral_constant<int,
       else if(z < 5.5)
       {
          // Maximum Deviation Found:                     5.804e-36
-         // Expected Status Term:                         -5.803e-36
+         // Expected Error Term:                         -5.803e-36
          // Maximum Relative Change in Control Points:   2.475e-05
-         // Max Status found at long double precision =   1.349545e-35
+         // Max Error found at long double precision =   1.349545e-35
          static const T Y = 0.55000019073486328125f;
          static const T P[] = {    
             BOOST_MATH_BIG_CONSTANT(T, 113, 0.00118142849742309772151454518093813615),
@@ -978,9 +978,9 @@ T erf_imp(T z, bool invert, const Policy& pol, const std::integral_constant<int,
       else if(z < 7.5)
       {
          // Maximum Deviation Found:                     1.007e-36
-         // Expected Status Term:                         1.007e-36
+         // Expected Error Term:                         1.007e-36
          // Maximum Relative Change in Control Points:   1.027e-03
-         // Max Status found at long double precision =   2.646420e-36
+         // Max Error found at long double precision =   2.646420e-36
          static const T Y = 0.5574436187744140625f;
          static const T P[] = {    
             BOOST_MATH_BIG_CONSTANT(T, 113, 0.000293236907400849056269309713064107674),
@@ -1019,9 +1019,9 @@ T erf_imp(T z, bool invert, const Policy& pol, const std::integral_constant<int,
       else if(z < 11.5)
       {
          // Maximum Deviation Found:                     8.380e-36
-         // Expected Status Term:                         8.380e-36
+         // Expected Error Term:                         8.380e-36
          // Maximum Relative Change in Control Points:   2.632e-06
-         // Max Status found at long double precision =   9.849522e-36
+         // Max Error found at long double precision =   9.849522e-36
          static const T Y = 0.56083202362060546875f;
          static const T P[] = {    
             BOOST_MATH_BIG_CONSTANT(T, 113, 0.000282420728751494363613829834891390121),
@@ -1060,9 +1060,9 @@ T erf_imp(T z, bool invert, const Policy& pol, const std::integral_constant<int,
       else
       {
          // Maximum Deviation Found:                     1.132e-35
-         // Expected Status Term:                         -1.132e-35
+         // Expected Error Term:                         -1.132e-35
          // Maximum Relative Change in Control Points:   4.674e-04
-         // Max Status found at long double precision =   1.162590e-35
+         // Max Error found at long double precision =   1.162590e-35
          static const T Y = 0.5632686614990234375f;
          static const T P[] = {    
             BOOST_MATH_BIG_CONSTANT(T, 113, 0.000920922048732849448079451574171836943),

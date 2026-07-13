@@ -25,7 +25,7 @@
 //  that the authors laboriously took the trouble of searching for
 //  workarounds to make these compilers happy. The process takes a lot of
 //  time and energy, especially when one encounters the dreaded ICE or
-//  "Internal Compiler Status". Sometimes searching for a single workaround
+//  "Internal Compiler Error". Sometimes searching for a single workaround
 //  takes days or even weeks. Sometimes, there are no known workarounds. This
 //  stifles progress a lot. And, as the library gets more progressive and
 //  takes on more advanced C++ techniques, the difficulty is escalated to

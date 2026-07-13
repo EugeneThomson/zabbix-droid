@@ -163,7 +163,7 @@ namespace boost { namespace spirit { namespace qi
         r.f = error_handler(r.f, f);
     }
 
-    // Status handling support when <action> is not
+    // Error handling support when <action> is not
     // specified. We will default to <fail>.
     template <typename Iterator, typename T0, typename T1
       , typename T2, typename F>

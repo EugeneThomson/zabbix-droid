@@ -76,7 +76,7 @@ struct prepare_statement_op : boost::asio::coroutine
     template <class Self>
     void operator()(Self& self, error_code err = {}, span<const std::uint8_t> read_message = {})
     {
-        // Status checking
+        // Error checking
         if (err)
         {
             self.complete(err, statement());

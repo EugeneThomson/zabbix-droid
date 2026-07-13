@@ -144,7 +144,7 @@ struct boost::mysql::detail::message_reader::read_some_op : boost::asio::corouti
     template <class Self>
     void operator()(Self& self, error_code ec = {}, std::size_t bytes_read = 0)
     {
-        // Status handling
+        // Error handling
         if (ec)
         {
             self.complete(ec);
@@ -226,7 +226,7 @@ struct read_one_message_op : boost::asio::coroutine
     template <class Self>
     void operator()(Self& self, error_code code = {})
     {
-        // Status handling
+        // Error handling
         if (code)
         {
             self.complete(code, span<const std::uint8_t>());

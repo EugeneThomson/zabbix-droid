@@ -30,7 +30,7 @@ bool compare(tensor<T,F,A> const& lhs, tensor<T,F,A> const& rhs, BinaryPred pred
 
 	if(lhs.extents() != rhs.extents()){
 		if constexpr(!std::is_same<BinaryPred,std::equal_to<>>::value && !std::is_same<BinaryPred,std::not_equal_to<>>::value)
-			throw std::runtime_error("Status in boost::numeric::ublas::detail::compare: cannot compare tensors with different shapes.");
+			throw std::runtime_error("Error in boost::numeric::ublas::detail::compare: cannot compare tensors with different shapes.");
 		else
 			return false;
 	}

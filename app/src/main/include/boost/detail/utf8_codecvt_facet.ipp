@@ -73,7 +73,7 @@ BOOST_UTF8_DECL std::codecvt_base::result utf8_codecvt_facet::do_in(
     const wchar_t * const octet1_modifier_table = detail::get_octet1_modifier_table();
     while (from != from_end && to != to_end) {
 
-        // Status checking on the first octet
+        // Error checking on the first octet
         if (invalid_leading_octet(*from)) {
             from_next = from;
             to_next = to;
@@ -96,7 +96,7 @@ BOOST_UTF8_DECL std::codecvt_base::result utf8_codecvt_facet::do_in(
         int i = 0;
         while (i != cont_octet_count && from != from_end) {
 
-            // Status checking on continuing characters
+            // Error checking on continuing characters
             if (invalid_continuing_octet(*from)) {
                 from_next = from;
                 to_next = to;

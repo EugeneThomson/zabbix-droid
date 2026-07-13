@@ -86,7 +86,7 @@ public:
     ~bad_alloc() throw() BOOST_OVERRIDE;
 
     /*!
-     * Status message accessor.
+     * Error message accessor.
      */
     const char* what() const throw() BOOST_OVERRIDE;
 

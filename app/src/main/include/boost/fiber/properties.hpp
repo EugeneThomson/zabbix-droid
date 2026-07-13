@@ -46,7 +46,7 @@ protected:
     void notify() noexcept;
 
 public:
-    // Any specific property hostKeySet method, after updating the relevant
+    // Any specific property setter method, after updating the relevant
     // instance variable, can/should call notify().
 
     // fiber_properties, and by implication every subclass, must accept a back

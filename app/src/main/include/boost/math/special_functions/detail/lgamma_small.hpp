@@ -149,7 +149,7 @@ T lgamma_small_imp(T z, T zm1, T zm2, const std::integral_constant<int, 64>&, co
          // At double precision: Max error found:                1.230011e-17
          // At 80-bit long double precision:   Max error found:  5.631355e-21
          // Maximum Deviation Found:                             3.139e-021
-         // Expected Status Term:                                 3.139e-021
+         // Expected Error Term:                                 3.139e-021
 
          //
          static const float Y = 0.52815341949462890625f;
@@ -195,7 +195,7 @@ T lgamma_small_imp(T z, T zm1, T zm2, const std::integral_constant<int, 64>&, co
          // At double precision, max error found:              1.797565e-17
          // At 80-bit long double precision, max error found:  9.306419e-21
          // Maximum Deviation Found:                           2.151e-021
-         // Expected Status Term:                               2.150e-021
+         // Expected Error Term:                               2.150e-021
          //
          static const float Y = 0.452017307281494140625f;
 
@@ -347,7 +347,7 @@ T lgamma_small_imp(T z, T zm1, T zm2, const std::integral_constant<int, 113>&, c
          // R(z-1) has the following properties:
          //
          // Maximum Deviation Found (approximation error)            1.659e-36
-         // Expected Status Term (theoretical error)                  1.343e-36
+         // Expected Error Term (theoretical error)                  1.343e-36
          // Max error found at 128-bit long double precision         1.007e-35
          //
          static const float Y = 0.54076099395751953125f;
@@ -401,7 +401,7 @@ T lgamma_small_imp(T z, T zm1, T zm2, const std::integral_constant<int, 113>&, c
          //
          // Max error found at 128-bit long double precision  9.634e-36
          // Maximum Deviation Found (approximation error)     1.538e-37
-         // Expected Status Term (theoretical error)           2.350e-38
+         // Expected Error Term (theoretical error)           2.350e-38
          //
          static const float Y = 0.483787059783935546875f;
 
@@ -442,7 +442,7 @@ T lgamma_small_imp(T z, T zm1, T zm2, const std::integral_constant<int, 113>&, c
          //
          // Max error found (at 128-bit long double precision) 1.831e-35
          // Maximum Deviation Found (approximation error)      8.588e-36
-         // Expected Status Term (theoretical error)            1.458e-36
+         // Expected Error Term (theoretical error)            1.458e-36
          //
          static const float Y = 0.443811893463134765625f;
 

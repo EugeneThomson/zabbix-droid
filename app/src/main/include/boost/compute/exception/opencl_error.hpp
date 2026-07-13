@@ -71,7 +71,7 @@ public:
     /// Will print "Invalid Kernel Arguments".
     ///
     /// If the error code is unknown (e.g. not a valid OpenCL error), a string
-    /// containing "Unknown OpenCL Status" along with the error number will be
+    /// containing "Unknown OpenCL Error" along with the error number will be
     /// returned.
     static std::string to_string(cl_int error)
     {
@@ -141,7 +141,7 @@ public:
         #endif
         default: {
             std::stringstream s;
-            s << "Unknown OpenCL Status (" << error << ")";
+            s << "Unknown OpenCL Error (" << error << ")";
             return s.str();
         }
         }

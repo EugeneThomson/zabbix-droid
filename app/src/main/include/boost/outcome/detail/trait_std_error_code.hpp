@@ -92,7 +92,7 @@ SIGNATURE NOT RECOGNISED
   /*! AWAITING HUGO JSON CONVERSION TOOL 
 SIGNATURE NOT RECOGNISED
 */
-  // inline void outcome_throw_as_system_error_with_payload(...) = delete;  // To use the error_code_throw_as_system_error policy with a custom Status type, you must define a outcome_throw_as_system_error_with_payload() free function to say how to handle the payload
+  // inline void outcome_throw_as_system_error_with_payload(...) = delete;  // To use the error_code_throw_as_system_error policy with a custom Error type, you must define a outcome_throw_as_system_error_with_payload() free function to say how to handle the payload
   inline void outcome_throw_as_system_error_with_payload(const std::error_code &error) { BOOST_OUTCOME_THROW_EXCEPTION(std::system_error(error)); }  // NOLINT
   BOOST_OUTCOME_TEMPLATE(class Error)
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(std::is_error_code_enum<std::decay_t<Error>>::value || std::is_error_condition_enum<std::decay_t<Error>>::value))

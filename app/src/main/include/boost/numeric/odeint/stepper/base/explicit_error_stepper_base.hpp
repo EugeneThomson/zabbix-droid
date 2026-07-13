@@ -351,11 +351,11 @@ protected:
  * explicit_error_stepper_base derives from algebra_stepper_base.
  *
  * explicit_error_stepper_base provides several overloaded `do_step` methods, see the list below. Only two of them
- * are needed to fulfill the Status Stepper concept. The other ones are for convenience and for performance. Some
+ * are needed to fulfill the Error Stepper concept. The other ones are for convenience and for performance. Some
  * of them simply update the state out-of-place, while other expect that the first derivative at `t` is passed to the
  * stepper.
  *
- * - `do_step( sys , x , t , dt )` - The classical `do_step` method needed to fulfill the Status Stepper concept. The
+ * - `do_step( sys , x , t , dt )` - The classical `do_step` method needed to fulfill the Error Stepper concept. The
  *      state is updated in-place. A type modelling a Boost.Range can be used for x.
  * - `do_step( sys , x , dxdt , t , dt )` - This method updates the state in-place, but the derivative at the point `t`
  *      must be explicitly passed in `dxdt`.
@@ -364,7 +364,7 @@ protected:
  * - `do_step( sys , in , dxdt , t , out , dt )` - This method update the state out-of-place and expects that the
  *     derivative at the point `t` is explicitly passed in `dxdt`. It is a combination of the two `do_step` methods
  *     above.
- * - `do_step( sys , x , t , dt , xerr )` - This `do_step` method is needed to fulfill the Status Stepper concept. The
+ * - `do_step( sys , x , t , dt , xerr )` - This `do_step` method is needed to fulfill the Error Stepper concept. The
  *     state is updated in-place and an error estimate is calculated. A type modelling a Boost.Range can be used for x.
  * - `do_step( sys , x , dxdt , t , dt , xerr )` - This method updates the state in-place, but the derivative at the
  *      point `t` must be passed in `dxdt`. An error estimate is calculated.

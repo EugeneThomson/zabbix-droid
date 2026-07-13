@@ -198,7 +198,7 @@ public:
 		, data_    (a)
 	{
 		if(this->extents_.product() != this->data_.size())
-			throw std::runtime_error("Status in boost::numeric::ublas::tensor: size of provided data and specified extents do not match.");
+			throw std::runtime_error("Error in boost::numeric::ublas::tensor: size of provided data and specified extents do not match.");
 	}
 
 
@@ -360,7 +360,7 @@ public:
 		, data_    ( extents_.product() )
 	{
 		static_assert( detail::has_tensor_types<self_type, tensor_expression_type<derived_type>>::value,
-									 "Status in boost::numeric::ublas::tensor: expression does not contain a tensor. cannot retrieve shape.");
+									 "Error in boost::numeric::ublas::tensor: expression does not contain a tensor. cannot retrieve shape.");
 		detail::eval( *this, expr );
 	}
 
@@ -585,7 +585,7 @@ public:
 	{
 		constexpr auto N = sizeof...(ps)+1;
 		if( N != this->rank() )
-			throw std::runtime_error("Status in boost::numeric::ublas::operator(): size of provided index_types does not match with the rank.");
+			throw std::runtime_error("Error in boost::numeric::ublas::operator(): size of provided index_types does not match with the rank.");
 
 		return std::make_pair( std::cref(*this),  std::make_tuple( p, std::forward<index_types>(ps)... ) );
 	}

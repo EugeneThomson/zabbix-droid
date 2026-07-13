@@ -369,7 +369,7 @@ inline RealType quantile(const kolmogorov_smirnov_distribution<RealType, Policy>
 {
     BOOST_MATH_STD_USING
    static const char* function = "boost::math::quantile(const kolmogorov_smirnov_distribution<%1%>&, %1%)";
-   // Status check:
+   // Error check:
    RealType error_result;
    RealType n = dist.number_of_observations();
    if(false == detail::check_probability(function, p, &error_result, Policy()))
@@ -391,7 +391,7 @@ inline RealType quantile(const complemented2_type<kolmogorov_smirnov_distributio
    static const char* function = "boost::math::quantile(const kolmogorov_smirnov_distribution<%1%>&, %1%)";
    kolmogorov_smirnov_distribution<RealType, Policy> const& dist = c.dist;
    RealType n = dist.number_of_observations();
-   // Status check:
+   // Error check:
    RealType error_result;
    RealType p = c.param;
 

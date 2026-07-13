@@ -110,7 +110,7 @@ public:
     void set_nullability_checked() noexcept { nullability_checked_ = true; }
     bool nullability_checked() const noexcept { return nullability_checked_; }
 
-    // Status reporting
+    // Error reporting
     BOOST_MYSQL_DECL
     void add_field_absent_error();
 

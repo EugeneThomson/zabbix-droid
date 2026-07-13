@@ -64,7 +64,7 @@ std::pair<Real, Real> ooura_sin_node_and_weight(long n, Real h, Real alpha)
 
     if (n == 0) {
         // Equation 44 of https://arxiv.org/pdf/0911.4796.pdf
-        // Fourier Transform of the Stretched Exponential Function: Analytic Status Bounds,
+        // Fourier Transform of the Stretched Exponential Function: Analytic Error Bounds,
         // Double Exponential Transform, and Open-Source Implementation,
         // Joachim Wuttke, 
         // The C library libkww provides functions to compute the Kohlrausch-Williams-Watts function, 

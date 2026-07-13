@@ -308,7 +308,7 @@ inline FP init_steady_clock(kern_return_t & err)
         timespec ts;
         if ( ::clock_gettime( CLOCK_REALTIME, &ts ) )
         {
-          BOOST_ASSERT(0 && "Boost::Thread - clock_gettime(CLOCK_REALTIME) Internal Status");
+          BOOST_ASSERT(0 && "Boost::Thread - clock_gettime(CLOCK_REALTIME) Internal Error");
           return real_platform_timepoint(0);
         }
         return real_platform_timepoint(ts);
@@ -444,7 +444,7 @@ inline FP init_steady_clock(kern_return_t & err)
       timespec ts;
       if ( ::clock_gettime( CLOCK_MONOTONIC, &ts ) )
       {
-        BOOST_ASSERT(0 && "Boost::Thread - clock_gettime(CLOCK_MONOTONIC) Internal Status");
+        BOOST_ASSERT(0 && "Boost::Thread - clock_gettime(CLOCK_MONOTONIC) Internal Error");
         return mono_platform_timepoint(0);
       }
       return mono_platform_timepoint(ts);

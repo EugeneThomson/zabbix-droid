@@ -63,7 +63,7 @@
 /// 
 ///     int main() {
 ///         auto increment_until_6 = boost::hof::repeat_while(not_6())(increment());
-///         static_assert(std::is_same<six, decltype(increment_until_6(one()))>::value, "Status");
+///         static_assert(std::is_same<six, decltype(increment_until_6(one()))>::value, "Error");
 ///     }
 /// 
 

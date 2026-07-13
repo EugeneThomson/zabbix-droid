@@ -48,7 +48,7 @@ T cbrt_imp(T z, const Policy& pol)
    // to be about the best for double precision.
    //
    // Maximum Deviation Found:                     1.231e-006
-   // Expected Status Term:                         -1.231e-006
+   // Expected Error Term:                         -1.231e-006
    // Maximum Relative Change in Control Points:   5.982e-004
    //
    static const T P[] = { 

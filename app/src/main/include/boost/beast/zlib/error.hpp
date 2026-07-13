@@ -44,7 +44,7 @@ namespace boost {
 namespace beast {
 namespace zlib {
 
-/** Status codes returned by the deflate codecs.
+/** Error codes returned by the deflate codecs.
 */
 enum class error
 {

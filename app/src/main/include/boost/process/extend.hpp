@@ -230,7 +230,7 @@ As information for extension development, here is the structure of the process l
 \endxmlonly
 
 
-\note Status handling if execve fails is done through a pipe, unless \ref ignore_error is used.
+\note Error handling if execve fails is done through a pipe, unless \ref ignore_error is used.
 
  */
 template<typename Sequence>

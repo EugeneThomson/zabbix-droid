@@ -35,7 +35,7 @@ namespace boost { namespace property_tree
     };
 
 
-    /// Status indicating that translation from given value to the property tree
+    /// Error indicating that translation from given value to the property tree
     /// data_type (or vice versa) failed. Derives from ptree_error.
     class ptree_bad_data : public ptree_error
     {
@@ -59,7 +59,7 @@ namespace boost { namespace property_tree
     };
 
 
-    /// Status indicating that specified path does not exist. Derives from
+    /// Error indicating that specified path does not exist. Derives from
     /// ptree_error.
     class ptree_bad_path : public ptree_error
     {

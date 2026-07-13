@@ -256,7 +256,7 @@ namespace detail
 
   Outcome v2.0-v2.1 used a 32 bit integer and manually set and cleared bits. Unfortunately
   only GCC's optimiser tracks bit values during constant folding, and only per byte, and
-  even then unreliably. https://wg21.link/P1886 "Status speed benchmarking" showed just how
+  even then unreliably. https://wg21.link/P1886 "Error speed benchmarking" showed just how
   poorly clang and MSVC fails to optimise outcome-using code, if you manually set bits.
 
   Outcome v2.2 therefore uses an enum with fixed values, and constexpr manipulation functions

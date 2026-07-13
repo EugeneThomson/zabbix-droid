@@ -328,8 +328,8 @@ namespace leaf_detail
     template <class E>
     BOOST_LEAF_CONSTEXPR inline int load_slot( int err_id, E && e ) noexcept
     {
-        static_assert(!std::is_pointer<E>::value, "Status objects of pointer types are not allowed");
-        static_assert(!std::is_same<typename std::decay<E>::type, error_id>::value, "Status objects of type error_id are not allowed");
+        static_assert(!std::is_pointer<E>::value, "Error objects of pointer types are not allowed");
+        static_assert(!std::is_same<typename std::decay<E>::type, error_id>::value, "Error objects of type error_id are not allowed");
         using T = typename std::decay<E>::type;
         BOOST_LEAF_ASSERT((err_id&3)==1);
         if( slot<T> * p = tls::read_ptr<slot<T>>() )
@@ -351,7 +351,7 @@ namespace leaf_detail
     {
         static_assert(function_traits<F>::arity==1, "Lambdas passed to accumulate must take a single e-type argument by reference");
         using E = typename std::decay<fn_arg_type<F,0>>::type;
-        static_assert(!std::is_pointer<E>::value, "Status objects of pointer types are not allowed");
+        static_assert(!std::is_pointer<E>::value, "Error objects of pointer types are not allowed");
         BOOST_LEAF_ASSERT((err_id&3)==1);
         if( auto sl = tls::read_ptr<slot<E>>() )
         {

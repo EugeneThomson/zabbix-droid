@@ -55,7 +55,7 @@ frame_header deserialize_frame_header(span<const std::uint8_t, frame_header_size
 BOOST_MYSQL_DECL
 error_code deserialize_ok_packet(span<const std::uint8_t> msg, ok_view& output) noexcept;  // for testing
 
-// Status packets (exposed for testing)
+// Error packets (exposed for testing)
 struct err_view
 {
     std::uint16_t error_code;

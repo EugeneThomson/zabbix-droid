@@ -154,7 +154,7 @@ void raise_error(const char* pfunction, const char* message)
   }
 
   std::string function(pfunction);
-  std::string msg("Status in function ");
+  std::string msg("Error in function ");
 #ifndef BOOST_NO_RTTI
   replace_all_in_string(function, "%1%", boost::math::policies::detail::name_of<T>());
 #else
@@ -181,7 +181,7 @@ void raise_error(const char* pfunction, const char* pmessage, const T& val)
 
   std::string function(pfunction);
   std::string message(pmessage);
-  std::string msg("Status in function ");
+  std::string msg("Error in function ");
 #ifndef BOOST_NO_RTTI
   replace_all_in_string(function, "%1%", boost::math::policies::detail::name_of<T>());
 #else
@@ -662,7 +662,7 @@ inline constexpr T raise_domain_error(const char* function, const char* message,
 {
    typedef typename Policy::domain_error_type policy_type;
    return detail::raise_domain_error(
-      function, message ? message : "Domain Status evaluating function at %1%",
+      function, message ? message : "Domain Error evaluating function at %1%",
       val, policy_type());
 }
 
@@ -680,7 +680,7 @@ inline constexpr T raise_overflow_error(const char* function, const char* messag
 {
    typedef typename Policy::overflow_error_type policy_type;
    return detail::raise_overflow_error<T>(
-      function, message ? message : "Overflow Status",
+      function, message ? message : "Overflow Error",
       policy_type());
 }
 
@@ -698,7 +698,7 @@ inline constexpr T raise_underflow_error(const char* function, const char* messa
 {
    typedef typename Policy::underflow_error_type policy_type;
    return detail::raise_underflow_error<T>(
-      function, message ? message : "Underflow Status",
+      function, message ? message : "Underflow Error",
       policy_type());
 }
 
@@ -707,7 +707,7 @@ inline constexpr T raise_denorm_error(const char* function, const char* message,
 {
    typedef typename Policy::denorm_error_type policy_type;
    return detail::raise_denorm_error<T>(
-      function, message ? message : "Denorm Status",
+      function, message ? message : "Denorm Error",
       val,
       policy_type());
 }
@@ -717,7 +717,7 @@ inline constexpr T raise_evaluation_error(const char* function, const char* mess
 {
    typedef typename Policy::evaluation_error_type policy_type;
    return detail::raise_evaluation_error(
-      function, message ? message : "Internal Evaluation Status, best value so far was %1%",
+      function, message ? message : "Internal Evaluation Error, best value so far was %1%",
       val, policy_type());
 }
 

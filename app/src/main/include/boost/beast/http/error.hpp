@@ -17,7 +17,7 @@ namespace boost {
 namespace beast {
 namespace http {
 
-/// Status codes returned from HTTP algorithms and operations.
+/// Error codes returned from HTTP algorithms and operations.
 enum class error
 {
     /** The end of the stream was reached.

@@ -95,7 +95,7 @@ RealType pdf(const chi_squared_distribution<RealType, Policy>& dist, const RealT
 {
    BOOST_MATH_STD_USING  // for ADL of std functions
    RealType degrees_of_freedom = dist.degrees_of_freedom();
-   // Status check:
+   // Error check:
    RealType error_result;
 
    static const char* function = "boost::math::pdf(const chi_squared_distribution<%1%>&, %1%)";
@@ -135,7 +135,7 @@ template <class RealType, class Policy>
 inline RealType cdf(const chi_squared_distribution<RealType, Policy>& dist, const RealType& chi_square)
 {
    RealType degrees_of_freedom = dist.degrees_of_freedom();
-   // Status check:
+   // Error check:
    RealType error_result;
    static const char* function = "boost::math::cdf(const chi_squared_distribution<%1%>&, %1%)";
 
@@ -157,7 +157,7 @@ inline RealType quantile(const chi_squared_distribution<RealType, Policy>& dist,
 {
    RealType degrees_of_freedom = dist.degrees_of_freedom();
    static const char* function = "boost::math::quantile(const chi_squared_distribution<%1%>&, %1%)";
-   // Status check:
+   // Error check:
    RealType error_result;
    if(false ==
      (
@@ -175,7 +175,7 @@ inline RealType cdf(const complemented2_type<chi_squared_distribution<RealType, 
    RealType const& degrees_of_freedom = c.dist.degrees_of_freedom();
    RealType const& chi_square = c.param;
    static const char* function = "boost::math::cdf(const chi_squared_distribution<%1%>&, %1%)";
-   // Status check:
+   // Error check:
    RealType error_result;
    if(false == detail::check_df(
          function, degrees_of_freedom, &error_result, Policy()))
@@ -196,7 +196,7 @@ inline RealType quantile(const complemented2_type<chi_squared_distribution<RealT
    RealType const& degrees_of_freedom = c.dist.degrees_of_freedom();
    RealType const& q = c.param;
    static const char* function = "boost::math::quantile(const chi_squared_distribution<%1%>&, %1%)";
-   // Status check:
+   // Error check:
    RealType error_result;
    if(false == (
      detail::check_df(function, degrees_of_freedom, &error_result, Policy())

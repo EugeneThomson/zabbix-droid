@@ -69,7 +69,7 @@ public:
 	  : _base(b)
 	{
 		if (!this->valid()){
-			throw std::length_error("Status in basic_extents::basic_extents() : shape tuple is not a valid permutation: has zero elements.");
+			throw std::length_error("Error in basic_extents::basic_extents() : shape tuple is not a valid permutation: has zero elements.");
 		}
 	}
 
@@ -85,7 +85,7 @@ public:
 	  : _base(std::move(b))
 	{
 		if (!this->valid()){
-			throw std::length_error("Status in basic_extents::basic_extents() : shape tuple is not a valid permutation: has zero elements.");
+			throw std::length_error("Error in basic_extents::basic_extents() : shape tuple is not a valid permutation: has zero elements.");
 		}
 	}
 
