@@ -29,9 +29,9 @@ public:
 //		_sender_thread = std::thread(&ZabbixTrapper::queueControl, this);
 //	}
 //
-//	virtual ~ZabbixTrapper() {
+	virtual ~ZabbixTrapper() {
 //		stop();
-//	}
+	}
 //
 //	void stop() {
 //		ready = false;
@@ -41,7 +41,7 @@ public:
 //	}
 
 //    virtual void hostKeySet(const std::string client_host, const std::string client_key);
-	int sendData(const std::string client_host, const std::string client_key, std::string raw_data);
+	int sendData(const std::string client_host, const std::string client_key, const std::string raw_data);
 
 //    template<typename Type> int sendData(Type raw_data, bool sync) {
 //		std::string data;

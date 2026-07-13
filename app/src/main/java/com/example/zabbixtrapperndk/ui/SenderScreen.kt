@@ -41,7 +41,7 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
     var text by remember { mutableStateOf("") }
     var expanded by remember { mutableStateOf(false) }
     var selectedItem by remember { mutableStateOf(HostKeyPair("", "")) }
-//    val scope = rememberCoroutineScope()
+    val scope = rememberCoroutineScope()
 
     Box(modifier = Modifier.fillMaxSize()) {
         Row(
@@ -113,10 +113,10 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
 
             Button(
                 onClick = {
-//                    scope.launch {
-//                        TrapperHolder.trapper.send(selectedItem.host, selectedItem.key,  text)
-//                    }
-                    TrapperHolder.trapper.send(selectedItem.host, selectedItem.key,  text)
+                    scope.launch {
+                        TrapperHolder.trapper.send(selectedItem.host, selectedItem.key,  text)
+                    }
+//                    TrapperHolder.trapper.send(selectedItem.host, selectedItem.key,  text)
                 }
             ) {
                 Text("Send")
@@ -124,10 +124,10 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
 
             Button(
                 onClick = {
-//                    scope.launch {
-//                        TrapperHolder.trapper.send("Motorola-Host", "Motorola-Key", text)
-//                    }
-                    TrapperHolder.trapper.send("Motorola-Host", "Motorola-Key", text)
+                    scope.launch {
+                        TrapperHolder.trapper.send("Motorola-Host", "Motorola-Key", text)
+                    }
+//                    TrapperHolder.trapper.send("Motorola-Host", "Motorola-Key", text)
                 }
             ) {
                 Text("Trash Button")
