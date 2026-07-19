@@ -12,8 +12,8 @@ android {
         applicationId = "com.example.zabbixtrapperndk"
         minSdk = 24
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -21,13 +21,11 @@ android {
         }
         externalNativeBuild {
             cmake {
-//                cppFlags += ""
                 cppFlags += listOf("-DANDROID_STL=c++_shared") // Если нужно добавить список флагов
             }
         }
         ndk {
             abiFilters.addAll(listOf("armeabi-v7a", "arm64-v8a"))
-//            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86_64' // Укажите нужные архитектуры
         }
     }
 
