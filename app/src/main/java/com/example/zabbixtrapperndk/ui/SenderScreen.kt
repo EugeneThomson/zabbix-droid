@@ -14,7 +14,6 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
-//import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -34,7 +33,6 @@ import com.example.zabbixtrapperndk.data.HostKeyPairStorage
 import com.example.zabbixtrapperndk.data.TrapperHolder
 import kotlinx.coroutines.launch
 
-//@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
 
@@ -65,19 +63,6 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-
-//            TextField(
-//                value = _zabbix_host,
-//                onValueChange = { _zabbix_host = it },
-//                modifier = Modifier.fillMaxWidth()
-//            )
-//
-//            TextField(
-//                value = zabbixKey,
-//                onValueChange = { zabbixKey = it },
-//                modifier = Modifier.fillMaxWidth()
-//            )
-
             TextField(
                 value = selectedItem?.let { "${it.host} ${it.key}" } ?: "",
                 onValueChange = {},
@@ -87,7 +72,7 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
                         Icon(Icons.Default.ArrowDropDown, null)
                     }
                 },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
             )
 
             DropdownMenu(
@@ -96,7 +81,7 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
             ) {
                 HostKeyPairStorage.items.forEach { item ->
                     DropdownMenuItem(
-                        text = { Text("${item.host} ${item.key}") }, // обязательно
+                        text = { Text("${item.host} ${item.key}") },
                         onClick = {
                             selectedItem = item
                             expanded = false
@@ -116,7 +101,6 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
                     scope.launch {
                         TrapperHolder.trapper.send(selectedItem.host, selectedItem.key,  text)
                     }
-//                    TrapperHolder.trapper.send(selectedItem.host, selectedItem.key,  text)
                 }
             ) {
                 Text("Send")
@@ -127,7 +111,6 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
                     scope.launch {
                         TrapperHolder.trapper.send("Motorola-Host", "Motorola-Key", text)
                     }
-//                    TrapperHolder.trapper.send("Motorola-Host", "Motorola-Key", text)
                 }
             ) {
                 Text("Trash Button")
