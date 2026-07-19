@@ -40,14 +40,6 @@ class NativeTrapper {
         }
     }
 
-//    fun send(host: String, key: String, data: String): Int {
-//        synchronized(lock) {
-//            if (!isInitialized) {
-//                return -1
-//            }
-//            return dataSend(nativePtr, host, key, data)
-//        }
-//    }
     suspend fun send(host: String, key: String, data: String): Int = withContext(Dispatchers.IO) {
         synchronized(lock) {
             if (!isInitialized) {
