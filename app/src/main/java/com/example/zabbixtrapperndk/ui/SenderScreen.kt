@@ -105,16 +105,6 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
             ) {
                 Text("Send")
             }
-
-            Button(
-                onClick = {
-                    scope.launch {
-                        TrapperHolder.trapper.send("Motorola-Host", "Motorola-Key", text)
-                    }
-                }
-            ) {
-                Text("Trash Button")
-            }
         }
     }
 }
