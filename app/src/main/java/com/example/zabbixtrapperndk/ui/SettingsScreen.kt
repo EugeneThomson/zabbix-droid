@@ -50,7 +50,7 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             IconButton(onClick = { navController.popBackStack() }) {
-                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Назад")
+                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.return_button))
             }
         }
 
@@ -116,7 +116,7 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
                     ) {
                         Text("${item.host}  ${item.key}")
                         IconButton(onClick = { HostKeyPairStorage.remove(item) }) {
-                            Icon(Icons.Default.Close, contentDescription = "Удалить")
+                            Icon(Icons.Default.Close, contentDescription = stringResource(R.string.delete_button))
                         }
                     }
                 }

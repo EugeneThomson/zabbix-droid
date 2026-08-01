@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">ZabbixTrapperNDK</string>
     <string name="init_button">Инициализировать сервер</string>
+    <string name="delete_button">Удалить</string>
+    <string name="return_button">Назад</string>
+    <string name="settings_button">Настройки</string>
+    <string name="information_button">Информация о приложении</string>
 </resources>

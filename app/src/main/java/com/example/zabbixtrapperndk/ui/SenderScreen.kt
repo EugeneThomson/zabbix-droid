@@ -26,8 +26,10 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.zabbixtrapperndk.R
 import com.example.zabbixtrapperndk.data.HostKeyPair
 import com.example.zabbixtrapperndk.data.HostKeyPairStorage
 import com.example.zabbixtrapperndk.data.TrapperHolder
@@ -49,12 +51,12 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             IconButton(onClick = {  }) {
-                Icon(Icons.Default.Info, contentDescription = "Информация")
+                Icon(Icons.Default.Info, contentDescription = stringResource(R.string.information_button))
             }
             IconButton(onClick = {
                 navController.navigate("settings")
             }) {
-                Icon(Icons.Default.Settings, contentDescription = "Настройки")
+                Icon(Icons.Default.Settings, contentDescription = stringResource(R.string.settings_button))
             }
         }
 
@@ -64,7 +66,7 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             TextField(
-                value = selectedItem?.let { "${it.host} ${it.key}" } ?: "",
+                value = selectedItem.let { "${it.host} ${it.key}" },
                 onValueChange = {},
                 readOnly = true,
                 trailingIcon = {
