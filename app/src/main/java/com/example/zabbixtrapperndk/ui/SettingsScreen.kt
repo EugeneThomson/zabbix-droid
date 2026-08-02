@@ -1,7 +1,10 @@
 package com.example.zabbixtrapperndk.ui
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -9,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -28,9 +32,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.zabbixtrapperndk.data.ConfigRepository
 import com.example.zabbixtrapperndk.R
@@ -41,8 +49,15 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
     var zabbixIp by remember { mutableStateOf("") }
     var zabbixHost by remember { mutableStateOf("") }
     var zabbixKey by remember { mutableStateOf("") }
+    val focusManager = LocalFocusManager.current
 
     Scaffold(
+        modifier = Modifier
+            .fillMaxSize()
+            .pointerInput(Unit) {
+                detectTapGestures(onTap = {
+                    focusManager.clearFocus()
+                })},
         topBar = {
             Row(
                 modifier = Modifier
@@ -61,7 +76,7 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
                 .fillMaxSize()
                 .padding(innerPadding),
             verticalArrangement = Arrangement.spacedBy(
-                space = 16.dp,
+                space = 4.dp,
                 alignment = Alignment.CenterVertically
             ),
             horizontalAlignment = Alignment.CenterHorizontally
@@ -69,7 +84,7 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp),
+                    .padding(8.dp),
                 horizontalArrangement = Arrangement.spacedBy(
                     space = 8.dp
                 )
@@ -84,6 +99,12 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
                             text = ConfigRepository.ip ?: stringResource(R.string.ip_input_placeholder),
                         )
                     },
+                    singleLine = true,
+                    keyboardActions = KeyboardActions(
+                        onDone = {
+                            focusManager.clearFocus()
+                        }
+                    )
                 )
 
                 Button(
@@ -100,31 +121,49 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
                 }
             }
 
-            OutlinedTextField(
-                value = zabbixHost,
-                onValueChange = { zabbixHost = it },
+            Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-                placeholder = {
-                    Text(
-                        text = stringResource(R.string.host_input_placeholder)
+                    .padding(8.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                OutlinedTextField(
+                    value = zabbixHost,
+                    onValueChange = { zabbixHost = it },
+                    modifier = Modifier.weight(1f),
+                    placeholder = {
+                        Text(
+                            text = stringResource(R.string.host_input_placeholder)
+                        )
+                    },
+                    singleLine = true,
+                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+                    keyboardActions = KeyboardActions(
+                        onDone = {
+                            focusManager.clearFocus()
+                        }
                     )
-                },
-            )
+                )
 
-            OutlinedTextField(
-                value = zabbixKey,
-                onValueChange = { zabbixKey = it },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-                placeholder = {
-                    Text(
-                        text = stringResource(R.string.key_input_placeholder),
+                OutlinedTextField(
+                    value = zabbixKey,
+                    onValueChange = { zabbixKey = it },
+                    modifier = Modifier.weight(1f),
+                    placeholder = {
+                        Text(
+                            text = stringResource(R.string.key_input_placeholder),
+                        )
+                    },
+                    singleLine = true,
+                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+                    keyboardActions = KeyboardActions(
+                        onDone = {
+                            focusManager.clearFocus()
+                        }
                     )
-                },
-            )
+                )
+            }
 
             Button(
                 onClick = {
@@ -133,21 +172,41 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
                         zabbixHost = ""
                         zabbixKey = ""
                     }
-                }
+                },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.secondary,
+                    contentColor = MaterialTheme.colorScheme.onSecondary
+                ),
+                shape = RoundedCornerShape(4.dp)
             ) {
                 Text("+")
             }
 
-            LazyColumn {
+            LazyColumn(
+                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
                 items(
                     items = ConfigRepository.items,
                     key = { it.hashCode() }
                 ) { item ->
                     Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(
+                                color = MaterialTheme.colorScheme.secondary,
+                                shape = RoundedCornerShape(4.dp)
+                            )
+                            .padding(horizontal = 16.dp, vertical = 8.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text("${item.host}  ${item.key}")
+                        Text(
+                            text = "${item.host}  ${item.key}",
+                            color = MaterialTheme.colorScheme.onSecondary,
+                            style = MaterialTheme.typography.bodyLarge.copy(
+                                fontSize = 20.sp
+                            ))
                         IconButton(onClick = { ConfigRepository.remove(item) }) {
                             Icon(Icons.Default.Close, contentDescription = stringResource(R.string.delete_button))
                         }
