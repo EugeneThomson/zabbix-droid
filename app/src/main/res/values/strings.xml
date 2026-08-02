@@ -5,4 +5,9 @@
     <string name="return_button">Return</string>
     <string name="settings_button">Settings</string>
     <string name="information_button">Info</string>
+    <string name="send_button">Send</string>
+    <string name="data_field_placeholder">Type a message…</string>
+    <string name="host_key_placeholder">Select host/key</string>
+    <string name="about_app">About app</string>
+    <string name="ok_button">OK</string>
 </resources>

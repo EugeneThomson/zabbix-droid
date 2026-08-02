@@ -5,4 +5,9 @@
     <string name="return_button">Назад</string>
     <string name="settings_button">Настройки</string>
     <string name="information_button">Информация о приложении</string>
+    <string name="send_button">Отправить</string>
+    <string name="data_field_placeholder">Введите сообщение…</string>
+    <string name="host_key_placeholder">Выберите хост/ключ</string>
+    <string name="about_app">О приложении</string>
+    <string name="ok_button">ОК</string>
 </resources>

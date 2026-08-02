@@ -16,8 +16,11 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -42,7 +45,7 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
     var zabbixHost by remember { mutableStateOf("") }
     var zabbixKey by remember { mutableStateOf("") }
 
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = modifier.fillMaxSize()) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -56,14 +59,19 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
 
         Column(
             modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
+            verticalArrangement = Arrangement.spacedBy(
+                space = 16.dp,
+                alignment = Alignment.CenterVertically
+            ),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                TextField(
+                OutlinedTextField(
                     value = zabbixIp,
                     onValueChange = { zabbixIp = it },
                     modifier = Modifier.weight(3f),
@@ -73,19 +81,23 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
                 Button(
                     onClick = {
                         TrapperHolder.trapper.init(zabbixIp) },
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.weight(1f),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.secondary,
+                        contentColor = MaterialTheme.colorScheme.onSecondary
+                    )
                 ) {
                     Text(stringResource(R.string.init_button))
                 }
             }
 
-            TextField(
+            OutlinedTextField(
                 value = zabbixHost,
                 onValueChange = { zabbixHost = it },
                 modifier = Modifier.fillMaxWidth()
             )
 
-            TextField(
+            OutlinedTextField(
                 value = zabbixKey,
                 onValueChange = { zabbixKey = it },
                 modifier = Modifier.fillMaxWidth()
