@@ -6,7 +6,7 @@ import java.io.File
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.encodeToString
 
-object HostKeyPairStorage {
+object ConfigStorage {
     private lateinit var appContext: Context
     private const val FILENAME = "host_key_pairs.json"
     private val _items = mutableStateListOf<HostKeyPair>()
@@ -45,7 +45,6 @@ object HostKeyPairStorage {
             } catch (e: Exception) {
                 _items.clear()
             }
-
         }
     }
 }

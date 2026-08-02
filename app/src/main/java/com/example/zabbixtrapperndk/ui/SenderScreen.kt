@@ -1,7 +1,6 @@
 package com.example.zabbixtrapperndk.ui
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -43,7 +42,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.zabbixtrapperndk.R
 import com.example.zabbixtrapperndk.data.HostKeyPair
-import com.example.zabbixtrapperndk.data.HostKeyPairStorage
+import com.example.zabbixtrapperndk.data.ConfigStorage
 import com.example.zabbixtrapperndk.data.TrapperHolder
 import kotlinx.coroutines.launch
 
@@ -91,7 +90,7 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
                         expanded = expanded,
                         onDismissRequest = { expanded = false }
                     ) {
-                        HostKeyPairStorage.items.forEach { item ->
+                        ConfigStorage.items.forEach { item ->
                             DropdownMenuItem(
                                 text = { Text("${item.host} ${item.key}") },
                                 onClick = {

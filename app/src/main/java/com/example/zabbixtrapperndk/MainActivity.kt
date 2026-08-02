@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.zabbixtrapperndk.data.HostKeyPairStorage
+import com.example.zabbixtrapperndk.data.ConfigStorage
 import com.example.zabbixtrapperndk.ui.SenderView
 import com.example.zabbixtrapperndk.ui.SettingsView
 import com.example.zabbixtrapperndk.ui.theme.ZabbixTrapperNDKTheme
@@ -19,7 +19,7 @@ import com.example.zabbixtrapperndk.ui.theme.ZabbixTrapperNDKTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        HostKeyPairStorage.init(applicationContext)
+        ConfigStorage.init(applicationContext)
         enableEdgeToEdge()
         setContent {
             ZabbixTrapperNDKTheme {
