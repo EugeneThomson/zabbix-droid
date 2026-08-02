@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Settings
@@ -22,6 +23,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextFieldDefaults
@@ -57,133 +59,135 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
     val scope = rememberCoroutineScope()
     var showDialog by remember { mutableStateOf(false) }
 
-    Box(modifier = modifier.fillMaxSize()) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            IconButton(onClick = { showDialog = true }) {
-                Icon(Icons.Default.Info, contentDescription = stringResource(R.string.information_button))
-            }
-            ExposedDropdownMenuBox(
-                expanded = expanded,
-                onExpandedChange = { expanded = !expanded }
-            ) {
-                OutlinedTextField(
-                    value = selectedItem?.let {
-                        "${it.host} ${it.key}"
-                    } ?: stringResource(R.string.host_key_placeholder),
-                    onValueChange = {},
-                    readOnly = true,
-                    trailingIcon = {
-                        ExposedDropdownMenuDefaults.TrailingIcon(
-                            expanded = expanded
-                        )
-                    },
-                    modifier = Modifier.menuAnchor()
-                )
-                ExposedDropdownMenu(
-                    expanded = expanded,
-                    onDismissRequest = { expanded = false }
-                ) {
-                    HostKeyPairStorage.items.forEach { item ->
-                        DropdownMenuItem(
-                            text = { Text("${item.host} ${item.key}") },
-                            onClick = {
-                                selectedItem = item
-                                expanded = false
-                            }
-                        )
-                    }
-                }
-            }
-
-            IconButton(onClick = {
-                navController.navigate("settings")
-            }) {
-                Icon(Icons.Default.Settings, contentDescription = stringResource(R.string.settings_button))
-            }
-        }
-
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.spacedBy(
-                space = 16.dp,
-                alignment = Alignment.CenterVertically
-            ),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            OutlinedTextField(
-                value = text,
-                onValueChange = { text = it },
+    Scaffold(
+        topBar = {
+            Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-                placeholder = {
-                    Text(
-                        text = stringResource(R.string.data_field_placeholder),
-                        style = MaterialTheme.typography.bodyLarge.copy(
-                            fontSize = 35.sp
-                        )
+                    .padding(16.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                IconButton(onClick = { showDialog = true }) {
+                    Icon(Icons.Default.Info, contentDescription = stringResource(R.string.information_button))
+                }
+                ExposedDropdownMenuBox(
+                    expanded = expanded,
+                    onExpandedChange = { expanded = !expanded }
+                ) {
+                    OutlinedTextField(
+                        value = selectedItem?.let {
+                            "${it.host} ${it.key}"
+                        } ?: stringResource(R.string.host_key_placeholder),
+                        onValueChange = {},
+                        readOnly = true,
+                        trailingIcon = {
+                            ExposedDropdownMenuDefaults.TrailingIcon(
+                                expanded = expanded
+                            )
+                        },
+                        modifier = Modifier.menuAnchor()
                     )
-                },
-                colors = TextFieldDefaults.colors(
-                    focusedIndicatorColor = Color.Transparent,
-                    unfocusedIndicatorColor = Color.Transparent
-                ),
-                textStyle = MaterialTheme.typography.bodyLarge.copy(
-                    fontSize = 35.sp
-                )
-            )
-            Button(
-                onClick = {
-                    scope.launch {
-                        selectedItem?.let {
-                            TrapperHolder.trapper.send(it.host, it.key, text)
+                    ExposedDropdownMenu(
+                        expanded = expanded,
+                        onDismissRequest = { expanded = false }
+                    ) {
+                        HostKeyPairStorage.items.forEach { item ->
+                            DropdownMenuItem(
+                                text = { Text("${item.host} ${item.key}") },
+                                onClick = {
+                                    selectedItem = item
+                                    expanded = false
+                                }
+                            )
                         }
                     }
-                },
-                modifier = Modifier
-                    .height(48.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.secondary,
-                    contentColor = MaterialTheme.colorScheme.onSecondary
-                )
-            ) {
-                Text(stringResource(R.string.send_button))
+                }
+
+                IconButton(onClick = {
+                    navController.navigate("settings")
+                }) {
+                    Icon(Icons.Default.Settings, contentDescription = stringResource(R.string.settings_button))
+                }
             }
         }
-
-        if (showDialog) {
-            AlertDialog(
-                onDismissRequest = { showDialog = false },
-                title = {
-                    Text(
-                        text = stringResource(R.string.about_app),
-                        style = MaterialTheme.typography.titleLarge,
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Center
+    ) { innerPadding ->
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding),
+                verticalArrangement = Arrangement.spacedBy(
+                    space = 16.dp,
+                    alignment = Alignment.CenterVertically
+                ),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                OutlinedTextField(
+                    value = text,
+                    onValueChange = { text = it },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                    placeholder = {
+                        Text(
+                            text = stringResource(R.string.data_field_placeholder),
+                            style = MaterialTheme.typography.bodyLarge.copy(
+                                fontSize = 35.sp
+                            )
+                        )
+                    },
+                    colors = TextFieldDefaults.colors(
+                        focusedIndicatorColor = Color.Transparent,
+                        unfocusedIndicatorColor = Color.Transparent
+                    ),
+                    textStyle = MaterialTheme.typography.bodyLarge.copy(
+                        fontSize = 35.sp
                     )
-                },
-                text = {
-                    Text(
-                        text = """
-                        Bla bla bla
-                        bla bla
-                        bla
-                    """.trimIndent(),
-                        modifier = Modifier.padding(top = 8.dp),
-                        textAlign = TextAlign.Center
-                    )
-                },
-                confirmButton = {
-                    TextButton(onClick = { showDialog = false }) {
-                        Text(stringResource(R.string.ok_button))
-                    }
+                )
+                Button(
+                    onClick = {
+                        scope.launch {
+                            selectedItem?.let {
+                                TrapperHolder.trapper.send(it.host, it.key, text)
+                            }
+                        }
+                    },
+                    modifier = Modifier
+                        .height(48.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.secondary,
+                        contentColor = MaterialTheme.colorScheme.onSecondary
+                    ),
+                    shape = RoundedCornerShape(4.dp)
+                ) {
+                    Text(stringResource(R.string.send_button))
                 }
-            )
-        }
+            }
+
+            if (showDialog) {
+                AlertDialog(
+                    onDismissRequest = { showDialog = false },
+                    title = {
+                        Text(
+                            text = stringResource(R.string.about_app_title),
+                            style = MaterialTheme.typography.titleLarge,
+                            modifier = Modifier.fillMaxWidth(),
+                            textAlign = TextAlign.Center
+                        )
+                    },
+                    text = {
+                        Text(
+                            text = stringResource(R.string.about_app_text).trimIndent(),
+                            modifier = Modifier.fillMaxWidth(),
+                            textAlign = TextAlign.Center
+                        )
+                    },
+                    confirmButton = {
+                        TextButton(onClick = { showDialog = false }) {
+                            Text(stringResource(R.string.ok_button))
+                        }
+                    }
+                )
+            }
+
     }
 }

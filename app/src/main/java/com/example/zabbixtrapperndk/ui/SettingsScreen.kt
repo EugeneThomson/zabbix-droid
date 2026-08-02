@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -21,6 +22,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -33,6 +35,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.zabbixtrapperndk.data.HostKeyPairStorage
 import com.example.zabbixtrapperndk.R
@@ -45,20 +48,24 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
     var zabbixHost by remember { mutableStateOf("") }
     var zabbixKey by remember { mutableStateOf("") }
 
-    Box(modifier = modifier.fillMaxSize()) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            IconButton(onClick = { navController.popBackStack() }) {
-                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.return_button))
+    Scaffold(
+        topBar = {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                IconButton(onClick = { navController.popBackStack() }) {
+                    Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.return_button))
+                }
             }
         }
-
+    ) { innerPadding ->
         Column(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding),
             verticalArrangement = Arrangement.spacedBy(
                 space = 16.dp,
                 alignment = Alignment.CenterVertically
@@ -69,7 +76,9 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(16.dp),
-                horizontalArrangement = Arrangement.SpaceBetween
+                horizontalArrangement = Arrangement.spacedBy(
+                    space = 8.dp
+                )
             ) {
                 OutlinedTextField(
                     value = zabbixIp,
@@ -85,7 +94,8 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
                     colors = ButtonDefaults.buttonColors(
                         containerColor = MaterialTheme.colorScheme.secondary,
                         contentColor = MaterialTheme.colorScheme.onSecondary
-                    )
+                    ),
+                    shape = RoundedCornerShape(4.dp)
                 ) {
                     Text(stringResource(R.string.init_button))
                 }
@@ -94,13 +104,27 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
             OutlinedTextField(
                 value = zabbixHost,
                 onValueChange = { zabbixHost = it },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                placeholder = {
+                    Text(
+                        text = stringResource(R.string.host_input_placeholder)
+                    )
+                },
             )
 
             OutlinedTextField(
                 value = zabbixKey,
                 onValueChange = { zabbixKey = it },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                placeholder = {
+                    Text(
+                        text = stringResource(R.string.key_input_placeholder),
+                    )
+                },
             )
 
             Button(
@@ -134,5 +158,6 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
                 }
             }
         }
+
     }
 }

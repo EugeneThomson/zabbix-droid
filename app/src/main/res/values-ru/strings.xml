@@ -8,6 +8,9 @@
     <string name="send_button">Отправить</string>
     <string name="data_field_placeholder">Введите сообщение…</string>
     <string name="host_key_placeholder">Выберите хост/ключ</string>
-    <string name="about_app">О приложении</string>
+    <string name="host_input_placeholder">Введите хост</string>
+    <string name="key_input_placeholder">Введите ключ</string>
+    <string name="about_app_title">О приложении</string>
+    <string name="about_app_text">Простой Zabbix клиент\nРазработчик: Eugene Thomson\nВерсия: 1.0</string>
     <string name="ok_button">ОК</string>
 </resources>
