@@ -11,7 +11,6 @@ class NativeTrapper {
         }
     }
 
-    private lateinit var ip: String
     private var nativePtr: Long = 0
     private val lock = Any()
     private var isInitialized = false

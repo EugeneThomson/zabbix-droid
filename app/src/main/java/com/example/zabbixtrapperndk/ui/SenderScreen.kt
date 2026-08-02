@@ -42,8 +42,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.zabbixtrapperndk.R
 import com.example.zabbixtrapperndk.data.HostKeyPair
-import com.example.zabbixtrapperndk.data.ConfigStorage
-import com.example.zabbixtrapperndk.data.TrapperHolder
+import com.example.zabbixtrapperndk.data.ConfigRepository
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -90,7 +89,7 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
                         expanded = expanded,
                         onDismissRequest = { expanded = false }
                     ) {
-                        ConfigStorage.items.forEach { item ->
+                        ConfigRepository.items.forEach { item ->
                             DropdownMenuItem(
                                 text = { Text("${item.host} ${item.key}") },
                                 onClick = {
@@ -146,7 +145,7 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
                     onClick = {
                         scope.launch {
                             selectedItem?.let {
-                                TrapperHolder.trapper.send(it.host, it.key, text)
+                                ConfigRepository.sendData(it.host, it.key, text)
                             }
                         }
                     },

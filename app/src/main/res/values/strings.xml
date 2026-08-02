@@ -7,9 +7,10 @@
     <string name="information_button">Info</string>
     <string name="send_button">Send</string>
     <string name="data_field_placeholder">Type a message…</string>
-    <string name="host_key_placeholder">Select host/key</string>
-    <string name="host_input_placeholder">Type a host</string>
-    <string name="key_input_placeholder">Type a key</string>
+    <string name="host_key_placeholder">Select Host/Key</string>
+    <string name="host_input_placeholder">Type a Host</string>
+    <string name="key_input_placeholder">Type a Key</string>
+    <string name="ip_input_placeholder">Type a server IP</string>
     <string name="about_app_title">About app</string>
     <string name="about_app_text">Simple Zabbix client app\nAuthor: Eugene Thomson\nVersion: 1.0</string>
     <string name="ok_button">OK</string>

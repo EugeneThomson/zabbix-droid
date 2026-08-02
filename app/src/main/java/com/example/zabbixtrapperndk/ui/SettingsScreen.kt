@@ -32,9 +32,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.zabbixtrapperndk.data.ConfigStorage
+import com.example.zabbixtrapperndk.data.ConfigRepository
 import com.example.zabbixtrapperndk.R
-import com.example.zabbixtrapperndk.data.TrapperHolder
 
 @Composable
 fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
@@ -79,12 +78,17 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
                     value = zabbixIp,
                     onValueChange = { zabbixIp = it },
                     modifier = Modifier.weight(3f),
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                    placeholder = {
+                        Text(
+                            text = ConfigRepository.ip ?: stringResource(R.string.ip_input_placeholder),
+                        )
+                    },
                 )
 
                 Button(
                     onClick = {
-                        TrapperHolder.trapper.init(zabbixIp) },
+                        ConfigRepository.updateIp(zabbixIp) },
                     modifier = Modifier.weight(1f),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = MaterialTheme.colorScheme.secondary,
@@ -125,7 +129,7 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
             Button(
                 onClick = {
                     if (zabbixHost.isNotBlank() || zabbixKey.isNotBlank()) {
-                        ConfigStorage.add(zabbixHost, zabbixKey)
+                        ConfigRepository.add(zabbixHost, zabbixKey)
                         zabbixHost = ""
                         zabbixKey = ""
                     }
@@ -136,7 +140,7 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
 
             LazyColumn {
                 items(
-                    items = ConfigStorage.items,
+                    items = ConfigRepository.items,
                     key = { it.hashCode() }
                 ) { item ->
                     Row(
@@ -144,7 +148,7 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Text("${item.host}  ${item.key}")
-                        IconButton(onClick = { ConfigStorage.remove(item) }) {
+                        IconButton(onClick = { ConfigRepository.remove(item) }) {
                             Icon(Icons.Default.Close, contentDescription = stringResource(R.string.delete_button))
                         }
                     }
