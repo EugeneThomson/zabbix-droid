@@ -4,11 +4,15 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -37,6 +41,7 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -62,6 +67,7 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
+                    .statusBarsPadding()
                     .padding(16.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
@@ -84,7 +90,8 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(8.dp),
+                    .padding(8.dp)
+                    .height(IntrinsicSize.Min),
                 horizontalArrangement = Arrangement.spacedBy(
                     space = 8.dp
                 )
@@ -109,15 +116,24 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
 
                 Button(
                     onClick = {
-                        ConfigRepository.updateIp(zabbixIp) },
-                    modifier = Modifier.weight(1f),
+                        if (zabbixIp.isNotEmpty()) {
+                            ConfigRepository.updateIp(zabbixIp)
+                        }},
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight(),
+                    contentPadding = PaddingValues(horizontal = 8.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = MaterialTheme.colorScheme.secondary,
                         contentColor = MaterialTheme.colorScheme.onSecondary
                     ),
                     shape = RoundedCornerShape(4.dp)
                 ) {
-                    Text(stringResource(R.string.init_button))
+                    Text(
+                        text = stringResource(R.string.init_button),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
                 }
             }
 
@@ -134,7 +150,9 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
                     modifier = Modifier.weight(1f),
                     placeholder = {
                         Text(
-                            text = stringResource(R.string.host_input_placeholder)
+                            text = stringResource(R.string.host_input_placeholder),
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis
                         )
                     },
                     singleLine = true,
@@ -153,6 +171,8 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
                     placeholder = {
                         Text(
                             text = stringResource(R.string.key_input_placeholder),
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis
                         )
                     },
                     singleLine = true,
@@ -206,7 +226,10 @@ fun SettingsView(modifier: Modifier = Modifier, navController: NavController) {
                             color = MaterialTheme.colorScheme.onSecondary,
                             style = MaterialTheme.typography.bodyLarge.copy(
                                 fontSize = 20.sp
-                            ))
+                            ),
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis
+                        )
                         IconButton(onClick = { ConfigRepository.remove(item) }) {
                             Icon(Icons.Default.Close, contentDescription = stringResource(R.string.delete_button))
                         }

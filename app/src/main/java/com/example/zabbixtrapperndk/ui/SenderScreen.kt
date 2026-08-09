@@ -1,6 +1,7 @@
 package com.example.zabbixtrapperndk.ui
 
 import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -8,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
@@ -35,11 +37,13 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -73,15 +77,21 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
+                    .statusBarsPadding()
                     .padding(16.dp),
-                horizontalArrangement = Arrangement.SpaceBetween
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                IconButton(onClick = { showDialog = true }) {
+                IconButton(
+                    onClick = { showDialog = true }) {
                     Icon(Icons.Default.Info, contentDescription = stringResource(R.string.information_button))
                 }
                 ExposedDropdownMenuBox(
                     expanded = expanded,
-                    onExpandedChange = { expanded = !expanded }
+                    onExpandedChange = {
+                        if (ConfigRepository.items.isNotEmpty()) {
+                            expanded = !expanded
+                    } }
                 ) {
                     OutlinedTextField(
                         value = selectedItem?.let {
@@ -112,9 +122,10 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
                     }
                 }
 
-                IconButton(onClick = {
-                    navController.navigate("settings")
-                }) {
+                IconButton(
+                    onClick = {
+                        navController.navigate("settings")
+                    }) {
                     Icon(Icons.Default.Settings, contentDescription = stringResource(R.string.settings_button))
                 }
             }
@@ -136,12 +147,14 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp),
+                    singleLine = true,
                     placeholder = {
                         Text(
                             text = stringResource(R.string.data_field_placeholder),
                             style = MaterialTheme.typography.bodyLarge.copy(
-                                fontSize = 35.sp
-                            )
+                                fontSize = 30.sp
+                            ),
+                            overflow = TextOverflow.Ellipsis
                         )
                     },
                     colors = TextFieldDefaults.colors(
@@ -149,7 +162,7 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
                         unfocusedIndicatorColor = Color.Transparent
                     ),
                     textStyle = MaterialTheme.typography.bodyLarge.copy(
-                        fontSize = 35.sp
+                        fontSize = 30.sp
                     )
                 )
                 Button(
