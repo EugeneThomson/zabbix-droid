@@ -8,8 +8,8 @@ std::string jstring2string(JNIEnv *env, jstring jStr) {
         return "";
     }
 
-    const jclass stringClass = env->GetObjectClass(jStr);
-    const jmethodID getBytes = env->GetMethodID(stringClass, "getBytes", "(Ljava/lang/String;)[B");
+    const auto stringClass = env->GetObjectClass(jStr);
+    const auto getBytes = env->GetMethodID(stringClass, "getBytes", "(Ljava/lang/String;)[B");
     const auto stringJbytes = (jbyteArray) env->CallObjectMethod(jStr, getBytes, env->NewStringUTF("UTF-8"));
 
     auto length = (size_t) env->GetArrayLength(stringJbytes);

@@ -1,4 +1,23 @@
 <resources>
     <string name="app_name">ZabbixTrapperNDK</string>
-    <string name="init_button">Инициализировать сервер</string>
+    <string name="init_button">Принять</string>
+    <string name="delete_button">Удалить</string>
+    <string name="return_button">Назад</string>
+    <string name="settings_button">Настройки</string>
+    <string name="information_button">Информация о приложении</string>
+    <string name="send_button">Отправить</string>
+    <string name="data_field_placeholder">Введите сообщение…</string>
+    <string name="host_key_placeholder">Выберите хост/ключ</string>
+    <string name="host_input_placeholder">Введите хост</string>
+    <string name="key_input_placeholder">Введите ключ</string>
+    <string name="ip_input_placeholder">Введите IP сервера</string>
+    <string name="about_app_title">О приложении</string>
+    <string name="about_app_text">Простой Zabbix клиент\nРазработчик: Eugene Thomson\nВерсия: 1.0</string>
+    <string name="ok_button">ОК</string>
+    <string name="no_host_key_pairs">Нет пар Хост/Ключ</string>
+    <string name="send_success">Данные успешно отправлены</string>
+    <string name="send_failed_connect">Сервер недоступен</string>
+    <string name="send_failed_send">Ошибка отправки данных</string>
+    <string name="send_too_long_message">Сообщение слишком длинное</string>
+    <string name="send_unknown_error">Внутренняя ошибка</string>
 </resources>

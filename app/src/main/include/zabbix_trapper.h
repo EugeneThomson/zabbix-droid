@@ -1,16 +1,10 @@
 #pragma once
 
 #include <string>
-#include <queue>
 #include <thread>
-#include <iostream>
-#include <sstream>
-#include <utility>
-#include "boost/atomic.hpp"
-#include "boost/chrono.hpp"
 
 enum class Status : int {
-	succesed = 1,
+	success = 1,
 	failed_connect = 2,
 	failed_send = 3,
 	too_long_message = 4,
