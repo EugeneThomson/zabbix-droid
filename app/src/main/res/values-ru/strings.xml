@@ -14,4 +14,10 @@
     <string name="about_app_title">О приложении</string>
     <string name="about_app_text">Простой Zabbix клиент\nРазработчик: Eugene Thomson\nВерсия: 1.0</string>
     <string name="ok_button">ОК</string>
+    <string name="no_host_key_pairs">Нет пар Хост/Ключ</string>
+    <string name="send_success">Данные успешно отправлены</string>
+    <string name="send_failed_connect">Сервер недоступен</string>
+    <string name="send_failed_send">Ошибка отправки данных</string>
+    <string name="send_too_long_message">Сообщение слишком длинное</string>
+    <string name="send_unknown_error">Внутренняя ошибка</string>
 </resources>

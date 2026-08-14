@@ -1,7 +1,7 @@
 package com.example.zabbixtrapperndk.ui
 
+import android.widget.Toast
 import androidx.compose.foundation.gestures.detectTapGestures
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -37,9 +37,9 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -50,6 +50,8 @@ import androidx.navigation.NavController
 import com.example.zabbixtrapperndk.R
 import com.example.zabbixtrapperndk.data.HostKeyPair
 import com.example.zabbixtrapperndk.data.ConfigRepository
+import com.example.zabbixtrapperndk.data.toMessageResId
+import com.example.zabbixtrapperndk.data.toSendStatus
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -64,6 +66,7 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
     val scope = rememberCoroutineScope()
     var showDialog by remember { mutableStateOf(false) }
     val focusManager = LocalFocusManager.current
+    val context = LocalContext.current
 
     Scaffold(
         modifier = Modifier
@@ -89,9 +92,16 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
                 ExposedDropdownMenuBox(
                     expanded = expanded,
                     onExpandedChange = {
-                        if (ConfigRepository.items.isNotEmpty()) {
+                        if (ConfigRepository.items.isEmpty()) {
+                            Toast.makeText(
+                                context,
+                                R.string.no_host_key_pairs,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        } else {
                             expanded = !expanded
-                    } }
+                        }
+                    }
                 ) {
                     OutlinedTextField(
                         value = selectedItem?.let {
@@ -169,7 +179,12 @@ fun SenderView(modifier: Modifier = Modifier, navController: NavController) {
                     onClick = {
                         scope.launch {
                             selectedItem?.let {
-                                ConfigRepository.sendData(it.host, it.key, text)
+                                val status = ConfigRepository.sendData(it.host, it.key, text)
+                                Toast.makeText(
+                                    context,
+                                    status.toSendStatus().toMessageResId(),
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                         }
                     },

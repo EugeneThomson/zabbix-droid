@@ -1,4 +1,6 @@
 #include "zabbix_trapper.h"
+
+#include "zabbix_trapper.h"
 #include "boost/asio.hpp"
 
 namespace asio = boost::asio;
@@ -42,7 +44,7 @@ Status ZabbixTrapper::sendPacket(const std::string& value) {
 	if (error || bytes_written != zabbixPacket.size()) {
 		return Status::failed_send;
 	} else {
-		return Status::succesed;
+		return Status::success;
 	}
 }
 

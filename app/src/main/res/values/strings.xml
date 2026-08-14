@@ -14,4 +14,10 @@
     <string name="about_app_title">About app</string>
     <string name="about_app_text">Simple Zabbix client app\nAuthor: Eugene Thomson\nVersion: 1.0</string>
     <string name="ok_button">OK</string>
+    <string name="no_host_key_pairs">No Host/Key pairs</string>
+    <string name="send_success">Data sent successfully</string>
+    <string name="send_failed_connect">Failed to connect to Zabbix server</string>
+    <string name="send_failed_send">Failed to send data</string>
+    <string name="send_too_long_message">Message is too long</string>
+    <string name="send_unknown_error">Internal error</string>
 </resources>
